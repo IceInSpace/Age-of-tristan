@@ -1,0 +1,78 @@
+# 03 — Villes, quartiers et bâtiments
+
+## Décidé
+
+### Obtention des villes
+
+Quatre moyens, tous retenus :
+
+- **Fondation** : des colons s'installent sur un territoire exploré.
+- **Conquête** : prise d'une ville ennemie.
+- **Absorption** : intégration pacifique d'un peuple neutre.
+- **Croissance** : un village grandit en ville, puis en mégalopole.
+
+### Construction
+
+- Gestion mixte : **écran de ville** et **quartiers**.
+- Le joueur **place librement les quartiers** dans la ville.
+- Le **visuel de la ville évolue** selon les bâtiments construits.
+- Les **agrandissements et évolutions liés à la population sont automatiques** quand les conditions sont réunies.
+- Le **terrain** limite les constructions et donne des bonus ou des malus.
+
+### Population
+
+- Rôles : **main-d'œuvre**, **consommation** et **stabilité**.
+- **Pas de simulation d'individus** : la population est un ensemble agrégé, géré par simulation.
+
+## Propositions (à valider)
+
+### Hiérarchie des agglomérations
+
+| Niveau | Population (ordre de grandeur) | Débloque |
+|--------|-------------------------------|----------|
+| Campement | $< 50$ | Huttes, feu |
+| Village | $50$ – $500$ | 1 quartier |
+| Ville | $500$ – $10^4$ | 2–4 quartiers, remparts |
+| Cité | $10^4$ – $10^5$ | 5–7 quartiers, merveille |
+| Métropole | $10^5$ – $10^6$ | 8–10 quartiers |
+| Mégalopole | $> 10^6$ | Quartiers illimités selon le terrain |
+
+### Types de quartiers
+
+- **Résidentiel** : capacité de logement.
+- **Agricole** : nourriture.
+- **Extraction** : mines, carrières, puits.
+- **Industriel** : transformation (chaînes de production).
+- **Militaire** : casernes, chantiers navals, spatioports.
+- **Scientifique** : recherche.
+- **Commercial** : échanges, revenus.
+- **Culturel et religieux** : stabilité, merveilles.
+
+### Croissance de la population
+
+Croissance logistique, plafonnée par une capacité d'accueil $K$ :
+
+$$
+\frac{dP}{dt} = r \, P \left(1 - \frac{P}{K}\right)
+\qquad\text{avec}\qquad
+K = \min\left(K_{\text{logement}},\; \frac{\dot{N}_{\text{nourriture}}}{c_{\text{nour}}}\right)
+$$
+
+avec $r$ le taux de croissance, $K_{\text{logement}}$ la capacité des quartiers résidentiels, $\dot{N}_{\text{nourriture}}$ le débit de nourriture disponible et $c_{\text{nour}}$ la consommation par habitant.
+
+### Stabilité
+
+Indice $S \in [0 \,;\, 100]$, somme pondérée de facteurs :
+
+$$
+S = S_0 + \sum_i w_i \, f_i
+$$
+
+Facteurs $f_i$ possibles : nourriture, culture, garnison, guerre en cours, retard d'ère, espionnage ennemi. En dessous d'un seuil $S_{\text{révolte}}$, la production baisse, puis la ville peut se révolter.
+
+## Questions ouvertes
+
+- Nombre maximal de quartiers : fixé par le niveau, par le terrain, ou les deux ?
+- Un bâtiment peut-il être détruit lors d'une attaque ou d'un sabotage ?
+- La capitale peut-elle être déplacée ? Que se passe-t-il si elle est prise ?
+- Les villes conquises gardent-elles leur ère, ou s'alignent-elles sur celle du conquérant ?
