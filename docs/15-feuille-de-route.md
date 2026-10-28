@@ -1,4 +1,4 @@
-# 12 — Feuille de route et version minimale
+# 15 — Feuille de route et version minimale
 
 ## Principe
 
@@ -40,16 +40,38 @@ Objectif : une carte, une ville, une économie qui tourne.
 - Diplomatie de base.
 - Merveilles.
 
-### Couches suivantes (ordre à définir)
+### Couches suivantes de l'acte I (ordre à définir)
 
 - Espionnage.
 - Naval et exploration outre-mer.
 - Batailles tactiques.
-- Ères industrielles et modernes.
-- Spatial et autres planètes.
+- Ères industrielles : chaînes longues, ère du pétrole, pyrolyse, pollution.
+- **Gestion par directives (niveau N2)** : à faire avant les ères modernes, car le nombre de villes devient alors difficile à gérer à la main.
+- Ères atomique et moderne : dissuasion, missiles, défense multicouche.
 - Diplomatie avancée.
+
+### Couche « Acte II » — le système solaire
+
+- Vue de système, planètes voisines générées.
+- Gestion au niveau planète (N3) et zoom procédural.
+- Fusion, terraformation.
+- Poursuite de la guerre planétaire, conditions d'unification et de domination.
+
+### Couche « Acte III » — l'hyperespace
+
+- Carte galactique en graphe, routes hyperspatiales.
+- Modules de colonisation, quartiers planétaires.
+- Nouvel arbre technologique, nouvel ennemi.
+- Mégastructures.
+
+### Hors couches
+
 - Éditeur de carte.
 - Multijoueur.
+
+### Ordre de grandeur
+
+L'acte I à lui seul (14 ères) représente déjà un jeu de stratégie complet. Les actes II et III sont presque deux jeux supplémentaires, avec leurs propres vues, leur simulation et leur arbre technologique. Il est donc conseillé de **concevoir l'architecture pour les trois actes** (simulation à plusieurs niveaux, données séparées du code), mais de **ne développer l'acte II qu'une fois l'acte I jouable de bout en bout**.
 
 ## Questions ouvertes
 

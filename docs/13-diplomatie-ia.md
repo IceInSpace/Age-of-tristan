@@ -1,4 +1,4 @@
-# 10 — Diplomatie, IA et adversaires
+# 13 — Diplomatie, IA et adversaires
 
 ## Décidé
 
@@ -6,6 +6,8 @@
 - **Multijoueur** : éventuel, plus tard.
 - **Diplomatie avancée** : alliances, commerce, traités, échanges de technologies.
 - **Conditions de victoire** : plusieurs options à choisir au début de la partie.
+- **Guerre de la planète natale** : gagnée par **unification** ou par **domination**. Elle peut se prolonger pendant toute la conquête du système solaire, et doit être gagnée pour entrer dans l'acte III (voir [chapitre 11](11-hyperspatial.md)).
+- **Acte III** : **nouvel ennemi** (nature à préciser).
 
 ## Propositions (à valider)
 
@@ -39,14 +41,24 @@ $$
 \text{Affinité} = w_c \cdot \text{culture} + w_m \cdot \text{commerce} + w_p \cdot \text{proximité} - w_g \cdot \text{guerres récentes}
 $$
 
+### Unification ou domination de la planète natale
+
+| Voie | Moyen | Conséquence proposée pour l'acte III |
+|------|-------|--------------------------------------|
+| **Unification** | Diplomatie, absorption, alliances, fédération | Stabilité élevée, bonus de science et de culture, factions intégrées avec leurs spécialités |
+| **Domination** | Conquête militaire | Bonus militaires et industriels, mais régions instables et risque de rébellions |
+
 ### Conditions de victoire (à choisir au lancement)
 
-- **Domination** : détruire ou soumettre toutes les factions rivales.
-- **Conquête planétaire** : contrôler tous les territoires de la planète.
-- **Victoire spatiale** : coloniser une autre planète, ou achever un projet final.
-- **Victoire scientifique** : atteindre la dernière ère en premier.
-- **Victoire culturelle ou diplomatique** : absorber assez de peuples, ou être élu à la tête d'une alliance mondiale.
-- **Bac à sable** : aucune fin.
+Chaque condition peut s'appliquer à la fin d'un acte, ce qui permet des parties courtes :
+
+| Condition | Fin à l'acte I ou II | Fin à l'acte III |
+|-----------|----------------------|------------------|
+| Domination | Toutes les factions de la planète natale soumises | Nouvel ennemi vaincu |
+| Unification | Planète natale unifiée pacifiquement | Alliance galactique dirigée par le joueur |
+| Scientifique | Premier à l'ère hyperspatiale | Dernière technologie de l'arbre stellaire |
+| Expansion | Tout le système solaire colonisé | $X\ \%$ des systèmes de la galaxie contrôlés |
+| Bac à sable | Aucune fin | Aucune fin |
 
 ### Comportement de l'IA
 

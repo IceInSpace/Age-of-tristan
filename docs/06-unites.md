@@ -6,7 +6,10 @@
 - **Vétérans** : les unités gagnent de l'expérience et des bonus en combattant.
 - **Système de contres** : chaque type d'unité est fort contre certains et faible contre d'autres.
 - Le comportement sur le front dépend des **points de vie** et des **caractéristiques** de l'unité.
-- Unités navales et spatiales organisées par classes (torpilleurs, cuirassés…) : voir [chapitre 08](08-naval-spatial.md).
+- Unités navales et spatiales organisées par classes (torpilleurs, cuirassés…) : voir [chapitre 09](09-naval-spatial.md).
+- Ères modernes inspirées des **guerres et technologies actuelles** ; missiles, ICBM et défense antimissile détaillés au [chapitre 08](08-guerre-moderne.md).
+- Futur inspiré de *Warhammer 40 000*.
+- **Clonage d'êtres humains** et **centres robotiques** comme sources d'unités (acte III).
 
 ## Propositions (à valider)
 
@@ -65,6 +68,26 @@ XP_{\text{unité}} \mathrel{+}= \lambda \cdot \text{coût}_{\text{ennemi}}
 $$
 
 Un rang de vétéran est atteint à chaque palier d'XP ; chaque rang apporte environ $+10\,\%$ d'efficacité.
+
+### Unités terrestres des ères 11 à 18
+
+| Ère | Infanterie | Blindés et véhicules | Aérien | Soutien |
+|-----|-----------|----------------------|--------|---------|
+| Pétrole | Fantassin motorisé | Char, automitrailleuse | Chasseur à hélice, bombardier | Artillerie tractée |
+| Atomique | Fantassin mécanisé | Char lourd, transport blindé | Chasseur à réaction | Artillerie automotrice |
+| Moderne | Infanterie équipée de missiles antichars | Char de combat moderne, véhicule de combat d'infanterie | Chasseur multirôle, hélicoptère d'attaque | Lance-roquettes multiple, défense sol-air |
+| Révolution IA | Infanterie + opérateurs de drones | Robots terrestres | **Drones FPV**, drones longue portée, essaims | Guerre électronique (brouillage) |
+| Spatiale / fusion | Exosquelettes | Blindés à propulsion électrique | Appareils transatmosphériques | Armes à énergie dirigée |
+| Hyperspatiale / impériale | **Clones**, troupes d'élite en armure lourde | Machines de guerre géantes | Vaisseaux de débarquement | Unités robotiques |
+
+### Unités de l'acte III
+
+À cette échelle, on manipule des **régiments** ou des **légions** plutôt que des unités individuelles :
+
+- **Légions de clones** : produites rapidement par les quartiers de clonage, peu chères, moral faible.
+- **Légions robotiques** : sans moral (ne battent jamais en retraite), vulnérables à la guerre électronique.
+- **Troupes d'élite** : rares, très chères, vétérance rapide.
+- **Garnisons planétaires** : fixes, défendent une planète.
 
 ## Questions ouvertes
 

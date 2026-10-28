@@ -1,4 +1,4 @@
-# 08 — Naval et spatial
+# 09 — Naval et spatial
 
 ## Décidé
 
@@ -15,6 +15,9 @@
 - **Frappes au sol** depuis l'espace.
 - **Autres planètes** accessibles.
 - **Batailles de flottes** avec positionnement en 2D, **tirs de barrage** et classes de vaisseaux.
+- **Acte II — système solaire** : conquête des lunes et planètes du système d'origine. La guerre contre les rivaux de la planète natale **peut continuer** pendant toute cette phase.
+- **Routes spatiales** à l'intérieur d'un système et **routes hyperspatiales** entre systèmes (acte III, voir [chapitre 11](11-hyperspatial.md)).
+- **Satellites, radars et missiles** intégrés à la défense planétaire (voir [chapitre 08](08-guerre-moderne.md)).
 
 ## Propositions (à valider)
 
@@ -60,6 +63,15 @@ Orbite basse     ─ satellites espions, armes orbitales
 Atmosphère       ─ aviation
 Surface          ─ carte principale
 ```
+
+### Acte II : déroulé proposé de la conquête du système
+
+1. **Ère moderne** : satellites d'observation et d'alerte, premiers essais de fusées, sondes vers les planètes voisines (elles révèlent leurs ressources).
+2. **Révolution de l'IA** : sondes robotisées, premières installations automatiques sur la lune principale.
+3. **Ère spatiale** : stations orbitales, bases lunaires, minage d'astéroïdes, premières colonies, chantiers spatiaux.
+4. **Ère de la fusion** : propulsion à fusion (trajets interplanétaires courts), terraformation, flottes de guerre, conquête des planètes rivales.
+
+Les rivaux de la planète natale peuvent eux aussi coloniser des planètes du système. La course à l'espace est un nouveau front de la même guerre.
 
 ## Questions ouvertes
 

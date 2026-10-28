@@ -24,6 +24,12 @@ Quatre moyens, tous retenus :
 - Rôles : **main-d'œuvre**, **consommation** et **stabilité**.
 - **Pas de simulation d'individus** : la population est un ensemble agrégé, géré par simulation.
 
+### Évolution de la gestion
+
+- Au début, la gestion des villes est **assez manuelle**.
+- Plus il y a de choses à gérer, plus le joueur fixe seulement les **grandes lignes** (production de matériaux, de nourriture ou d'hommes), et les villes **se développent automatiquement**. Détails au [chapitre 10](10-echelles.md).
+- **Futur** : villes et habitations **totalement intégrées** (inspiration *Warhammer 40 000*).
+
 ## Propositions (à valider)
 
 ### Hiérarchie des agglomérations
@@ -35,7 +41,9 @@ Quatre moyens, tous retenus :
 | Ville | $500$ – $10^4$ | 2–4 quartiers, remparts |
 | Cité | $10^4$ – $10^5$ | 5–7 quartiers, merveille |
 | Métropole | $10^5$ – $10^6$ | 8–10 quartiers |
-| Mégalopole | $> 10^6$ | Quartiers illimités selon le terrain |
+| Mégalopole | $10^6$ – $10^7$ | Quartiers illimités selon le terrain |
+| Arcologie (ère de la fusion) | $10^7$ – $10^8$ | Ville verticale autonome : logement, production et nourriture dans une seule structure |
+| Cité-ruche (ère impériale) | $> 10^8$ | Mégastructure continentale ; la planète entière peut devenir une seule ville |
 
 ### Types de quartiers
 

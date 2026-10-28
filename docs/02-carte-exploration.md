@@ -9,7 +9,11 @@
 - **Ressources visibles sur la carte**.
 - **Toutes les ressources sont générées dès le début de la partie**, mais une ressource n'apparaît au joueur **qu'une fois son existence connue** (exemple : pas d'uranium visible avant l'ère atomique).
 - **Exploration progressive** : le territoire de départ est minuscule, puis s'agrandit.
-- **Paliers d'accès** : terre ferme → outre-mer (navigation) → espace.
+- **Paliers d'accès** : terre ferme → outre-mer (navigation) → système solaire → systèmes stellaires.
+- **Pollution visible** sur la carte.
+- **Terraformation** possible (voir [chapitre 11](11-hyperspatial.md)).
+- Même quand la gestion devient large (actes II et III), on peut **zoomer sur une planète** et voir ses routes, ses villes développées et sa pollution (voir [chapitre 10](10-echelles.md)).
+- Les autres planètes et systèmes sont **générés avec leurs propres ressources**.
 
 ## Propositions (à valider)
 
@@ -53,4 +57,5 @@ Les gisements sont placés selon le biome (pétrole en désert et offshore, char
 - Taille de la planète : combien de « régions » ou de cases au total ?
 - Les gisements s'épuisent-ils ?
 - Y a-t-il des catastrophes naturelles (séismes, éruptions, inondations) ?
-- Climat dynamique (saisons, changement climatique dû à l'industrie) ?
+- Climat dynamique (saisons, réchauffement dû à la pollution industrielle) ? La pollution étant désormais un mécanisme retenu, le réchauffement en serait la suite logique.
+- Retombées radioactives après une frappe nucléaire : zones inhabitables temporairement ?

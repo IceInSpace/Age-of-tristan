@@ -1,4 +1,4 @@
-# 11 — Choix techniques
+# 14 — Choix techniques
 
 ## Décidé
 
@@ -35,6 +35,9 @@
 - **Données séparées du code** : ères, unités, bâtiments, recettes et technologies décrits dans des fichiers de données (JSON ou ressources Godot). L'équilibrage se fait alors sans toucher au code, et le cahier des charges peut alimenter directement ces fichiers.
 - **Simulation séparée de l'affichage** : la logique (économie, combat) tourne indépendamment du rendu. C'est indispensable pour la pause, l'accélération du temps, la résolution automatique et un éventuel multijoueur.
 - **Sauvegarde** : prévue dès le début, car l'état du jeu sera volumineux.
+- **Simulation à plusieurs niveaux de détail** (voir [chapitre 10](10-echelles.md)) : la même interface de code (« produire pendant $\Delta t$ ») est implémentée à l'échelle du bâtiment, de la ville, de la planète et du système. Le jeu choisit le niveau selon l'acte et ce que le joueur regarde.
+- **Rendu procédural déterministe** : la vue détaillée d'une ville ou d'une planète est regénérée à partir de son état et d'une graine, pas stockée.
+- **Trois vues** à prévoir : carte planétaire isométrique (actes I et II), vue de système (acte II et III), carte galactique en graphe (acte III). C'est un argument de plus en faveur d'un moteur généraliste plutôt que d'un code écrit entièrement à la main.
 
 ### Graphismes générés par IA : difficultés connues
 
@@ -42,6 +45,7 @@
 - **Angle isométrique constant** pour toutes les images.
 - **Animations** : une image générée est fixe ; il faut des planches de sprites (spritesheets) cohérentes.
 - **Variantes par ère** d'un même bâtiment.
+- **Inspiration *Warhammer 40 000*** pour le futur : s'inspirer de l'ambiance (gothique industriel, mégastructures) sans reprendre noms, symboles ou designs protégés de la licence.
 
 ## Questions ouvertes
 
