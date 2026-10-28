@@ -7,6 +7,28 @@ Ce chapitre couvre les ères 12 à 14 (atomique, moderne, révolution de l'IA) e
 - **Missiles balistiques intercontinentaux (ICBM)**.
 - **Système avancé de protection** combinant **radars**, **missiles** et **satellites**.
 - Inspiration : **guerres et technologies actuelles**.
+- **Frappes nucléaires utilisables**, avec retombées et conséquences durables.
+- **Armes chimiques** présentes (dès l'ère du pétrole, à partir de 1915), avec sanctions diplomatiques.
+- **Bombardement de civils** possible : villes ciblées, pertes civiles, effet sur la stabilité.
+- **Guerre des stocks** : intercepteurs, munitions et carburant sont limités (voir [chapitre 04](04-economie.md)).
+
+## Repères chiffrés tirés de la recherche
+
+Détails et sources dans la [recherche](recherche/technologies-et-armes-par-ere.md), section ères 12 à 14. Les chiffres de guerres en cours sont datés et parfois contestés :
+
+- Arsenaux nucléaires mondiaux : environ $12\,187$ ogives en janvier 2026 (SIPRI), dont $4\,012$ déployées.
+- Guerre Iran–Israël de juin 2025 : $525$ missiles balistiques, environ $86\ \%$ interceptés ; plus de $1\,000$ drones, environ $99\ \%$ interceptés.
+- Coût d'un intercepteur THAAD : environ 15 millions de dollars, avec $2$ à $3$ intercepteurs par cible selon la doctrine.
+- Drones Shahed/Geran contre l'Ukraine en 2025 : $54\,538$ lancés, dont environ $32\,200$ d'attaque (le reste sont des leurres).
+- Production ukrainienne de drones : environ $4$ millions par an (Bloomberg, novembre 2025).
+
+**Rapport de coût** entre défense et menace, utile pour l'équilibrage :
+
+$$
+R = \frac{n \cdot C_{\text{intercepteur}}}{C_{\text{menace}}}
+$$
+
+Quand $R \gg 1$, le défenseur perd la guerre des stocks même s'il intercepte tout. D'après les sources, le seul contre durable a été la **destruction des lanceurs** : les tirs iraniens ont chuté d'environ $90\ \%$ en dix jours en 2026.
 
 ## Propositions (à valider)
 
@@ -91,8 +113,7 @@ Artillerie et drones ──bat──► Défense rapprochée immobile
 
 ## Questions ouvertes
 
-- Les armes nucléaires sont-elles **utilisables** en jeu, ou seulement dissuasives ?
-- Une guerre nucléaire peut-elle faire **régresser d'ère** ?
-- La défense antimissile est-elle automatique, ou faut-il gérer les stocks d'intercepteurs ?
+- Une guerre nucléaire peut-elle faire **régresser d'ère** ? Attention à l'**aléatoire punitif**, à éviter : une régression devrait résulter de choix du joueur, pas du hasard.
+- Les stocks d'intercepteurs sont limités (guerre des stocks) : réapprovisionnement automatique depuis les usines, ou commandes manuelles ? Pour éviter la micro-gestion, l'automatique semble préférable.
 - Des ICBM à charge conventionnelle (frappes de précision à longue portée) sont-ils souhaités ?
 - Niveau de détail des drones : unité à part entière, ou capacité de soutien attachée aux autres unités ?

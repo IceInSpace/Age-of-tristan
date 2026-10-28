@@ -10,6 +10,7 @@
 - **Pyrolyse** pour « fabriquer » du pétrole.
 - **Fusion nucléaire** comme source d'énergie avancée.
 - **Pollution** : mécanisme de jeu, visible sur la carte.
+- **Intrant critique** et **guerre des stocks** (détaillés plus bas).
 - **Changement d'échelle** : aux actes II et III, l'économie est simulée de façon plus large et moins détaillée, par planète (voir [chapitre 10](10-echelles.md)). Pas de construction manuelle de lignes de production comme dans *Dyson Sphere Program*.
 
 ## Propositions (à valider)
@@ -147,6 +148,33 @@ $$
 avec $e_i$ les émissions des bâtiments (usines, raffineries, centrales), $k_{\text{abs}}$ la capacité d'absorption naturelle (forêts, océans) et $D$ l'effort de dépollution (bâtiments de traitement, technologies vertes, terraformation).
 
 Effets proposés : baisse de la croissance de population et de la stabilité, rendement agricole réduit, et au-delà d'un seuil, changement climatique de la zone.
+
+### Intrant critique et guerre des stocks (décidé)
+
+Deux mécaniques retenues après la [recherche](recherche/technologies-et-armes-par-ere.md). D'après les sources, l'avantage militaire vient moins de la qualité de l'arme que de l'accès à un intrant critique et du débit de production.
+
+**Intrant critique** : chaque unité ou bâtiment clé dépend d'une ressource dont la pénurie le bloque ou le dégrade. Repères tirés de la recherche :
+
+| Ère | Intrant critique | Ordre de grandeur sourcé |
+|-----|------------------|--------------------------|
+| Bronze | Étain (importé) | Environ $1\ \text{t/an}$ d'étain d'Assur vers l'Anatolie |
+| Fer | Charbon de bois | $m_{\text{charbon}} / m_{\text{fer}} \approx 13$ ; plus de $50\ \%$ de pertes au forgeage |
+| Poudre | Salpêtre | Poudre à $75:15:10$ (salpêtre, charbon, soufre) |
+| Poudre (naval) | Chêne | Environ $4\,000$ chênes pour un vaisseau de 100 canons |
+| Électrique et pétrole | Nitrates, puis ammoniac de synthèse | Haber–Bosch : environ $15\ \%$ de conversion par passe, $97$–$98\ \%$ avec recyclage |
+| Pétrole | Carburant | Un char de 1940 consomme environ $2\ \text{L/km}$ sur route |
+| Révolution de l'IA | Puces, terres rares, intercepteurs | Drone FPV à quelques centaines de dollars contre intercepteur à plusieurs millions |
+| Ère spatiale | Coût de mise en orbite | De $\approx 54\,000$ à $\approx 2\,700$ dollars par kg vers l'orbite basse |
+
+Les valeurs de jeu seront **arrondies et simplifiées** (orientation « inspiré, simplifié »), mais les rapports entre ressources s'inspireront de ces ordres de grandeur.
+
+**Guerre des stocks** : munitions, carburant et intercepteurs sont des stocks qui se vident pendant les combats et se remplissent au débit des usines. Pour une unité ou une défense $u$ :
+
+$$
+\frac{dS_u}{dt} = \dot{P}_u - \dot{C}_u^{\text{combat}}
+$$
+
+avec $\dot{P}_u$ le débit de production et $\dot{C}_u^{\text{combat}}$ la consommation en combat. Quand $S_u = 0$, l'unité perd l'essentiel de son efficacité. Pour éviter la micro-gestion, le réapprovisionnement est **automatique** via le stock global. Le joueur agit sur la production, pas sur les convois.
 
 ## Questions ouvertes
 

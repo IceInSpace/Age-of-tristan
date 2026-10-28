@@ -11,6 +11,9 @@
 - **Routes spatiales** (dans un système) et **routes hyperspatiales** (entre systèmes).
 - Inspirations : *Stellaris* (carte galactique, planètes spécialisées) et *Dyson Sphere Program* (logistique interstellaire et exploitation des ressources planétaires), **sans** la construction manuelle des lignes de production.
 - **Zoom** sur une planète : routes, villes développées, pollution, terraformation.
+- **Ton space opera** assumé : warp, énergie exotique, ambiance *Warhammer*. La physique réelle sert d'inspiration, pas de limite.
+
+> Repères de la [recherche](recherche/technologies-et-armes-par-ere.md) pour habiller le space opera : Alpha Centauri est à environ $4{,}37$ années-lumière, soit environ $30\,000$ ans avec une fusée classique. Le moteur d'Alcubierre (1994) exige une « matière exotique » jamais observée. Une sphère de Dyson serait en pratique un **essaim**, et son rayonnement infrarouge la rendrait visible de loin. Le projet Hephaistos (2024) a ainsi retenu 7 étoiles candidates. *Stellaris* a regroupé ses populations en 2025 (version 4.0) pour réduire le ralentissement de fin de partie, ce qui confirme le choix d'une simulation agrégée (voir [chapitre 10](10-echelles.md)).
 
 ## Propositions (à valider)
 

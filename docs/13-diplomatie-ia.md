@@ -8,8 +8,21 @@
 - **Conditions de victoire** : plusieurs options à choisir au début de la partie.
 - **Guerre de la planète natale** : gagnée par **unification** ou par **domination**. Elle peut se prolonger pendant toute la conquête du système solaire, et doit être gagnée pour entrer dans l'acte III (voir [chapitre 11](11-hyperspatial.md)).
 - **Acte III** : **nouvel ennemi** (nature à préciser).
+- **Contre l'effet boule de neige** : **crises de fin** et **coalitions d'IA**. Elles ajoutent de la difficulté mais doivent rester **surmontables**. Pas de malus automatique lié à la taille de l'empire.
+- **Thèmes durs** : l'usage d'armes nucléaires ou chimiques et le bombardement de civils ont des **conséquences diplomatiques**. **Esclavage et colonisation** sont représentés comme mécaniques historiques et économiques.
 
 ## Propositions (à valider)
+
+### Crises de fin et coalitions surmontables
+
+- **Coalitions** : quand la part du joueur dans la puissance totale dépasse un seuil $s$ (par exemple $s = 40\ \%$), les IA menacées peuvent former une coalition. Pour rester surmontable, la coalition se forme progressivement et peut être **divisée** par la diplomatie ou l'espionnage.
+- **Crises** : une par acte au maximum, annoncée à l'avance (signes avant-coureurs), avec une **fenêtre de préparation**. Exemples : effondrement du commerce de l'étain (âge du bronze), choc pétrolier, révolte de l'IA, invasion venue de l'hyperespace.
+- **Garde-fou** : la difficulté de la crise est calée sur la puissance du joueur à son déclenchement, $D_{\text{crise}} = k \cdot P_{\text{joueur}}$ avec $k < 1$. Un joueur bien préparé la surmonte toujours.
+
+### Esclavage et colonisation : traitement proposé
+
+- Représentés comme **systèmes économiques** de leur époque (main-d'œuvre forcée, comptoirs, plantations), avec leurs coûts : stabilité, révoltes, diplomatie.
+- **Abolition** possible comme technologie ou décision, avec une transition économique à gérer.
 
 ### Relations diplomatiques
 

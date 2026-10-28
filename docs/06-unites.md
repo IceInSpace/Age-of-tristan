@@ -47,6 +47,8 @@ avec :
 - $v_{\text{rang}}$ le rang de vétéran ($0$ à $5$) ;
 - $\gamma(\Delta n)$ un facteur d'écart d'ère, avec $\Delta n = n_{\text{att}} - n_{\text{déf}}$. Par exemple $\gamma = 1{,}25^{\,\Delta n}$, pour qu'une unité en retard de deux ères soit nettement dominée sans être totalement inutile.
 
+> **Décidé** : une ère d'avance ne doit **pas** valoir victoire automatique. Pistes pour le garantir : plafonner $\gamma$ (par exemple $\gamma \le 2$), donner au défenseur des bonus de terrain et de fortification indépendants de l'ère, et faire dépendre les unités avancées d'un **intrant critique** rare. Une armée moderne privée de carburant ou de munitions redevient vulnérable.
+
 ### Moral et tenue du front
 
 Une unité **tient sa position** tant que :

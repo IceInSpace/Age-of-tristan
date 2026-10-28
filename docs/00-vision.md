@@ -19,6 +19,22 @@
 - **Graphismes** : générés par IA, outils à définir.
 - **Objectif du projet** : un jeu pour soi.
 
+### Orientations de conception
+
+Issues du questionnaire qui a suivi la [recherche historique et prospective](recherche/technologies-et-armes-par-ere.md) :
+
+- **Réalisme de l'acte I** : **inspiré et simplifié**. On garde l'esprit de chaque ère et les ordres de grandeur des sources, avec des valeurs arrondies pour la jouabilité.
+- **Actes II et III** : **space opera** assumé (warp, énergie exotique, ambiance *Warhammer*). La physique réelle sert de point de départ, pas de limite.
+- **Mécaniques retenues** : **intrant critique** (chaque unité ou bâtiment dépend d'une ressource clé dont la pénurie le bloque) et **guerre des stocks** (munitions, carburant, intercepteurs limités : la logistique décide des guerres). Voir [chapitre 04](04-economie.md).
+- **Thèmes durs inclus** : frappes nucléaires, armes chimiques, bombardement de civils, esclavage et colonisation. Ils sont représentés avec leurs conséquences (voir [chapitre 08](08-guerre-moderne.md) et [chapitre 13](13-diplomatie-ia.md)).
+- **Toutes les périodes comptent** : Antiquité et Moyen Âge, poudre et industrie, guerres mondiales et époque moderne, spatial et futur. Aucune n'est à sacrifier.
+- **À éviter absolument** :
+  - la **micro-gestion lourde** ;
+  - une **fin de partie molle** (effet boule de neige) ;
+  - l'**aléatoire punitif** qui ruine une partie ;
+  - des **unités obsolètes** qui rendent une ère d'avance synonyme de victoire automatique.
+- **Contre l'effet boule de neige** : **crises de fin** et **coalitions d'IA**, qui ajoutent de la difficulté mais doivent rester **surmontables**, sinon on n'atteindrait jamais les dernières ères. Pas de malus automatique de taille.
+
 ## Structure en trois actes
 
 | Acte | Échelle | Ères | Unité de gestion | Adversaire principal |

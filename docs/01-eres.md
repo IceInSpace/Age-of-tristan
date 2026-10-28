@@ -82,6 +82,10 @@ $$
 
 avec $t_0$ une durée de base, $P_{\text{ville}}$ la population (une grande ville est plus longue à transformer), $\alpha$ un coefficient de taille et $k$ l'efficacité du paiement.
 
+### Recherche historique et prospective
+
+Chaque ère est documentée dans la [recherche](recherche/technologies-et-armes-par-ere.md) : dates, technologies-seuils, armes et contres, sièges, chaînes de production chiffrées, merveilles et batailles, avec sources. Les chiffres contestés y sont signalés. Selon les orientations décidées, l'acte I s'en **inspire en simplifiant**, et les actes II et III passent en **space opera**.
+
 ## Questions ouvertes
 
 - Valider, modifier ou fusionner la liste des 18 ères.
