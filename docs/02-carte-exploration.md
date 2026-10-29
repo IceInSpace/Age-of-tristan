@@ -102,6 +102,8 @@ La règle « un arbre coupé, un arbre replanté » revient à une politique aut
 
 ## Questions ouvertes
 
+- **Taille de la carte** jouable à 2 km par hexagone : combien d'hexagones au départ (par exemple $200 \times 150 = 30\,000$ hexagones, soit environ $100\,000\ \text{km}^2$), et la planète s'agrandit-elle par l'exploration outre-mer ?
+
 - **Chemin de fer**, **canaux** et **lignes maritimes** : des types de routes à part (très grande capacité, mais construits seulement entre deux gares ou deux ports) ?
 - Les routes s'usent-elles, avec un coût d'entretien ?
 - Taille de la planète : combien de « régions » ou de cases au total ?

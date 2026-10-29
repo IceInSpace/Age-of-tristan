@@ -22,7 +22,7 @@ Document de pilotage. Il résume les décisions éparpillées dans les chapitres
 
 ### Carte et territoire
 
-- **Grille hexagonale** ; génération **procédurale réglable** + **éditeur** ; ressources toutes générées au départ, visibles seulement une fois connues ([02](02-carte-exploration.md)).
+- **Grille hexagonale**, hexagones de **2 km** (environ 3,5 km²), sans grille hiérarchique ; génération **procédurale réglable** + **éditeur** ; ressources toutes générées au départ, visibles seulement une fois connues ([02](02-carte-exploration.md)).
 - **Survie au début** : gibier épuisable, prédateurs, raids ([02](02-carte-exploration.md)).
 - **Déforestation visible**, champs de bois et reboisement ([02](02-carte-exploration.md)).
 - **Routes** : villes atteignables sans route mais lentement ; sentier → pavé → béton → autoroute ([02](02-carte-exploration.md)).
@@ -51,6 +51,7 @@ Document de pilotage. Il résume les décisions éparpillées dans les chapitres
 - Une ère d'avance ne doit pas valoir victoire automatique ([06](06-unites.md)).
 - **Fronts** et arrière ; ordres de tenue ; bataille **automatique ou tactique au choix** ([07](07-batailles.md)).
 - **Sièges** par encerclement ou assaut ; **tranchées** qui figent le front ; **aviation à rayon d'action** ([07](07-batailles.md)).
+- **Armées de forme libre** sur plusieurs hexagones, de plus en plus grandes avec les ères (1, puis 7, puis 19 hexagones proposés) ; unités de **moins en moins nombreuses en hommes** mais plus puissantes et plus encombrantes ;
 - **Ligne de front** ; armées formées de plusieurs unités sur une case, renforts et prises à revers ; **formations** ; bataille automatique **dans la durée** ; batailles tactiques **plus tard** ([07](07-batailles.md)).
 
 ### Guerre moderne, espace, espionnage, diplomatie
@@ -85,10 +86,10 @@ Les validations sont reportées dans le [catalogue des ères](eres/README.md).
 
 | Sujet | Question | Chapitre |
 |-------|----------|----------|
-| Carte | Taille de la carte de départ ? | [02](02-carte-exploration.md) |
+| Carte | Taille de la carte jouable à 2 km par hexagone | [02](02-carte-exploration.md) |
 | Recherche | Une technologie à la fois par type de recherche, ou points répartis ? | [05](05-technologies.md) |
 | Unités | Les généraux peuvent-ils mourir ? | [06](06-unites.md) |
-| Batailles | Quelles formations, à partir de quelle ère ? Nombre maximal d'unités par case ? | [07](07-batailles.md) |
+| Batailles | Quelles formations, à partir de quelle ère ? Plafonds d'hexagones par armée ; capacité d'un hexagone | [07](07-batailles.md) |
 | Technique | Langue du code et de l'interface | [14](14-technique.md) |
 | Feuille de route | Contenu exact de la couche 1 et critère de « fini » | [15](15-feuille-de-route.md) |
 

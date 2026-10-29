@@ -19,6 +19,7 @@
 - **Armée non payée ou non nourrie** : **moral en baisse**, **désertion**, **pillage** du territoire où elle se trouve.
 - **Coût selon la situation** : une armée **en campagne** coûte plus cher qu'en garnison ; on peut **démobiliser en réserve** en temps de paix ; avant l'ère industrielle, une armée peut **fourrager** (vivre en partie sur le pays).
 - **Troupes d'élite** : une version élite d'une unité, plus longue à former. Les unités s'améliorent aussi par l'**expérience du combat**.
+- **Composition des unités selon l'ère** : au début, une unité compte **beaucoup d'hommes** ; plus on avance, **moins elle compte d'hommes**, car chaque homme ou machine est bien plus puissant. Un char prend aussi beaucoup plus de place qu'un fantassin : il faut **moins d'unités** pour faire autant de dégâts.
 - **Chair à canon** : certaines unités doivent rester **bon marché**.
 - **Unités des ères précédentes** : toujours disponibles et **améliorables** vers leur version plus récente.
 - **Système retenu** : **classes et contres**, **charge, flanc et moral**, **défenses fortes** en début de partie (voir la [recherche sur les unités](recherche/unites-jeux-de-reference.md)).
@@ -75,6 +76,27 @@ m > m_{\min}
 $$
 
 Le seuil $\theta_{\text{retraite}}$ dépend de l'ordre donné : « tenir à tout prix » ($\theta = 0$), « tenir » ($\theta = 0{,}3$), « harceler » ($\theta = 0{,}6$).
+
+### Encombrement et effectifs (proposition)
+
+Chaque hexagone offre une capacité de $C_{\text{hex}}$ places, réduite par le terrain ($\tau \le 1$ en forêt, montagne, marais). Chaque unité occupe $e_u$ places :
+
+$$
+\sum_{u \,\in\, \text{hexagone}} e_u \;\le\; \tau \cdot C_{\text{hex}}
+$$
+
+Avec par exemple $C_{\text{hex}} = 12$ :
+
+| Ère | Unité type | Hommes ou engins par unité (valeur de jeu) | Encombrement $e_u$ | Unités par hexagone en plaine |
+|-----|-----------|---------------------------------------------|--------------------|-------------------------------|
+| Préhistoire | Bande de guerriers | $\approx 50$ hommes | $1$ | $12$ |
+| Antiquité | Centurie, phalange | $\approx 100$ hommes | $1$ | $12$ |
+| Poudre | Bataillon de ligne | $\approx 300$ hommes | $1$ ; canon $2$ | $6$ à $12$ |
+| Pétrole | Compagnie de chars | $\approx 10$ chars | $3$ | $4$ |
+| Moderne | Section mécanisée | $\approx 4$ véhicules | $2$ | $6$ |
+| Révolution de l'IA | Essaim de drones | $\approx 50$ drones | $1$ | $12$ |
+
+Les effectifs sont des valeurs de jeu, pas des données historiques sourcées.
 
 ### Entretien et fatigue (proposition)
 
