@@ -2,6 +2,8 @@
 
 ## Décidé
 
+- **Moteur retenu : Unity 6** (version LTS ; la branche 6.3 LTS est disponible fin 2026) et **Blender** pour les modèles 3D. Choix fait après la comparaison 2.5D / 3D sur l'Antiquité.
+- **Rendu en 3D stylisée** (inspiration *Humankind*), avec un prototype en formes simples d'abord.
 - Plateforme envisagée : **PC** (non définitif).
 - **Docker écarté** pour faire tourner le jeu : il est conçu pour isoler des applications serveur, pas pour afficher un jeu avec accélération graphique. Il pourrait servir plus tard pour un serveur multijoueur.
 - **Style visé en 3D stylisée** (inspiration *Humankind*) : il faudra des **modèles 3D**, faits sous **Blender** ou avec des générateurs de modèles 3D par IA. Cela remplace la décision initiale d'une 2.5D en sprites.
@@ -22,13 +24,35 @@
 
 Sources : [licence Unreal Engine](https://www.unrealengine.com/en-US/license) ; [Unity, annulation de la Runtime Fee, 12 septembre 2024](https://unity.com/blog/unity-is-canceling-the-runtime-fee) ; [GameFromScratch, tarifs GameMaker, novembre 2023](https://gamefromscratch.com/gamemaker-announces-major-pricing-changes/). La branche stable de Godot en 2026 est la 4.6. Les licences changent régulièrement : à revérifier au moment du choix.
 
-**Statut** : choix du moteur **reporté**, à faire après avoir revu les rendus (Godot : cartes isométriques et hexagonales, kit de carte stratégique hexagonale pour Godot 4.6, terrain 3D avec Terrain3D ; Unity : *Humankind*, démo de terrain HDRP).
+**Statut** : **Unity 6 retenu** (voir « Décidé »). Rendus consultés avant le choix (Godot : cartes isométriques et hexagonales, kit de carte stratégique hexagonale pour Godot 4.6, terrain 3D avec Terrain3D ; Unity : *Humankind*, démo de terrain HDRP).
 
 **Mixer plusieurs moteurs** : un même jeu ne peut pas en pratique tourner sur deux moteurs ; changer de moteur oblige à réécrire l'affichage et une grande partie du code (cas de *Slay the Spire 2*, passé de Unity à Godot en cours de développement, [Game Developer](https://gamedeveloper.com/business/slay-the-spire-devs-followed-through-on-abandoning-unity)). Pour garder la porte ouverte : simulation séparée de l'affichage, données en fichiers, et simulation en C# (commun à Godot et Unity).
 
 **À propos de Unreal Engine 5** : son principal atout, le rendu 3D réaliste (éclairage dynamique, géométrie très détaillée), sert peu à une carte stratégique stylisée comme celle de *Humankind*. En revanche, il deviendrait intéressant si les vues planétaires et spatiales des actes II et III devaient être en vraie 3D. Le coût d'entrée est élevé : C++ ou Blueprints, éditeur lourd, beaucoup de concepts à apprendre pour un débutant.
 
-### Outils à installer (si Godot est retenu)
+### Outils à installer (Unity retenu)
+
+Sur l'ordinateur de l'auteur :
+
+- **Unity Hub**, puis **Unity 6 LTS** depuis le Hub (gratuit en licence Personal).
+- **Blender** (version stable la plus récente, gratuit).
+- Un éditeur de code C# : **Visual Studio Community** (proposé par l'installation de Unity) ou **VS Code** avec l'extension C# ; **JetBrains Rider** est gratuit pour un usage non commercial.
+- **Git** pour le versionnement (le dépôt GitHub existe déjà).
+- Optionnel, pour que Claude pilote les logiciels : **uv** (gestionnaire Python), **MCP for Unity** ([CoplayDev](https://glama.ai/mcp/servers/@CoplayDev/unity-mcp)) et **BlenderMCP** ([ahujasid](https://glama.ai/mcp/servers/ahujasid/blender-mcp)).
+
+### Comment Claude peut intervenir
+
+| Moyen | Ce que Claude peut faire | Prérequis |
+|-------|--------------------------|-----------|
+| Fichiers du projet (GitHub ou dossier lié) | Écrire tout le code C#, les données JSON, les scripts Blender en Python | Aucun (dépôt GitHub) ou session liée à l'ordinateur |
+| Scripts Blender en ligne de commande | Générer des modèles simples par script (`blender -b -P script.py`), exporter en FBX ou glTF | Blender installé ; session liée à l'ordinateur |
+| Unity en mode batch | Lancer des compilations et des tests sans ouvrir l'éditeur | Unity installé ; session liée à l'ordinateur |
+| **MCP for Unity** | Créer des scènes et objets, modifier les scripts, gérer les assets, lancer tests et builds dans l'éditeur ouvert | Unity 2021.3 à 6.x, Python 3.10+, uv |
+| **BlenderMCP** | Créer et modifier des objets et matériaux, exécuter du Python dans Blender, capturer la vue pour vérifier, importer des assets libres (Poly Haven) | Blender 3.0+, Python 3.10+, uv |
+
+Les deux MCP sont des intégrations tierces, non officielles. BlenderMCP recommande de **sauvegarder avant usage** et de garder son serveur en local (pas d'authentification).
+
+
 
 - **Godot 4** : moteur et éditeur.
 - **VS Code** + extension Godot (facultatif, l'éditeur de Godot suffit pour débuter).
@@ -72,7 +96,6 @@ formes primitives, icônes         premier éclairage                  villes qu
 
 ## Questions ouvertes
 
-- Choix du moteur.
 - Outil de génération d'images (à étudier : licences d'usage, cohérence, coût).
 - Langue de l'interface et du code (français, anglais ?).
 - Résolution d'écran cible.

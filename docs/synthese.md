@@ -6,7 +6,7 @@ Document de pilotage. Il résume les décisions éparpillées dans les chapitres
 
 ### Concept et ton
 
-- Stratégie globale en **temps réel pausable**, grille hexagonale en **3D stylisée** (style visé : *Humankind*), inspirée d'*Age of War* ; **prototype simple d'abord**, rendu soigné ensuite ; jeu pour soi, sur PC envisagé ([00](00-vision.md)).
+- Stratégie globale en **temps réel pausable**, grille hexagonale en **3D stylisée** (style visé : *Humankind*), inspirée d'*Age of War* ; **prototype simple d'abord**, rendu soigné ensuite ; **Unity 6 + Blender** ; jeu pour soi, sur PC envisagé ([00](00-vision.md)).
 - Planète **fictive** générée ; départ à la préhistoire avec **deux tribus éloignées** ([00](00-vision.md), [02](02-carte-exploration.md)).
 - **Trois actes** : planétaire (ères 1 à 14), système solaire (15 et 16), hyperspatial (17 et 18) ; **18 ères** ([01](01-eres.md)).
 - **Acte I inspiré de l'histoire et simplifié** ; **actes II et III en space opera** ; esthétique gothique industrielle progressive, de l'ère de la fusion à l'ère impériale ([00](00-vision.md)).
@@ -62,6 +62,15 @@ Document de pilotage. Il résume les décisions éparpillées dans les chapitres
 - Diplomatie avancée ; peuples neutres absorbables ; **faction nomade** au Moyen Âge ; colonies qui deviennent villes ou indépendantes ; **crises de fin et coalitions surmontables** ([13](13-diplomatie-ia.md)).
 - Acte III : **unification de l'humanité** sous un empire nommé par le joueur, avec votes politiques ; **nouvel ennemi** avide d'énergie ou extraterrestre ; clonage d'abord mal accepté ([11](11-hyperspatial.md)).
 
+## Méthode avant le développement (décidé)
+
+Avant d'écrire du code, on statue ère par ère sur :
+
+1. les **bâtiments**, les **unités** et la **progression** vers l'ère suivante ;
+2. puis les **statistiques** et les **coûts**.
+
+Les validations sont reportées dans le [catalogue des ères](eres/README.md).
+
 ## Ce qui reste à décider
 
 ### Priorité 1 : nécessaire pour la version minimale (préhistoire et néolithique)
@@ -72,7 +81,7 @@ Document de pilotage. Il résume les décisions éparpillées dans les chapitres
 | Recherche | Une technologie à la fois par type de recherche, ou points répartis ? | [05](05-technologies.md) |
 | Unités | Les généraux peuvent-ils mourir ? | [06](06-unites.md) |
 | Batailles | Quelles formations, à partir de quelle ère ? Nombre maximal d'unités par case ? | [07](07-batailles.md) |
-| Technique | Moteur de jeu : choix reporté, mais à faire **avant le premier prototype** (comparatif de 6 moteurs disponible) ; langue du code et de l'interface | [14](14-technique.md) |
+| Technique | Langue du code et de l'interface | [14](14-technique.md) |
 | Feuille de route | Contenu exact de la couche 1 et critère de « fini » | [15](15-feuille-de-route.md) |
 
 ### Priorité 2 : nécessaire pour l'acte I complet

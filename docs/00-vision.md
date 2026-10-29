@@ -8,6 +8,7 @@
 - **Expansion par paliers** : terre ferme → outre-mer (navigation) → système solaire → autres systèmes stellaires (hyperespace).
 - **Structure spatiale** : des **fronts** de bataille et un **arrière** où l'on gère bâtiments, ressources et formation des unités. Les unités sont envoyées vers des points de la carte.
 - **Style visé** : celui de *Humankind* : **villes qui grandissent** visiblement sur la carte, **carte « maquette »** (relief marqué, couleurs chaudes, aspect de plateau de jeu) et **lisibilité** (frontières, icônes). C'est un rendu en **3D stylisée** avec une caméra inclinée et zoomable.
+- **Moteur** : **Unity 6** et **Blender** (voir [chapitre 14](14-technique.md)).
 - **Démarche** : d'abord un **prototype fonctionnel mais simple visuellement** pour tester la logique et le gameplay, puis le passage à un rendu soigné dans ce style.
 - On **garde le rayon d'action** des villes ; pas de découpage en territoires fixes comme dans *Humankind*.
 - **Changement d'échelle** : la gestion est d'abord manuelle et détaillée, puis plus large et automatisée à mesure que l'empire grandit (voir [chapitre 10](10-echelles.md)).
