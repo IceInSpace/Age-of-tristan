@@ -2,6 +2,7 @@
 
 ## Décidé
 
+- **Taille d'un hexagone : 2 km** de largeur (d'un côté plat à l'autre), soit une surface d'environ $3{,}5\ \text{km}^2$. **Pas de grille hiérarchique** : une seule taille d'hexagone pour toute la planète.
 - **Grille hexagonale**, vue en 3D stylisée avec caméra inclinée (style visé : *Humankind*, voir [chapitre 00](00-vision.md)).
 - **Génération procédurale réglable** (taille, continents, climat, richesse…), **plus un éditeur** pour modifier la carte à la main.
 - **Terrain contraignant** : on ne peut pas tout construire partout. Le terrain donne des **bonus ou des malus**.
@@ -53,6 +54,23 @@ $$
 $$
 
 Les gisements sont placés selon le biome (pétrole en désert et offshore, charbon en colline…), avec une graine aléatoire $s$ qui rend la carte reproductible.
+
+### Taille des hexagones : repères (décidé : 2 km)
+
+Surface d'un hexagone de largeur $d$ :
+
+$$
+A = \frac{\sqrt{3}}{2}\, d^{2} \;\approx\; 3{,}46\ \text{km}^2 \quad \text{pour } d = 2\ \text{km}
+$$
+
+| Repère | Ordre de grandeur | En hexagones de 2 km |
+|--------|-------------------|----------------------|
+| Marche d'une légion romaine | environ $30$ km par jour (Végèce : 20 milles romains en 5 heures) | environ $15$ hexagones par jour |
+| Rome dans l'enceinte d'Aurélien | environ $14\ \text{km}^2$ (à revérifier) | environ $4$ hexagones |
+| Paris intra-muros | environ $105\ \text{km}^2$ (à revérifier) | environ $30$ hexagones |
+| Plus grande carte de *Civilization VI* | $106 \times 66 \approx 7\,000$ cases | $\approx 24\,000\ \text{km}^2$ à cette échelle |
+
+**Conséquence** : à 2 km par hexagone, une planète entière compterait des millions d'hexagones. Il faudra fixer la **taille de la carte** jouable (voir questions ouvertes) et s'appuyer sur la simulation agrégée du [chapitre 10](10-echelles.md) pour les zones lointaines.
 
 ### Niveaux de route (proposition)
 
