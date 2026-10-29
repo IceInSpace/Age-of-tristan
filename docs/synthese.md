@@ -22,7 +22,7 @@ Document de pilotage. Il résume les décisions éparpillées dans les chapitres
 
 ### Carte et territoire
 
-- **Grille hexagonale**, hexagones de **2 km** (environ 3,5 km²), sans grille hiérarchique ; génération **procédurale réglable** + **éditeur** ; ressources toutes générées au départ, visibles seulement une fois connues ([02](02-carte-exploration.md)).
+- **Grille hexagonale**, hexagones de **5 km** (environ 22 km²), sans grille hiérarchique ; villes et armées **dilatées**, temps **compressé**, distances réelles ; génération **procédurale réglable** + **éditeur** ; ressources toutes générées au départ, visibles seulement une fois connues ([02](02-carte-exploration.md)).
 - **Survie au début** : gibier épuisable, prédateurs, raids ([02](02-carte-exploration.md)).
 - **Déforestation visible**, champs de bois et reboisement ([02](02-carte-exploration.md)).
 - **Routes** : villes atteignables sans route mais lentement ; sentier → pavé → béton → autoroute ([02](02-carte-exploration.md)).
@@ -31,7 +31,8 @@ Document de pilotage. Il résume les décisions éparpillées dans les chapitres
 ### Villes et économie
 
 - Villes obtenues par **fondation, conquête, absorption et croissance** ; écran de ville + quartiers placés librement ; développement automatique quand les conditions sont réunies ([03](03-villes-batiments.md)).
-- **Patrimoine** : au changement d'ère, un ancien bâtiment remarquable peut être modernisé, conservé, reconverti ou démoli ; il perd en efficacité, gagne en culture, tourisme et influence ; entretien sinon ruine (restaurable) ; maisons et fermes toujours modernisées ([03](03-villes-batiments.md)).
+- **Patrimoine** : au changement d'ère, un ancien bâtiment remarquable peut être modernisé, conservé, reconverti ou démoli ; il perd en efficacité, gagne en culture, tourisme et influence ; entretien sinon ruine (restaurable) ; maisons et fermes toujours modernisées ; lieux de découvertes plus précieux ; patrimoine des villes conquises récupéré une fois la ville intégrée ([03](03-villes-batiments.md)).
+- **Appartenance culturelle** progressive selon l'influence des deux empires : rapide pour une petite ville, lente pour une grande, très rapide pour une ville reprise ([03](03-villes-batiments.md)).
 - **Population agrégée** (main-d'œuvre, consommation, stabilité), sans simulation d'individus ([03](03-villes-batiments.md)).
 - **Pas de civils qui récoltent** : chaque ville exploite les ressources de son **rayon d'action** avec des bâtiments ; seuls les colons et les éclaireurs sont non combattants ([04](04-economie.md)).
 - **Niveaux** : village 1 à 5, ville 1 à 5, mégalopole (technologie requise, absorbe les villes proches) ; le niveau plafonne le rayon, qui grandit avec routes, technologies et culture ; fondation directe avec demande de peuplement ([03](03-villes-batiments.md)).
@@ -86,7 +87,7 @@ Les validations sont reportées dans le [catalogue des ères](eres/README.md).
 
 | Sujet | Question | Chapitre |
 |-------|----------|----------|
-| Carte | Taille de la carte jouable à 2 km par hexagone | [02](02-carte-exploration.md) |
+| Carte | Taille de la carte (30 000 hexagones proposés) ; durée d'un jour de jeu (compression du temps) | [02](02-carte-exploration.md) |
 | Recherche | Une technologie à la fois par type de recherche, ou points répartis ? | [05](05-technologies.md) |
 | Unités | Les généraux peuvent-ils mourir ? | [06](06-unites.md) |
 | Batailles | Quelles formations, à partir de quelle ère ? Plafonds d'hexagones par armée ; capacité d'un hexagone | [07](07-batailles.md) |

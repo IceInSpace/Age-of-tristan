@@ -2,7 +2,8 @@
 
 ## Décidé
 
-- **Taille d'un hexagone : 2 km** de largeur (d'un côté plat à l'autre), soit une surface d'environ $3{,}5\ \text{km}^2$. **Pas de grille hiérarchique** : une seule taille d'hexagone pour toute la planète.
+- **Taille d'un hexagone : 5 km** de largeur (d'un côté plat à l'autre), soit une surface d'environ $22\ \text{km}^2$ (révisé : 2 km donnait trop d'hexagones). **Pas de grille hiérarchique** : une seule taille d'hexagone pour toute la planète.
+- **Échelles ajustées pour le jeu** : les **villes** et les **armées** sont **dilatées** (elles occupent plus d'hexagones que leur surface réelle, pour rester lisibles), le **temps** est **compressé** (déplacements plus rapides que dans la réalité), et les **distances** entre villes restent **réelles** à l'échelle de l'hexagone.
 - **Grille hexagonale**, vue en 3D stylisée avec caméra inclinée (style visé : *Humankind*, voir [chapitre 00](00-vision.md)).
 - **Génération procédurale réglable** (taille, continents, climat, richesse…), **plus un éditeur** pour modifier la carte à la main.
 - **Terrain contraignant** : on ne peut pas tout construire partout. Le terrain donne des **bonus ou des malus**.
@@ -55,22 +56,38 @@ $$
 
 Les gisements sont placés selon le biome (pétrole en désert et offshore, charbon en colline…), avec une graine aléatoire $s$ qui rend la carte reproductible.
 
-### Taille des hexagones : repères (décidé : 2 km)
+### Taille des hexagones : repères (décidé : 5 km)
 
 Surface d'un hexagone de largeur $d$ :
 
 $$
-A = \frac{\sqrt{3}}{2}\, d^{2} \;\approx\; 3{,}46\ \text{km}^2 \quad \text{pour } d = 2\ \text{km}
+A = \frac{\sqrt{3}}{2}\, d^{2} \;\approx\; 21{,}7\ \text{km}^2 \quad \text{pour } d = 5\ \text{km}
 $$
 
-| Repère | Ordre de grandeur | En hexagones de 2 km |
-|--------|-------------------|----------------------|
-| Marche d'une légion romaine | environ $30$ km par jour (Végèce : 20 milles romains en 5 heures) | environ $15$ hexagones par jour |
-| Rome dans l'enceinte d'Aurélien | environ $14\ \text{km}^2$ (à revérifier) | environ $4$ hexagones |
-| Paris intra-muros | environ $105\ \text{km}^2$ (à revérifier) | environ $30$ hexagones |
-| Plus grande carte de *Civilization VI* | $106 \times 66 \approx 7\,000$ cases | $\approx 24\,000\ \text{km}^2$ à cette échelle |
+| Repère | Ordre de grandeur réel | En hexagones de 5 km |
+|--------|------------------------|----------------------|
+| Marche d'une légion romaine | environ $30$ km par jour (Végèce : 20 milles romains en 5 heures) | environ $6$ hexagones par jour (avant compression du temps) |
+| Rome dans l'enceinte d'Aurélien | environ $14\ \text{km}^2$ (à revérifier) | moins d'un hexagone ; **dilatée** en jeu sur plusieurs |
+| Paris intra-muros | environ $105\ \text{km}^2$ (à revérifier) | environ $5$ hexagones |
+| Carte de départ proposée | $200 \times 150 = 30\,000$ hexagones | environ $650\,000\ \text{km}^2$, l'ordre de grandeur de la France |
+| Plus grande carte de *Civilization VI* | $106 \times 66 \approx 7\,000$ cases | environ $150\,000\ \text{km}^2$ à cette échelle |
 
-**Conséquence** : à 2 km par hexagone, une planète entière compterait des millions d'hexagones. Il faudra fixer la **taille de la carte** jouable (voir questions ouvertes) et s'appuyer sur la simulation agrégée du [chapitre 10](10-echelles.md) pour les zones lointaines.
+### Dilatation des villes et des armées (proposition)
+
+Les villes et les armées sont représentées plus grandes que nature. Emprise urbaine proposée (les quartiers construits, distincte du rayon d'action qui sert à l'exploitation) :
+
+| Agglomération | Emprise urbaine en hexagones | Surface en jeu | Surface réelle typique |
+|---------------|------------------------------|----------------|------------------------|
+| Village | $1$ (partagé avec les champs) | $22\ \text{km}^2$ | bien moins de $1\ \text{km}^2$ |
+| Ville | $1$ à $3$ | $22$ à $65\ \text{km}^2$ | quelques $\text{km}^2$ |
+| Grande ville (Rome antique) | jusqu'à $7$ | jusqu'à $150\ \text{km}^2$ | environ $14\ \text{km}^2$ |
+| Mégalopole | jusqu'à $19$ ou plus | $400\ \text{km}^2$ et plus | plusieurs centaines de $\text{km}^2$ |
+
+Le facteur de dilatation $f = A_{\text{jeu}} / A_{\text{réel}}$ est donc grand au début (une ville antique est très dilatée) et se rapproche de $1$ pour les mégalopoles modernes, qui sont réellement immenses.
+
+### Compression du temps (proposition)
+
+Les distances restant réelles, les déplacements sont accélérés d'un facteur $\kappa_t$ pour que les parties avancent : une armée qui couvre réellement $v$ hexagones par jour en parcourt $\kappa_t \cdot v$ par unité de temps de jeu. La valeur de $\kappa_t$ et la durée d'un « jour » de jeu seront fixées avec les statistiques et les coûts.
 
 ### Niveaux de route (proposition)
 
@@ -102,7 +119,8 @@ La règle « un arbre coupé, un arbre replanté » revient à une politique aut
 
 ## Questions ouvertes
 
-- **Taille de la carte** jouable à 2 km par hexagone : combien d'hexagones au départ (par exemple $200 \times 150 = 30\,000$ hexagones, soit environ $100\,000\ \text{km}^2$), et la planète s'agrandit-elle par l'exploration outre-mer ?
+- **Taille de la carte** : les $30\,000$ hexagones de départ proposés (environ $650\,000\ \text{km}^2$) conviennent-ils, et la planète s'agrandit-elle par l'exploration outre-mer ?
+- **Compression du temps** : combien dure un « jour » de jeu, et la compression change-t-elle selon les ères ?
 
 - **Chemin de fer**, **canaux** et **lignes maritimes** : des types de routes à part (très grande capacité, mais construits seulement entre deux gares ou deux ports) ?
 - Les routes s'usent-elles, avec un coût d'entretien ?

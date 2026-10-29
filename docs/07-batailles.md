@@ -72,7 +72,7 @@ $$
 | 5 à 7 (Antiquité → grandes découvertes) | $7$ | Une couche autour du centre |
 | 8 et suivantes (à partir de la poudre, époque napoléonienne) | $19$ | Deux couches autour du centre |
 
-La forme reste libre : ce sont des **plafonds** de nombre d'hexagones, pas des formes imposées. À 2 km par hexagone, une armée de 19 hexagones couvre environ $66\ \text{km}^2$, avec un front d'une dizaine de kilomètres.
+La forme reste libre : ce sont des **plafonds** de nombre d'hexagones, pas des formes imposées. À 5 km par hexagone, une armée de 7 hexagones couvre environ $150\ \text{km}^2$ et une armée de 19 hexagones environ $410\ \text{km}^2$, avec un front d'environ $25$ km. Les armées sont **dilatées** (décidé) : elles occupent plus de place que leur taille réelle pour que les batailles restent lisibles.
 
 ### Résolution automatique dans la durée (proposition)
 

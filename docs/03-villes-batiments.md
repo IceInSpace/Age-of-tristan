@@ -52,6 +52,9 @@ L'histoire se construit dans le temps : quand une ville change d'ère, ses ancie
 - **Entretien** : un bâtiment conservé coûte un entretien. Sans entretien, il tombe en **ruine**. Une ruine garde un peu de valeur et peut être **restaurée**.
 - **Au changement d'ère** : les bâtiments courants se modernisent seuls ; seuls les **monuments, forts, châteaux, merveilles** et bâtiments remarquables demandent un choix, présenté dans une même fenêtre.
 
+- **Lieux de découvertes et d'avancées majeures** : un bâtiment où une découverte ou une avancée majeure a eu lieu (première fusion du bronze, première université, premier réacteur…) a **plus de valeur historique**.
+- **Patrimoine d'une autre civilisation** : les bâtiments d'une ville conquise ou absorbée **deviennent ton patrimoine au bout d'un moment**, quand la ville est culturellement intégrée (voir « Appartenance culturelle » plus bas).
+
 #### Exemples de trajectoires
 
 | Bâtiment d'origine | Modernisé | Conservé ou reconverti, puis plus tard |
@@ -83,6 +86,28 @@ T = V \cdot \text{accès} \cdot \varphi(S)
 $$
 
 Il rapporte de la **monnaie** et un peu d'influence. Un bâtiment en ruine garde une fraction de sa valeur, par exemple $V_{\text{ruine}} = 0{,}3\, V$, et retrouve sa valeur complète une fois restauré.
+
+### Appartenance culturelle des villes (décidé)
+
+- L'**appartenance** d'une ville ou d'une région se construit **au fil des générations**, selon l'**influence** des deux empires en jeu.
+- Une ville **peu importante** conquise par un empire **très influent** est **vite** intégrée culturellement ; une ville **importante** prend **plus de temps**.
+- Une ville **reprise** par son ancien propriétaire **redevient la sienne très rapidement**.
+
+Modèle proposé : chaque ville a une part culturelle $x \in [0\,;\,1]$ appartenant à son possesseur actuel. Elle tend vers la part d'influence de ce possesseur, $\frac{I_{\text{poss}}}{I_{\text{poss}} + I_{\text{autre}}}$, avec une constante de temps $\tau_c$ :
+
+$$
+\frac{dx}{dt} = \frac{1}{\tau_c}\left(\frac{I_{\text{poss}}}{I_{\text{poss}} + I_{\text{autre}}} - x\right)
+\qquad
+\tau_c = \tau_0 \left(1 + \beta \ln\!\left(1 + \frac{P}{P_0}\right)\right) \cdot \mu
+$$
+
+avec $P$ la population de la ville (une grande ville résiste plus longtemps) et $\mu$ un facteur de mémoire : $\mu < 1$ (par exemple $0{,}2$) quand le possesseur **reprend une ville qui était la sienne**, $\mu = 1$ sinon. Au-delà d'un seuil, par exemple $x > 0{,}75$, la ville est **intégrée** : stabilité normale, et ses bâtiments remarquables deviennent ton patrimoine.
+
+La valeur historique d'un bâtiment lié à une découverte ou une avancée majeure est multipliée par un bonus $\gamma_{\text{découverte}} > 1$ :
+
+$$
+V = V_0 \left(1 + b\,\Delta n\right) \cdot \gamma_{\text{découverte}}
+$$
 
 ## Propositions (à valider)
 
@@ -134,9 +159,8 @@ Facteurs $f_i$ possibles : nourriture, culture, garnison, guerre en cours, retar
 
 ## Questions ouvertes
 
-- Patrimoine : la valeur d'un bâtiment augmente-t-elle aussi s'il a été le lieu d'un événement (bataille, traité, découverte) ?
-- Les bâtiments d'autres civilisations (ville conquise ou absorbée) peuvent-ils devenir du patrimoine, avec un bonus d'influence ?
+- Patrimoine : les lieux de **batailles** et de **traités** gagnent-ils aussi de la valeur, ou seulement les lieux de découvertes ?
 - Nombre maximal de quartiers : fixé par le niveau, par le terrain, ou les deux ?
 - Un bâtiment peut-il être détruit lors d'une attaque ou d'un sabotage ?
 - La capitale peut-elle être déplacée ? Que se passe-t-il si elle est prise ?
-- Les villes conquises gardent-elles leur ère, ou s'alignent-elles sur celle du conquérant ?
+- Les villes conquises gardent-elles leur ère, ou s'alignent-elles sur celle du conquérant ? (À relier à l'intégration culturelle progressive.)
