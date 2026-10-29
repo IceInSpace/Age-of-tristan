@@ -38,6 +38,50 @@ Quand $R \gg 1$, le défenseur perd la guerre des stocks même s'il intercepte t
 - **Seconde frappe** : tant qu'un adversaire conserve des sous-marins non détectés, une frappe contre lui entraîne une riposte. C'est ce qui rend la dissuasion crédible en jeu.
 - **Conséquences d'une frappe** : ville détruite ou dévastée, pollution et retombées durables, effondrement de la stabilité, réaction diplomatique de toutes les factions.
 
+### Frappes nucléaires (décidé)
+
+- **Pas de riposte sans arsenal** : une nation qui n'a pas l'arme nucléaire ne peut pas riposter. La dissuasion n'existe qu'entre puissances nucléaires.
+- **Plusieurs tailles de bombes**, aux effets différents.
+- **Malus de zone** après la frappe, comme les retombées de *Civilization*.
+
+### Tailles de bombes et effets (proposition)
+
+Repères historiques (voir la [recherche](recherche/technologies-et-armes-par-ere.md), ère 12) : Hiroshima environ $15\ \text{kt}$, Nagasaki environ $21\ \text{kt}$, Tsar Bomba environ $50\ \text{Mt}$.
+
+Le rayon des effets de souffle croît comme la **racine cubique** de la puissance $Y$, loi d'échelle classique (Glasstone et Dolan, *The Effects of Nuclear Weapons*, 1977) :
+
+$$
+r(Y) = r_1 \cdot \left(\frac{Y}{1\ \text{kt}}\right)^{1/3}
+$$
+
+Une bombe $1\,000$ fois plus puissante n'a donc qu'un rayon $10$ fois plus grand. Cela justifie en jeu des armes de **plusieurs tailles** plutôt qu'une seule bombe « plus grosse ».
+
+| Arme | Ère | Puissance (ordre de grandeur) | Zone de destruction | Usage en jeu |
+|------|-----|-------------------------------|---------------------|--------------|
+| Bombe A (fission) | Atomique | $10$–$50\ \text{kt}$ | 1 case ou une ville moyenne | Première frappe, larguée par bombardier |
+| Arme tactique | Atomique tardive | $0{,}1$–$10\ \text{kt}$ | Une portion de front | Briser une armée, malus faible mais réaction diplomatique |
+| Bombe H (thermonucléaire) | Atomique tardive | $0{,}1$–$1\ \text{Mt}$ | Une ville entière et sa périphérie | Frappe stratégique |
+| Ogive multiple (MIRV) | Moderne | Plusieurs têtes de $0{,}1$–$0{,}5\ \text{Mt}$ | Plusieurs cibles d'une région | Saturer la défense antimissile |
+| Super-bombe | Atomique (prestige) | $> 10\ \text{Mt}$ | Une région | Démonstration ; retombées énormes, peu utile militairement |
+
+### Retombées : malus de zone
+
+Trois cercles concentriques autour du point d'impact :
+
+1. **Destruction** : bâtiments et unités détruits.
+2. **Dégâts** : bâtiments endommagés, population réduite, unités affaiblies.
+3. **Retombées** : case contaminée, production et croissance réduites, stabilité en baisse.
+
+La contamination $\Pi_{\text{rad}}$ décroît dans le temps. Une version simple pour le jeu est une décroissance exponentielle de demi-vie $t_{1/2}$ :
+
+$$
+\Pi_{\text{rad}}(t) = \Pi_{\text{rad},0} \cdot 2^{-t/t_{1/2}}
+$$
+
+La décroissance réelle des retombées suit plutôt une loi de puissance, $\dot{D}(t) \propto t^{-1{,}2}$ (même source) : très rapide les premiers jours, puis lente. Le jeu pourrait combiner une forte baisse initiale et une contamination résiduelle longue.
+
+Le malus reste **localisé et prévisible**, sans aléatoire punitif. Le joueur sait à l'avance quelle zone sera touchée et pour combien de temps.
+
 ### ICBM : trois phases de vol
 
 | Phase | Description | Défense possible |
