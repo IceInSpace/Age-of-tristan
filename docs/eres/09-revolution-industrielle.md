@@ -26,6 +26,7 @@
 | Procédé Leblanc | Économie | Soude ; forte pollution à l'acide chlorhydrique |
 | Fusil rayé | Militaire | Portée et précision accrues |
 | Navire à vapeur | Militaire | Navires indépendants du vent |
+| Chemin de fer et télégraphe | Logistique | Envois anticipés avant la pénurie, pertes réduites |
 
 ## Bâtiments
 

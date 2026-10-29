@@ -31,6 +31,7 @@
 | Cyberguerre | Espionnage | Sabotage à distance |
 | Énergie dirigée | Militaire | Lasers contre drones et roquettes |
 | Pyrolyse des plastiques | Économie | Déchets → carburant, réduit la pollution |
+| Logistique par IA | Logistique | Optimisation automatique des réserves et des flux |
 
 ## Bâtiments
 

@@ -34,6 +34,7 @@
 | Artillerie à torsion | Militaire | Baliste, onagre |
 | Philosophie | Culture | Débloque l'académie |
 | Navigation côtière | Exploration | Trière, commerce maritime |
+| Entrepôts publics | Logistique | Villes-entrepôts ; pertes en transport réduites |
 
 ## Bâtiments
 

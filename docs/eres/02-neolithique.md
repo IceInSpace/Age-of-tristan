@@ -32,6 +32,7 @@
 | Mégalithes | Culture | Débloque le cercle de pierres |
 | Fortification | Militaire | Remparts et tour de pierre |
 | Fonte du cuivre | Sciences | Premier métal ; prépare l'âge du bronze |
+| Greniers | Logistique | Réserve de stock en jours |
 
 ## Bâtiments
 

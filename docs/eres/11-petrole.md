@@ -30,6 +30,7 @@
 | Radar | Militaire | Détection des avions |
 | Guerre chimique | Militaire | Gaz de combat ; sanctions diplomatiques |
 | Carburants de synthèse | Économie | Charbon → carburant si pas de pétrole |
+| Logistique motorisée | Logistique | Capacité des routes accrue |
 
 ## Bâtiments
 

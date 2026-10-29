@@ -7,6 +7,10 @@
 - **Stocks par ville** (remplace le « stock global » décidé au départ) : chaque ville a son stock et ses **greniers**. Une ville entourée d'assez de champs se suffit à elle-même ; sinon, des **routes commerciales** entre villes et villages équilibrent les ressources.
 - **Jours de stock** : le joueur fixe un objectif en jours de réserve (par exemple de nourriture) par ville.
 - **Logistique automatique avec priorités** : les surplus partent seuls vers les villes en manque. Le joueur peut marquer une ville **prioritaire**, par exemple un village proche du front qui doit recevoir beaucoup de munitions.
+- **Par défaut**, si aucune option n'est choisie, **seul le surplus est envoyé**.
+- **Villes et mégavilles-entrepôts** : elles retiennent tous les surplus des autres villes.
+- **Réserve minimale en pourcentage** par ville, et réglages **par ressource**.
+- **Technologies de logistique** : elles débloquent les réglages fins, améliorent les automatismes et réduisent les pertes en transport.
 - **Ressources visibles sur la carte**, découvertes seulement quand leur existence est connue (voir [chapitre 02](02-carte-exploration.md)).
 - **Ère du pétrole** avec exploitation pétrolière.
 - **Pyrolyse** pour « fabriquer » du pétrole.
@@ -178,33 +182,82 @@ $$
 
 avec $\dot{P}_u$ le débit de production et $\dot{C}_u^{\text{combat}}$ la consommation en combat. Quand $S_u = 0$, l'unité perd l'essentiel de son efficacité. Pour éviter la micro-gestion, le réapprovisionnement est **automatique** par la logistique d'offre et de demande décrite ci-dessous. Le joueur agit sur la production et sur les priorités, pas sur les convois.
 
-### Logistique : stocks par ville, offre et demande (proposition)
+### Logistique : stocks par ville, offre et demande
 
-Pour chaque ville $c$ et chaque ressource $r$, le joueur fixe un objectif de $j_c$ jours de réserve. Avec $\dot{C}_{c,r}$ la consommation de la ville :
+#### Réglages décidés
+
+| Réglage | Description |
+|---------|-------------|
+| **Par défaut** | Si aucune option n'est choisie, la ville garde ce dont elle a besoin et **seul le surplus est envoyé** |
+| **Réserve minimale (%)** | Pourcentage de stock que la ville garde toujours, quoi qu'il arrive |
+| **Jours de stock** | Objectif de réserve exprimé en jours de consommation |
+| **Ville-entrepôt** | Une ville ou mégaville désignée comme stock **retient tous les surplus** non demandés ailleurs, puis les redistribue |
+| **Priorité** | Une ville prioritaire (par exemple près du front) est servie en premier |
+| **Par ressource** | Chaque réglage peut être fixé ressource par ressource (par exemple : garder 80 % des munitions, mais tout envoyer en bois) |
+
+Ces réglages ne sont pas tous disponibles d'emblée : ils sont débloqués par des **technologies de logistique** qui affinent aussi les automatismes et réduisent les pertes en transport (voir plus bas).
+
+#### Modèle proposé
+
+Pour une ville $c$ et une ressource $r$, avec $\dot{C}_{c,r}$ sa consommation, $S^{\max}_{c,r}$ sa capacité de stockage (greniers, entrepôts), $j_{c,r}$ l'objectif en jours et $\rho_{c,r} \in [0\,;\,1]$ la réserve minimale en pourcentage, le stock que la ville garde est :
 
 $$
-S^{\text{cible}}_{c,r} = j_c \cdot \dot{C}_{c,r}
+S^{\text{garde}}_{c,r} = \max\!\left(j_{c,r}\, \dot{C}_{c,r},\;\; \rho_{c,r}\, S^{\max}_{c,r}\right)
 $$
 
-Une ville est **en demande** si $S_{c,r} < S^{\text{cible}}_{c,r}$ et **en offre** si elle dépasse sa cible. Le déficit et le surplus valent :
+Par défaut, $j$ vaut une valeur de base (par exemple $10$ jours) et $\rho = 0$ : la ville garde juste ses besoins et envoie le reste.
+
+Déficit et surplus :
 
 $$
-D_{c,r} = \max\left(0,\; S^{\text{cible}}_{c,r} - S_{c,r}\right)
+D_{c,r} = \max\left(0,\; S^{\text{garde}}_{c,r} - S_{c,r}\right)
 \qquad
-O_{c,r} = \max\left(0,\; S_{c,r} - S^{\text{cible}}_{c,r}\right)
+O_{c,r} = \max\left(0,\; S_{c,r} - S^{\text{garde}}_{c,r}\right)
 $$
 
-Le flux envoyé d'une ville $a$ en offre vers une ville $b$ en demande est réparti selon la priorité $p_b$ fixée par le joueur et le temps de trajet $t_{ab}$, dans la limite de la capacité de la route $Q_{ab}^{\max}$ :
+**Ordre de distribution** des surplus d'une ville $a$ :
+
+1. Vers les villes **en déficit**, au prorata de leur priorité $p_b$, de leur déficit et de la proximité :
 
 $$
 \varphi_{a \to b} = \min\!\left(Q_{ab}^{\max},\; O_{a,r} \cdot \frac{p_b\, D_{b,r} / t_{ab}}{\sum_{k} p_k\, D_{k,r} / t_{ak}}\right)
 $$
 
-Le temps $t_{ab}$ dépend du **niveau de route** (hors route, sentier, pavé, béton, autoroute) et du terrain (voir [chapitre 02](02-carte-exploration.md)). Toutes les villes sont reliées, même sans route, mais très lentement.
+2. Le reste vers les **villes-entrepôts**, au prorata de leur capacité libre $S^{\max}_e - S_e$ et de la proximité.
+3. S'il n'y a ni déficit ni entrepôt, le surplus **reste sur place** (et peut être perdu si les greniers sont pleins).
 
-Marquer un village du front comme **prioritaire** revient à augmenter $p_b$ (et éventuellement $j_b$) : les munitions y affluent en premier. C'est le principe des stations d'offre et de demande de *Dyson Sphere Program*, appliqué aux villes. Les routes deviennent stratégiques : couper une route, c'est affamer une ville ou un front.
+Les villes-entrepôts redistribuent ensuite leurs stocks vers les villes en déficit, en suivant la même règle 1.
 
-Le niveau de détail suit les échelles du [chapitre 10](10-echelles.md) : stocks par ville au niveau N1 et N2, par planète aux niveaux N3 et N4.
+Le temps $t_{ab}$ dépend du **niveau de route** et du terrain (voir [chapitre 02](02-carte-exploration.md)). Toutes les villes sont reliées, même sans route, mais très lentement.
+
+#### Pertes en transport
+
+Les pertes suivent une loi du premier ordre, comme une dégradation : avec $\lambda_r$ le taux de perte de la ressource $r$ (élevé pour la nourriture périssable, quasi nul pour les métaux) et $\eta_L \in [0\,;\,1]$ le facteur de réduction apporté par les technologies de logistique, la quantité reçue vaut :
+
+$$
+\varphi^{\text{reçu}}_{a \to b} = \varphi_{a \to b} \cdot \exp\!\left(-\,\eta_L\, \lambda_r\, t_{ab}\right)
+$$
+
+Un trajet long hors route peut ainsi faire perdre une bonne part de la nourriture envoyée, alors qu'une autoroute et une logistique avancée rendent les pertes négligeables.
+
+#### Technologies de logistique (proposition)
+
+| Ère | Technologie | Débloque |
+|-----|-------------|----------|
+| Préhistoire | — | Mode par défaut : surplus envoyé vers la ville voisine en manque, pertes élevées ($\eta_L = 1$) |
+| Néolithique | Greniers | Capacité de stockage, réserve en **jours** |
+| Âge du bronze | Comptabilité (écriture) | Réserve minimale en **%** par ville |
+| Antiquité | Entrepôts publics | **Villes-entrepôts** ; pertes réduites ($\eta_L = 0{,}8$) |
+| Moyen Âge | Guildes marchandes | Réglages **par ressource** |
+| Ère de la poudre | Intendance militaire | **Priorités** de front plus fines, ravitaillement des armées en campagne |
+| Révolution industrielle | Chemin de fer et télégraphe | Anticipation des besoins (les envois partent avant la pénurie) ; $\eta_L = 0{,}5$ |
+| Ère du pétrole | Logistique motorisée | Capacité des routes accrue |
+| Ère moderne | Conteneurisation | Pertes quasi nulles hors nourriture ($\eta_L = 0{,}2$) |
+| Révolution de l'IA | Logistique par IA | Optimisation automatique des réserves et des flux, pertes minimales ($\eta_L = 0{,}05$) |
+
+Les valeurs de $\eta_L$ sont indicatives. Le placement exact de la priorité (aujourd'hui décidée comme disponible) reste à arbitrer : soit dès le début, soit débloquée par l'intendance militaire.
+
+C'est le principe des stations d'offre et de demande de *Dyson Sphere Program*, appliqué aux villes. Les routes deviennent stratégiques : couper une route, c'est affamer une ville ou un front. Le niveau de détail suit les échelles du [chapitre 10](10-echelles.md) : stocks par ville au niveau N1 et N2, par planète aux niveaux N3 et N4.
 
 ### Saisons (proposition, en réponse à ta question)
 

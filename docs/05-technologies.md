@@ -7,6 +7,7 @@
 - Le **vol de technologie** est possible par espionnage, et l'**échange de technologies** par diplomatie.
 - Technologies demandées explicitement : **missiles ICBM**, **défense avancée** (radars, missiles, satellites), **fusion nucléaire**, **pyrolyse**, **exploitation pétrolière**, **clonage**, **robotique**, **terraformation**, **hyperpropulsion**.
 - **Nouvel arbre technologique** à l'entrée dans l'ère hyperspatiale.
+- **Branche logistique** : débloque progressivement les réglages fins des stocks (réserve en %, villes-entrepôts, réglages par ressource), améliore les automatismes et réduit les pertes en transport. Détail au [chapitre 04](04-economie.md).
 
 ## Propositions (à valider)
 
@@ -14,7 +15,7 @@
 
 | Arbre | Actes | Branches proposées |
 |-------|-------|--------------------|
-| **Arbre planétaire** | I et II | Militaire, économie, sciences, culture, exploration |
+| **Arbre planétaire** | I et II | Militaire, économie, logistique, sciences, culture, exploration |
 | **Arbre stellaire** | III | Propulsion et navigation hyperspatiale, colonisation et terraformation, biologie (clonage, adaptation), robotique et IA, armement de flotte, mégastructures |
 
 L'arbre planétaire n'est plus affiché à l'acte III : toutes ses technologies sont considérées comme acquises une fois l'hyperespace atteint.

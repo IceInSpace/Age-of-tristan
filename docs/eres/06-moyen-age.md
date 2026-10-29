@@ -33,6 +33,7 @@
 | Arc long | Militaire | Archer à grande cadence |
 | Feu grégeois | Militaire | Arme incendiaire navale |
 | Universités | Sciences | Science accrue |
+| Guildes marchandes | Logistique | Réglages de stock par ressource |
 
 ## Bâtiments
 

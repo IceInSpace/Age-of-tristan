@@ -31,6 +31,7 @@
 | Irrigation | Économie | Champs plus productifs près des fleuves |
 | Commerce à longue distance | Économie | Débloque le comptoir, import d'étain |
 | Calendrier | Sciences | Bonus agricoles |
+| Comptabilité | Logistique | Réserve minimale en % par ville |
 
 ## Bâtiments
 

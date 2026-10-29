@@ -31,6 +31,7 @@
 | Armée permanente | Économie | Armées professionnelles, entretien fixe |
 | Cabinet noir | Espionnage | Chiffrement, interception du courrier |
 | Méthode scientifique | Sciences | Science accrue |
+| Intendance militaire | Logistique | Priorités de front, ravitaillement des armées |
 
 ## Bâtiments
 
