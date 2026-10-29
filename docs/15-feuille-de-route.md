@@ -10,7 +10,7 @@ Le jeu décrit dans ce cahier des charges réunit des systèmes que l'on trouve 
 
 Objectif : une carte, une ville, une économie qui tourne.
 
-- Petite carte isométrique générée procéduralement (3 à 4 types de terrain).
+- Petite carte hexagonale générée procéduralement (3 à 4 types de terrain), en **3D avec des formes simples** (prototype « gris »).
 - Une ville (la capitale) à l'ère préhistorique.
 - 3 ressources : nourriture, bois, silex.
 - 3 à 4 bâtiments : hutte, cueillette, chasse, taille de silex.

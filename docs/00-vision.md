@@ -7,7 +7,9 @@
 - **Point de départ** : la préhistoire, avec une guerre entre deux tribus sur un territoire très petit. L'espace jouable s'agrandit avec l'exploration et la conquête.
 - **Expansion par paliers** : terre ferme → outre-mer (navigation) → système solaire → autres systèmes stellaires (hyperespace).
 - **Structure spatiale** : des **fronts** de bataille et un **arrière** où l'on gère bâtiments, ressources et formation des unités. Les unités sont envoyées vers des points de la carte.
-- **Vue** : isométrique (2.5D) à l'échelle planétaire.
+- **Style visé** : celui de *Humankind* : **villes qui grandissent** visiblement sur la carte, **carte « maquette »** (relief marqué, couleurs chaudes, aspect de plateau de jeu) et **lisibilité** (frontières, icônes). C'est un rendu en **3D stylisée** avec une caméra inclinée et zoomable.
+- **Démarche** : d'abord un **prototype fonctionnel mais simple visuellement** pour tester la logique et le gameplay, puis le passage à un rendu soigné dans ce style.
+- On **garde le rayon d'action** des villes ; pas de découpage en territoires fixes comme dans *Humankind*.
 - **Changement d'échelle** : la gestion est d'abord manuelle et détaillée, puis plus large et automatisée à mesure que l'empire grandit (voir [chapitre 10](10-echelles.md)).
 - **Inspirations** :
   - guerres et technologies **actuelles** pour les ères modernes ;

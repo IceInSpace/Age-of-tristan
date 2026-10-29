@@ -77,5 +77,5 @@ Les rivaux de la planète natale peuvent eux aussi coloniser des planètes du sy
 
 - Les autres planètes sont-elles générées comme la planète principale (villes, ressources, peuples) ou plus simples (bases, gisements) ?
 - Peut-il y avoir de la vie ou des civilisations extraterrestres ?
-- Les batailles spatiales se déroulent-elles sur la même carte isométrique, ou sur un écran 2D dédié ?
+- Les batailles spatiales se déroulent-elles sur la même carte que le reste du jeu, ou sur une vue dédiée ?
 - Les satellites peuvent-ils être détruits (armes antisatellites, débris) ?

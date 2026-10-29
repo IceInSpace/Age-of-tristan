@@ -2,9 +2,8 @@
 
 ## Décidé
 
-- **Grille hexagonale** (vue isométrique).
+- **Grille hexagonale**, vue en 3D stylisée avec caméra inclinée (style visé : *Humankind*, voir [chapitre 00](00-vision.md)).
 - **Génération procédurale réglable** (taille, continents, climat, richesse…), **plus un éditeur** pour modifier la carte à la main.
-- **Vue isométrique** (2.5D).
 - **Terrain contraignant** : on ne peut pas tout construire partout. Le terrain donne des **bonus ou des malus**.
 - **Routes** à construire entre villages, villes et mégalopoles. **Toutes les villes sont atteignables sans route**, mais très lentement. Créer une route **défriche** le terrain et fait apparaître un **sentier**, qu'on améliore ensuite en **route pavée**, puis en **route en béton**, puis en **autoroute**. Chaque niveau augmente la vitesse de transport.
 - **Ressources visibles sur la carte**.
