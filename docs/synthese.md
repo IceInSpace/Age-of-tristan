@@ -76,7 +76,8 @@ Les validations sont reportées dans le [catalogue des ères](eres/README.md).
 |-----|---------|-----------------------|
 | 1 — Préhistoire | Validé | À faire |
 | 2 — Néolithique | Validé | À faire |
-| 3 à 18 | À valider | À faire |
+| 3 — Âge du bronze | Validé | À faire |
+| 4 à 18 | À valider | À faire |
 
 ## Ce qui reste à décider
 

@@ -2,22 +2,24 @@
 
 > Acte I · Période indicative : ~3 300 – ~1 200 av. J.-C. · Niveau de gestion : N1 — Ville
 >
-> **Statut** : proposition, à valider. Repères historiques et chiffrés dans la [recherche](../recherche/technologies-et-armes-par-ere.md).
+> **Statut** : Contenu **validé** (bâtiments, unités, technologies, merveilles, passage d'ère). Statistiques et coûts à venir. Repères historiques et chiffrés dans la [recherche](../recherche/technologies-et-armes-par-ere.md).
 
 ## Décidé
 
 - **Pas de crise** d'effondrement de l'âge du bronze.
+- **Pas de technologie « commerce lointain »** : le comptoir arrive avec la métallurgie du bronze.
+- **Étain** : à la fois des gisements rares sur la carte et l'import par comptoir.
+- **Merveilles** : ziggourat et grande pyramide ; **unité d'élite** : garde du palais.
 
 ## Passage à cette ère
 
-- Technologies clés : **Métallurgie du bronze** et **Écriture**.
-- Bâtiment requis : **fonderie de bronze**.
-- Merveille : ziggourat ou pyramide (facultative).
+- Venant du néolithique : métallurgie du bronze, écriture, fonderie de bronze, XP et population minimales.
+- Pour passer à l'âge du fer : technologie **Travail du fer**, bâtiments **bas fourneau** et **charbonnière**, **XP** et **population** minimales.
 
 ## Ressources
 
 - **Nouvelles** : Cuivre, **étain**, bronze, briques, lin
-- **Intrant critique** : **Étain** : rare, souvent importé par une route commerciale qui peut être coupée.
+- **Intrant critique** : **Étain** : gisements **rares** sur la carte, complétés par l'**import** via des comptoirs ; les routes d'import peuvent être coupées.
 
 ## Technologies
 
@@ -29,7 +31,6 @@
 | Char de guerre | Militaire | Débloque le char |
 | Arc composite | Militaire | Archer à plus longue portée |
 | Irrigation | Économie | Champs plus productifs près des fleuves |
-| Commerce à longue distance | Économie | Débloque le comptoir, import d'étain |
 | Calendrier | Sciences | Bonus agricoles |
 | Comptabilité | Logistique | Réserve minimale en % par ville |
 
@@ -38,7 +39,7 @@
 | Bâtiment | Quartier | Rôle |
 |----------|----------|------|
 | Mine de cuivre | Extraction | Cuivre |
-| Comptoir commercial | Commercial | Importe de l'étain contre des ressources |
+| Comptoir commercial | Commercial | Disponible avec la métallurgie du bronze ; importe de l'étain et commerce en général |
 | Fonderie de bronze | Industriel | Cuivre + étain → bronze |
 | Canal d'irrigation | Agricole | Bonus de champs |
 | Temple | Culturel | Stabilité |
@@ -64,7 +65,7 @@
 ## Questions de cadrage
 
 - Les chars sont-ils puissants mais limités au terrain plat (plaines, déserts) ?
-- L'étain importé reste-t-il un intrant critique sans crise, via des routes commerciales qu'on peut couper ?
+- La garde du palais peut-elle quitter la capitale, ou reste-t-elle une unité défensive ?
 
 ---
 
