@@ -20,6 +20,7 @@
 - **Coût selon la situation** : une armée **en campagne** coûte plus cher qu'en garnison ; on peut **démobiliser en réserve** en temps de paix ; avant l'ère industrielle, une armée peut **fourrager** (vivre en partie sur le pays).
 - **Troupes d'élite** : une version élite d'une unité, plus longue à former. Les unités s'améliorent aussi par l'**expérience du combat**.
 - **Chair à canon** : certaines unités doivent rester **bon marché**.
+- **Unités des ères précédentes** : toujours disponibles et **améliorables** vers leur version plus récente.
 - **Système retenu** : **classes et contres**, **charge, flanc et moral**, **défenses fortes** en début de partie (voir la [recherche sur les unités](recherche/unites-jeux-de-reference.md)).
 - **Formations** : le joueur choisit la formation de ses unités, et la résolution automatique en tient compte (voir [chapitre 07](07-batailles.md)).
 - **Factions** : mêmes unités pour tous, avec de **petits bonus** de faction.
