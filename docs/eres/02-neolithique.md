@@ -50,7 +50,7 @@
 
 | Unité | Type | Rôle | Fort contre | Faible contre | Intrant |
 |-------|------|------|-------------|---------------|---------|
-| Paysan | Civil | Cultive, construit | — | Tout | — |
+| Colons | Civil | Fonder un village | — | Tout | Nourriture |
 | Lancier | Mêlée | Ligne de front | Mêlée légère | Distance | Bois, silex |
 | Guerrier à hache polie | Mêlée | Choc | Lancier | Distance | Pierre polie |
 | Frondeur | Distance | Tir rapide, bon marché | Mêlée légère | Mêlée au contact | Pierre |

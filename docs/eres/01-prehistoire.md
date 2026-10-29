@@ -10,6 +10,7 @@
 - **Survie** : gibier épuisable, prédateurs qui attaquent chasseurs et campement, raids entre tribus.
 - **Peu d'unités** : le but est de survivre et de chasser. La diversité viendra avec les ères suivantes.
 - Le **chef de tribu** sera le premier **général** (les généraux sont retenus pour tout le jeu).
+- **Pas de cueilleurs ni de villageois** : le campement exploite les ressources de son rayon d'action avec des bâtiments (camp de chasse, cueillette, atelier de taille). Seuls les **colons** et les **éclaireurs** sont des unités non combattantes.
 
 ## Passage à cette ère
 
@@ -47,7 +48,7 @@
 
 | Unité | Type | Rôle | Fort contre | Faible contre | Intrant |
 |-------|------|------|-------------|---------------|---------|
-| Cueilleur | Civil | Récolte, construit | — | Tout | — |
+| Colons | Civil | Fonder un nouveau campement | — | Tout | Nourriture |
 | Éclaireur | Reconnaissance | Explore, révèle la carte | — | Mêlée | — |
 | Guerrier à gourdin | Mêlée | Ligne de front | Distance (au contact) | Lanceur de sagaies à distance | Bois |
 | Lanceur de sagaies | Distance | Harcèlement | Mêlée lente | Éclaireur rapide, mêlée au contact | Silex, bois |

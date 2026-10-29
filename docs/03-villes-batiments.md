@@ -6,7 +6,7 @@
 
 Quatre moyens, tous retenus :
 
-- **Fondation** : des colons s'installent sur un territoire exploré.
+- **Fondation** : des colons s'installent sur un territoire exploré. Les colons sont la seule unité civile : il n'y a **pas de villageois ni de mineurs**. Chaque ville exploite les ressources de son **rayon d'action** avec des bâtiments (voir [chapitre 04](04-economie.md)).
 - **Conquête** : prise d'une ville ennemie.
 - **Absorption** : intégration pacifique d'un peuple neutre.
 - **Croissance** : un village grandit en ville, puis en mégalopole.

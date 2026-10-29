@@ -14,6 +14,7 @@
 - **Représentation selon l'échelle** : unités individuelles au début, puis escouades, puis divisions et légions (voir [chapitre 10](10-echelles.md)).
 - **Généraux** attachés aux armées, avec bonus et expérience (pas de héros uniques).
 - **Factions** : mêmes unités pour tous, avec de **petits bonus** de faction.
+- **Références étudiées** : *War Selection*, *Empire Earth*, *Age of Empires II* et les *Total War* historiques. Synthèse, classes proposées et formule de dégâts enrichie dans la [recherche sur les unités](recherche/unites-jeux-de-reference.md).
 
 ## Propositions (à valider)
 

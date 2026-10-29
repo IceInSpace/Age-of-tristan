@@ -12,6 +12,8 @@ Le jeu est structuré en **trois actes**, chacun avec sa propre échelle de gest
 
 Ce dépôt contient pour l'instant **uniquement le cahier des charges**. Le code viendra ensuite.
 
+**Point d'étape** : la [synthèse](docs/synthese.md) résume tout ce qui est décidé et liste ce qui reste à décider, par priorité.
+
 ## Chapitres
 
 | # | Chapitre | État |
@@ -35,6 +37,7 @@ Ce dépôt contient pour l'instant **uniquement le cahier des charges**. Le code
 | — | [Catalogue des ères](docs/eres/README.md) | Technologies, bâtiments, unités par ère (proposition) |
 | — | [Sources](docs/sources.md) | Références des chiffres réels |
 | — | [Recherche : technologies et armes par ère](docs/recherche/technologies-et-armes-par-ere.md) | Synthèse sourcée des 18 ères |
+| — | [Recherche : unités des jeux de référence](docs/recherche/unites-jeux-de-reference.md) | War Selection, Empire Earth, Age of Empires II, Total War |
 
 ## Conventions de rédaction
 

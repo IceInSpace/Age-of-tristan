@@ -2,6 +2,7 @@
 
 ## Décidé
 
+- **Pas de civils qui récoltent** : aucune unité de type villageois ou mineur. Une ville ou un village exploite les ressources situées dans son **rayon d'action** en y construisant un **bâtiment d'exploitation** (mine, carrière, camp de chasse, puits…). La main-d'œuvre est la population agrégée de la ville.
 - **Ressources évolutives par ère** (silex, puis bronze, charbon, pétrole, uranium…).
 - **Chaînes de production** : des matières premières transformées en produits.
 - **Stocks par ville** (remplace le « stock global » décidé au départ) : chaque ville a son stock et ses **greniers**. Une ville entourée d'assez de champs se suffit à elle-même ; sinon, des **routes commerciales** entre villes et villages équilibrent les ressources.
@@ -20,6 +21,33 @@
 - **Changement d'échelle** : aux actes II et III, l'économie est simulée de façon plus large et moins détaillée, par planète (voir [chapitre 10](10-echelles.md)). Pas de construction manuelle de lignes de production comme dans *Dyson Sphere Program*.
 
 ## Propositions (à valider)
+
+### Exploitation par rayon d'action
+
+Chaque agglomération possède un **rayon d'action** $R$ qui grandit avec son niveau. Tout gisement situé dans ce rayon peut être exploité par un bâtiment dédié, sans unité à envoyer.
+
+| Agglomération | Rayon d'action indicatif |
+|---------------|--------------------------|
+| Campement | $2$ cases |
+| Village | $3$ cases |
+| Ville | $4$ cases |
+| Cité | $5$ cases |
+| Métropole et au-delà | $6$ cases et plus |
+
+Les valeurs sont à équilibrer en jeu. Production d'un bâtiment d'exploitation $b$ sur un gisement $g$ :
+
+$$
+\dot{X}_b = y_b \cdot q_g \cdot \min\!\left(1,\; \frac{L_b}{L_b^{\text{req}}}\right) \cdot \left(1 + \beta_{\text{tech}}\right)
+$$
+
+avec $y_b$ le rendement nominal du bâtiment, $q_g$ la richesse du gisement, $L_b$ la main-d'œuvre que la ville lui affecte automatiquement et $\beta_{\text{tech}}$ le bonus des technologies.
+
+**Règles proposées** :
+
+- **Gisement hors de portée** : on fonde un **village** ou un **avant-poste** à côté. C'est le même principe que les modules de colonisation de l'acte III (voir [chapitre 11](11-hyperspatial.md)).
+- **Rayons qui se chevauchent** : un gisement n'est exploité que par **un seul** bâtiment, rattaché à la ville qui l'a construit.
+- **Gisement à la frontière** : il peut être revendiqué par deux factions, ce qui crée une source de conflit.
+- **Chasse** : le camp de chasse prélève le gibier de son rayon, qui s'épuise si l'on chasse trop vite (voir [chapitre 02](02-carte-exploration.md)).
 
 ### Familles de ressources
 
