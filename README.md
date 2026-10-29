@@ -34,6 +34,7 @@ Ce dépôt contient pour l'instant **uniquement le cahier des charges**. Le code
 | 13 | [Diplomatie, IA et adversaires](docs/13-diplomatie-ia.md) | Unification et domination ajoutées |
 | 14 | [Choix techniques](docs/14-technique.md) | Ouvert |
 | 15 | [Feuille de route et version minimale](docs/15-feuille-de-route.md) | Proposition |
+| — | [Ressources et chaînes de production](docs/ressources-et-chaines.md) | 78 ressources de l'acte I en 8 gammes (proposition) |
 | — | [Catalogue des ères](docs/eres/README.md) | Technologies, bâtiments, unités par ère (proposition) |
 | — | [Sources](docs/sources.md) | Références des chiffres réels |
 | — | [Recherche : technologies et armes par ère](docs/recherche/technologies-et-armes-par-ere.md) | Synthèse sourcée des 18 ères |

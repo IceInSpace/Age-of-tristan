@@ -18,6 +18,9 @@
 - **Fusion nucléaire** comme source d'énergie avancée.
 - **Pollution** : mécanisme de jeu, visible sur la carte.
 - **Intrant critique** et **guerre des stocks** (détaillés plus bas).
+- **Monnaie** à partir de l'**âge du fer** (technologie Monnaie) ; avant, troc et ressources physiques.
+- **Véhicules de transport** achetables (caravanes, cargos, tankers) pour augmenter le débit des routes.
+- Inventaire proposé : **78 ressources** dans l'acte I, en 8 gammes, voir [ressources et chaînes](ressources-et-chaines.md).
 - **Changement d'échelle** : aux actes II et III, l'économie est simulée de façon plus large et moins détaillée, par planète (voir [chapitre 10](10-echelles.md)). Pas de construction manuelle de lignes de production comme dans *Dyson Sphere Program*.
 
 ## Propositions (à valider)
@@ -56,21 +59,28 @@ avec $y_b$ le rendement nominal du bâtiment, $q_g$ la richesse du gisement, $L_
 - **Gisement à la frontière** : il peut être revendiqué par deux factions, ce qui crée une source de conflit.
 - **Chasse** : le camp de chasse prélève le gibier de son rayon, qui s'épuise si l'on chasse trop vite (voir [chapitre 02](02-carte-exploration.md)).
 
-### Gisements : épuisement (à trancher, pistes)
+### Gisements : épuisement (décidé)
 
-Pistes évoquées, à arbitrer :
+- **S'épuisent** : les **fossiles** (pétrole, gaz, charbon), les **minerais** (fer, cuivre, étain, uranium…) et les **renouvelables** (gibier, poisson, bois), ces derniers se régénérant si l'on ne prélève pas trop vite.
+- **Pierre et argile** : quantités **énormes**, en pratique inépuisables.
+- **Mécanismes retenus** : récupération par la technologie, **gisements étendus** (pétrole, gaz) exploités par de nombreux puits, **mines à ciel ouvert qui s'étendent**, et **prospection** (la taille d'un gisement est d'abord estimée, puis précisée).
+- **Couches géologiques** : les minerais se trouvent dans des couches dont on tire aussi des **co-produits** (pierre). Ce qui est en **surface** est accessible d'emblée et les technologies y augmentent l'**intensité et les débits** ; les technologies d'**extraction** servent à atteindre ce qui est **profond**.
+- **Gisement épuisé** : il devient une **friche** polluée, puis peut être **reconverti** grâce à une technologie (lac, décharge, stockage, musée minier).
+- Détail des ressources, des chaînes et du taux de découverture dans [ressources et chaînes](ressources-et-chaines.md).
 
-- **Gisements étendus** : certaines ressources (pétrole, gaz) occupent de **grandes zones géographiques** exploitées par de nombreux puits.
-- **Gisements qui s'étendent** : une **mine à ciel ouvert** grandit à mesure qu'on l'exploite, en occupant de plus en plus de terrain.
-- **Technologies d'extraction** : elles permettent de récupérer davantage d'un même gisement.
-
-Modèle possible : un gisement contient une quantité en place $Q_{\text{place}}$, dont seule une fraction $f_{\text{rec}}$ est récupérable avec la technologie du moment :
+Modèle : un gisement contient une quantité en place $Q_{\text{place}}$, répartie en couches de profondeur croissante. Seule la fraction accessible avec la technologie du moment est extractible :
 
 $$
-Q_{\text{extractible}} = f_{\text{rec}}(\text{tech}) \cdot Q_{\text{place}}
+Q_{\text{extractible}} = \sum_{\text{couches accessibles}} f_{\text{rec}}(\text{tech}) \cdot Q_{\text{couche}}
 $$
 
-Chaque progrès d'extraction augmente $f_{\text{rec}}$ et « recharge » les gisements déjà exploités. On a ainsi des réserves finies, sans devoir chercher sans cesse de nouveaux gisements.
+Chaque technologie d'extraction donne accès à une couche plus profonde, ou augmente $f_{\text{rec}}$ pour les gisements étendus : des gisements déjà exploités redeviennent rentables. La prospection affiche une estimation $\hat{Q} = Q_{\text{place}}\,(1 \pm \varepsilon)$, dont l'incertitude $\varepsilon$ diminue avec les technologies de géologie.
+
+### Uranium : l'enrichissement comme technologie clé (décidé)
+
+La technologie clé de l'uranium est son **enrichissement**, en deux étapes : d'abord la **diffusion gazeuse**, chère et très coûteuse en énergie, puis l'**ultracentrifugation**, beaucoup plus économe et plus efficace.
+
+Repères réels : environ $2\,400$ à $2\,500\ \text{kWh}$ par unité de travail de séparation (UTS) pour la diffusion gazeuse, contre environ $50$ à $60\ \text{kWh/UTS}$ pour la centrifugation, soit environ $45$ fois moins d'énergie ([Wikipédia, Separative work units](https://en.wikipedia.org/wiki/Separative_work_units)). En jeu, l'usine d'enrichissement consommerait donc énormément d'électricité tant que l'ultracentrifugation n'est pas recherchée.
 
 ### Stockage et péremption (décidé)
 
@@ -344,7 +354,5 @@ L'interface peut afficher directement « réserves : 40 jours, hiver dans 25 jou
 ## Questions ouvertes
 
 - Une ressource obsolète (silex) disparaît-elle, ou reste-t-elle utilisable ?
-- Existe-t-il une monnaie, ou uniquement des ressources physiques ?
 - Commerce entre factions : troc, marché avec prix variables, ou les deux ?
-- Épuisement des gisements : choisir parmi les pistes ci-dessus (gisements étendus, mines qui s'étendent, récupération qui augmente avec la technologie).
 - Raffinerie détaillée (plusieurs coupes : essence, gazole, fioul, naphta) ou simplifiée (brut → carburant) ?

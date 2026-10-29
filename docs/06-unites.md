@@ -14,6 +14,10 @@
 - **Représentation selon l'échelle** : unités individuelles au début, puis escouades, puis divisions et légions (voir [chapitre 10](10-echelles.md)).
 - **Généraux** attachés aux armées, avec bonus et expérience (pas de héros uniques). Ils sont **recrutés**, et il en existe **deux types** : le **stratège** (soin, démoralisation de l'ennemi) et le **meneur** (moral, attaque).
 - **Taille des armées** : un **plafond** lié à la population et aux casernes, plus un **coût d'entretien**.
+- **Ce que consomme une armée** : **nourriture** ; **solde** en monnaie (à partir de l'âge du fer) ; **munitions**, uniquement quand elles sont utilisées ; **carburant** pour les déplacements ; ressources de **moral** (alcool par exemple).
+- **Fatigue** : les unités se fatiguent, ont besoin de **repos** et ne peuvent pas enchaîner trop de batailles sans perdre en efficacité. Les **vétérans**, rodés, y sont moins sensibles.
+- **Armée non payée ou non nourrie** : **moral en baisse**, **désertion**, **pillage** du territoire où elle se trouve.
+- **Coût selon la situation** : une armée **en campagne** coûte plus cher qu'en garnison ; on peut **démobiliser en réserve** en temps de paix ; avant l'ère industrielle, une armée peut **fourrager** (vivre en partie sur le pays).
 - **Troupes d'élite** : une version élite d'une unité, plus longue à former. Les unités s'améliorent aussi par l'**expérience du combat**.
 - **Chair à canon** : certaines unités doivent rester **bon marché**.
 - **Système retenu** : **classes et contres**, **charge, flanc et moral**, **défenses fortes** en début de partie (voir la [recherche sur les unités](recherche/unites-jeux-de-reference.md)).
@@ -71,6 +75,30 @@ $$
 
 Le seuil $\theta_{\text{retraite}}$ dépend de l'ordre donné : « tenir à tout prix » ($\theta = 0$), « tenir » ($\theta = 0{,}3$), « harceler » ($\theta = 0{,}6$).
 
+### Entretien et fatigue (proposition)
+
+Entretien par pas de temps d'une unité $u$, avec un coefficient de situation $\kappa$ (par exemple $\kappa = 0{,}3$ en réserve, $1$ en garnison, $1{,}5$ en campagne) :
+
+$$
+\dot{E}_u = \kappa \cdot \left(e_{\text{nour}} + e_{\text{solde}} + e_{\text{moral}}\right) \;+\; e_{\text{carb}} \cdot v_{\text{déplacement}} \;+\; e_{\text{mun}} \cdot \dot{n}_{\text{tirs}}
+$$
+
+Les munitions ne coûtent qu'en tirant, le carburant qu'en se déplaçant. Avec le fourrage, une part $\phi_{\text{fourrage}}$ de la nourriture est prélevée sur le territoire, avec une baisse de stabilité locale.
+
+Fatigue $F \in [0\,;\,1]$ : elle monte en marche et en combat, et redescend au repos.
+
+$$
+\frac{dF}{dt} = k_{\text{effort}}\,(1 - F) - k_{\text{repos}}\,F
+$$
+
+Efficacité au combat, moins affectée pour les vétérans de rang $v_{\text{rang}} \in [0\,;\,5]$ :
+
+$$
+\eta_F = 1 - \varphi_0 \left(1 - 0{,}1\, v_{\text{rang}}\right) F
+$$
+
+Avec $\varphi_0 = 0{,}5$ par exemple, une unité épuisée ($F = 1$) perd $50\ \%$ d'efficacité, et un vétéran de rang 5 seulement $25\ \%$.
+
 ### Vétérance
 
 Gain d'XP par unité ennemie détruite, proportionnel à sa valeur :
@@ -104,5 +132,4 @@ Un rang de vétéran est atteint à chaque palier d'XP ; chaque rang apporte env
 ## Questions ouvertes
 
 - Les généraux peuvent-ils mourir au combat ?
-- L'entretien se paie-t-il en nourriture seulement, ou aussi en solde (monnaie) et en munitions ?
 - Une unité améliorée garde-t-elle son rang de vétéran ?
