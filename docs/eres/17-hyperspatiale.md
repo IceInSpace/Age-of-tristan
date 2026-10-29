@@ -4,6 +4,12 @@
 >
 > **Statut** : proposition, à valider. Repères historiques et chiffrés dans la [recherche](../recherche/technologies-et-armes-par-ere.md).
 
+## Décidé
+
+- **Unification de l'humanité** sous un empire au nom choisi par le joueur, avec des **votes politiques**.
+- **Nouvel ennemi** : une puissance avide d'énergie qui veut tout absorber, ou d'autres espèces.
+- **Clonage** : malus moral au départ, qui disparaît une fois la pratique entrée dans les mœurs ; l'**endoctrinement** peut forcer son acceptation.
+
 ## Passage à cette ère
 
 - Technologie clé : **Hyperpropulsion** (premier élément du nouvel arbre stellaire).
@@ -55,8 +61,8 @@
 
 ## Questions de cadrage
 
-- Nature du **nouvel ennemi** (Empire de la Terre adverse, extraterrestres, plusieurs puissances) ?
-- Le **clonage** a-t-il un coût moral ou diplomatique, ou est-ce une simple ressource ?
+- Le nouvel ennemi : choisi au lancement de la partie, ou les deux à la fois ?
+- Votes politiques : quel poids pour les anciennes factions, et que se passe-t-il si un vote va contre le joueur ?
 
 ---
 

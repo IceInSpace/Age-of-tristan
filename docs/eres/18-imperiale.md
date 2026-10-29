@@ -4,6 +4,10 @@
 >
 > **Statut** : proposition, à valider. Repères historiques et chiffrés dans la [recherche](../recherche/technologies-et-armes-par-ere.md).
 
+## Décidé
+
+- **Esthétique gothique industrielle** pleinement assumée.
+
 ## Passage à cette ère
 
 - Technologie clé : **Mégastructures**.
@@ -52,7 +56,6 @@
 
 ## Questions de cadrage
 
-- L'esthétique **gothique industrielle** (inspiration *Warhammer*) : dès l'ère hyperspatiale ou seulement à l'ère impériale ?
 - Condition de victoire finale : victoire sur le nouvel ennemi, ou domination galactique ?
 
 ---

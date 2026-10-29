@@ -11,6 +11,11 @@ Ce chapitre couvre les ères 12 à 14 (atomique, moderne, révolution de l'IA) e
 - **Armes chimiques** présentes (dès l'ère du pétrole, à partir de 1915), avec sanctions diplomatiques.
 - **Bombardement de civils** possible : villes ciblées, pertes civiles, effet sur la stabilité.
 - **Guerre des stocks** : intercepteurs, munitions et carburant sont limités (voir [chapitre 04](04-economie.md)).
+- **Défense antimissile** : **un bâtiment par couche** (courte, moyenne, haute portée, exo-atmosphérique), à placer et à approvisionner.
+- **Satellites de deux types** : en **orbite basse**, ils révèlent une bande de la carte par passages réguliers, avec précision ; en **géostationnaire**, ils observent une région en continu, avec moins de précision.
+- **Guerre froide** : course aux armements (tensions et prestige), course à l'espace (prestige des premières technologiques), **accidents nucléaires seulement en cas de négligence** (sous-investissement en sécurité), jamais au hasard. Pas de guerres par procuration.
+- **Drones des deux façons** : drones légers comme capacité des unités, gros drones et essaims comme unités à part entière.
+- **IA rebelle** : crise optionnelle, activable dans les réglages de partie.
 
 ## Repères chiffrés tirés de la recherche
 
@@ -160,4 +165,3 @@ Artillerie et drones ──bat──► Défense rapprochée immobile
 - Une guerre nucléaire peut-elle faire **régresser d'ère** ? Attention à l'**aléatoire punitif**, à éviter : une régression devrait résulter de choix du joueur, pas du hasard.
 - Les stocks d'intercepteurs sont limités (guerre des stocks) : réapprovisionnement automatique depuis les usines, ou commandes manuelles ? Pour éviter la micro-gestion, l'automatique semble préférable.
 - Des ICBM à charge conventionnelle (frappes de précision à longue portée) sont-ils souhaités ?
-- Niveau de détail des drones : unité à part entière, ou capacité de soutien attachée aux autres unités ?

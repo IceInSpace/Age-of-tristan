@@ -7,6 +7,10 @@
 - On peut **faire tenir des fronts** ; le comportement des unités dépend de leurs points de vie et de leurs caractéristiques.
 - **Mode de bataille au choix** : résolution automatique, ou contrôle direct des unités pour faire de la stratégie.
 - **Temps réel pausable**.
+- **Sièges** : **encerclement** (on affame la ville, lent et peu coûteux) ou **assaut** (rapide et coûteux), au choix.
+- **Guerre de tranchées** : avec mitrailleuses et artillerie (ère électrique), le front **se fige**. Gaz, chars et tactiques d'infiltration permettent de le débloquer.
+- **Aviation à rayon d'action** : les avions partent d'un aérodrome, frappent dans un rayon, puis reviennent.
+- **Ravitaillement** : les fronts sont approvisionnés par la logistique automatique avec priorités (voir [chapitre 04](04-economie.md)).
 
 ## Propositions (à valider)
 
@@ -60,5 +64,4 @@ dont la grandeur conservée est $\alpha_{12} N_1 - \alpha_{21} N_2$ : l'avantage
 
 - Le temps s'arrête-t-il sur le reste de la carte pendant une bataille tactique ?
 - Comment représenter visuellement un front : une ligne dessinée, des zones colorées, des positions fortifiées ?
-- Le ravitaillement des armées compte-t-il (distance aux villes, routes) ?
 - Les batailles tactiques sont-elles indispensables pour la première version ?

@@ -4,6 +4,10 @@
 >
 > **Statut** : proposition, à valider. Repères historiques et chiffrés dans la [recherche](../recherche/technologies-et-armes-par-ere.md).
 
+## Décidé
+
+- **Guerre de tranchées** : le front se fige ; gaz, chars et infiltration le débloquent.
+
 ## Passage à cette ère
 
 - Technologie clé : **Électricité**.
@@ -58,8 +62,7 @@
 
 ## Questions de cadrage
 
-- La **guerre de tranchées** est-elle un état du front (blocage) qu'il faut briser avec de nouvelles tactiques ?
-- Le **blocus** (privation de nitrates) comme mécanique contrable par la synthèse de l'ammoniac ?
+- Le **blocus** (privation de nitrates) comme mécanique, contrable par la synthèse de l'ammoniac ?
 
 ---
 

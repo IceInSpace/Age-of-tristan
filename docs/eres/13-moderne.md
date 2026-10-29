@@ -4,6 +4,11 @@
 >
 > **Statut** : proposition, à valider. Repères historiques et chiffrés dans la [recherche](../recherche/technologies-et-armes-par-ere.md).
 
+## Décidé
+
+- **Satellites** : orbite basse par passages (précis) et géostationnaire en continu (moins précis).
+- **Défense antimissile** : un bâtiment par couche.
+
 ## Passage à cette ère
 
 - Technologies clés : **Fusées** et **Électronique**.
@@ -59,8 +64,7 @@
 
 ## Questions de cadrage
 
-- Les **satellites** révèlent-ils la carte en permanence (fin du brouillard de guerre) ou par passages ?
-- La **défense multicouche** est-elle un bâtiment par couche ou un seul système qui s'améliore ?
+- Les satellites peuvent-ils être abattus dès cette ère (armes antisatellites), avec des débris ?
 
 ---
 

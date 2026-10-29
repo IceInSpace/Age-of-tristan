@@ -4,6 +4,10 @@
 >
 > **Statut** : proposition, à valider. Repères historiques et chiffrés dans la [recherche](../recherche/technologies-et-armes-par-ere.md).
 
+## Décidé
+
+- **Déforestation visible** pour le charbon de bois, avec **champs de bois** et **reboisement** possibles, et une règle « un arbre coupé, un arbre replanté » (modèle au [chapitre 02](../02-carte-exploration.md)).
+
 ## Passage à cette ère
 
 - Technologie clé : **Travail du fer**.
@@ -54,7 +58,6 @@
 
 ## Questions de cadrage
 
-- La consommation de bois pour le charbon doit-elle provoquer une **déforestation visible** sur la carte ?
 - Âge du fer comme ère des **premiers empires** (assyrien) : bonus de conquête et de déportation de populations ?
 
 ---

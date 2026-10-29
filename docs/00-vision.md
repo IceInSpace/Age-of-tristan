@@ -41,7 +41,7 @@ Issues du questionnaire qui a suivi la [recherche historique et prospective](rec
 |------|---------|------|------------------|----------------------|
 | **I — Planétaire** | Une planète | Préhistoire → révolution de l'IA | Ville et quartier | Tribus, puis nations rivales de la planète natale |
 | **II — Système solaire** | Planète natale + lunes et planètes voisines | Ère spatiale → ère de la fusion | Région, puis planète | Les mêmes rivaux : la guerre planétaire peut continuer |
-| **III — Hyperspatial** | Plusieurs systèmes stellaires | Ère hyperspatiale → ère impériale | Planète et système | Nouvel ennemi (voir questions ouvertes) |
+| **III — Hyperspatial** | Plusieurs systèmes stellaires | Ère hyperspatiale → ère impériale | Planète et système | Puissance avide d'énergie ou autres espèces |
 
 - **Passage de l'acte I à II** : progressif, à partir des satellites et des fusées.
 - **Passage de l'acte II à III** : la guerre sur la planète natale doit être gagnée, par **unification** ou **domination**. Tant que l'on reste dans le système solaire, cette guerre peut continuer.
@@ -66,9 +66,7 @@ Issues du questionnaire qui a suivi la [recherche historique et prospective](rec
 ## Questions ouvertes
 
 - **Titre** : « Age of Tristan » (nom du dépôt), ou un autre ?
-- **« Empire de la Terre »**, deux lectures possibles :
-  - **(a)** le joueur, une fois sa planète unifiée, **devient** un empire (« l'Empire de [nom de la planète] ») et affronte un nouvel ennemi venu d'ailleurs ;
-  - **(b)** le **nouvel ennemi est l'Empire de la Terre**. La planète du joueur étant fictive, la « vraie » Terre deviendrait une puissance extérieure que l'on découvre dans l'hyperespace.
+- **Empire** : *tranché*. Une fois le système solaire conquis, l'humanité est unifiée sous un empire au nom choisi par le joueur, avec des votes politiques. Le nouvel ennemi est une puissance avide d'énergie ou d'autres espèces (voir [chapitre 11](11-hyperspatial.md)).
 - Durée visée d'une partie complète : quelques heures, ou une campagne sur plusieurs sessions ?
 - Peut-on commencer une partie directement à l'acte II ou III ?
 - Ton général : sérieux, ou une touche d'humour comme dans *Age of War* ?

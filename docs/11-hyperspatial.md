@@ -11,6 +11,10 @@
 - **Routes spatiales** (dans un système) et **routes hyperspatiales** (entre systèmes).
 - Inspirations : *Stellaris* (carte galactique, planètes spécialisées) et *Dyson Sphere Program* (logistique interstellaire et exploitation des ressources planétaires), **sans** la construction manuelle des lignes de production.
 - **Zoom** sur une planète : routes, villes développées, pollution, terraformation.
+- **Unification de l'humanité** : une fois le système solaire conquis, on absorbe totalement les rivaux et on regroupe tout sous l'empire « [nom choisi par le joueur] ». C'est une forme d'union à l'échelle de l'espèce humaine, à l'image de l'Europe, avec des **votes politiques**.
+- **Nouvel ennemi** : soit une **puissance avide d'énergie** qui veut tout absorber, soit **d'autres espèces**.
+- **Clonage** : malus moral au départ, qui disparaît une fois la pratique entrée dans les mœurs. L'**endoctrinement** permet de forcer son acceptation.
+- **Esthétique gothique industrielle progressive** : premières touches à l'ère de la fusion, pleinement à l'ère impériale.
 - **Ton space opera** assumé : warp, énergie exotique, ambiance *Warhammer*. La physique réelle sert d'inspiration, pas de limite.
 
 > Repères de la [recherche](recherche/technologies-et-armes-par-ere.md) pour habiller le space opera : Alpha Centauri est à environ $4{,}37$ années-lumière, soit environ $30\,000$ ans avec une fusée classique. Le moteur d'Alcubierre (1994) exige une « matière exotique » jamais observée. Une sphère de Dyson serait en pratique un **essaim**, et son rayonnement infrarouge la rendrait visible de loin. Le projet Hephaistos (2024) a ainsi retenu 7 étoiles candidates. *Stellaris* a regroupé ses populations en 2025 (version 4.0) pour réduire le ralentissement de fin de partie, ce qui confirme le choix d'une simulation agrégée (voir [chapitre 10](10-echelles.md)).
@@ -89,7 +93,7 @@ Seule la gravité n'est pas modifiable.
 - **Routes spatiales** (dans un système) : temps de trajet $t = d / v$, avec $v$ la vitesse sous-luminique des vaisseaux.
 - **Routes hyperspatiales** (entre systèmes) : temps de trajet $t = t_{\text{saut}} + d_{\text{hyper}} / v_{\text{hyper}}$, avec $t_{\text{saut}}$ un temps fixe d'entrée et de sortie de l'hyperespace.
 - **Logistique automatique**, comme les stations interstellaires de *Dyson Sphere Program* : le joueur ne gère pas les transports.
-- **Compatibilité avec le stock global** : le stock reste global **à l'intérieur d'un réseau connexe**. Un système coupé du réseau (blocus, route détruite) ne partage plus ses ressources. Les routes gardent ainsi un rôle stratégique sans ajouter de micro-gestion.
+- **Même logistique qu'à la surface** : offre et demande automatiques avec priorités (voir [chapitre 04](04-economie.md)), agrégées par planète. Un système coupé du réseau (blocus, route détruite) ne reçoit plus rien. Les routes gardent ainsi un rôle stratégique sans ajouter de micro-gestion.
 
 ### Invasion planétaire
 
@@ -106,8 +110,8 @@ Seule la gravité n'est pas modifiable.
 
 ## Questions ouvertes
 
-- **Nouvel ennemi** : « l'Empire de la Terre » est-il **l'adversaire** (la « vraie » Terre découverte dans l'hyperespace), ou **le nom de l'empire du joueur** ? Voir [chapitre 00](00-vision.md).
-- Y a-t-il **plusieurs** puissances dans la galaxie (empires, extraterrestres, pirates), ou un seul grand ennemi ?
+- **Nouvel ennemi** : puissance avide d'énergie, ou autres espèces. Un choix au lancement de la partie, ou les deux à la fois ?
+- **Votes politiques** de l'union humaine : quel poids pour les anciennes factions, et que se passe-t-il si un vote va contre le joueur ?
 - Taille de la galaxie : combien de systèmes (quelques dizaines, quelques centaines) ?
 - Combien de types de quartiers par planète au maximum, selon sa taille ?
 - Les rivaux vaincus sur la planète natale sont-ils intégrés (unification) avec des bonus différents de ceux d'une domination ?

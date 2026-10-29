@@ -4,6 +4,11 @@
 >
 > **Statut** : proposition, à valider. Repères historiques et chiffrés dans la [recherche](../recherche/technologies-et-armes-par-ere.md).
 
+## Décidé
+
+- **Frappes nucléaires** : pas de riposte possible sans arsenal ; plusieurs tailles de bombes ; malus de zone (détails au [chapitre 08](../08-guerre-moderne.md)).
+- **Guerre froide** : course aux armements, course à l'espace, accidents nucléaires seulement en cas de négligence. Pas de guerres par procuration.
+
 ## Passage à cette ère
 
 - Technologie clé : **Fission nucléaire**.
@@ -58,8 +63,7 @@
 
 ## Questions de cadrage
 
-- Les **accidents nucléaires** (centrale) : à exclure (aléatoire punitif) ou seulement s'ils résultent d'un choix (sous-investissement en sécurité) ?
-- **Guerre froide** : tensions sans guerre directe (guerres par procuration, course aux armements) comme mécanique ?
+- Quelle est la sanction diplomatique d'une frappe nucléaire sur une nation qui n'a pas l'arme ?
 
 ---
 

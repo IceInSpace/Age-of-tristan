@@ -4,6 +4,10 @@
 >
 > **Statut** : proposition, à valider. Repères historiques et chiffrés dans la [recherche](../recherche/technologies-et-armes-par-ere.md).
 
+## Décidé
+
+- **Esthétique gothique industrielle** : premières touches à cette ère.
+
 ## Passage à cette ère
 
 - Technologie clé : **Fusion nucléaire**.

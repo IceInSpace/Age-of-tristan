@@ -4,7 +4,9 @@
 
 - **Ressources évolutives par ère** (silex, puis bronze, charbon, pétrole, uranium…).
 - **Chaînes de production** : des matières premières transformées en produits.
-- **Stock global** : toutes les ressources sont partagées instantanément entre les villes.
+- **Stocks par ville** (remplace le « stock global » décidé au départ) : chaque ville a son stock et ses **greniers**. Une ville entourée d'assez de champs se suffit à elle-même ; sinon, des **routes commerciales** entre villes et villages équilibrent les ressources.
+- **Jours de stock** : le joueur fixe un objectif en jours de réserve (par exemple de nourriture) par ville.
+- **Logistique automatique avec priorités** : les surplus partent seuls vers les villes en manque. Le joueur peut marquer une ville **prioritaire**, par exemple un village proche du front qui doit recevoir beaucoup de munitions.
 - **Ressources visibles sur la carte**, découvertes seulement quand leur existence est connue (voir [chapitre 02](02-carte-exploration.md)).
 - **Ère du pétrole** avec exploitation pétrolière.
 - **Pyrolyse** pour « fabriquer » du pétrole.
@@ -174,11 +176,57 @@ $$
 \frac{dS_u}{dt} = \dot{P}_u - \dot{C}_u^{\text{combat}}
 $$
 
-avec $\dot{P}_u$ le débit de production et $\dot{C}_u^{\text{combat}}$ la consommation en combat. Quand $S_u = 0$, l'unité perd l'essentiel de son efficacité. Pour éviter la micro-gestion, le réapprovisionnement est **automatique** via le stock global. Le joueur agit sur la production, pas sur les convois.
+avec $\dot{P}_u$ le débit de production et $\dot{C}_u^{\text{combat}}$ la consommation en combat. Quand $S_u = 0$, l'unité perd l'essentiel de son efficacité. Pour éviter la micro-gestion, le réapprovisionnement est **automatique** par la logistique d'offre et de demande décrite ci-dessous. Le joueur agit sur la production et sur les priorités, pas sur les convois.
+
+### Logistique : stocks par ville, offre et demande (proposition)
+
+Pour chaque ville $c$ et chaque ressource $r$, le joueur fixe un objectif de $j_c$ jours de réserve. Avec $\dot{C}_{c,r}$ la consommation de la ville :
+
+$$
+S^{\text{cible}}_{c,r} = j_c \cdot \dot{C}_{c,r}
+$$
+
+Une ville est **en demande** si $S_{c,r} < S^{\text{cible}}_{c,r}$ et **en offre** si elle dépasse sa cible. Le déficit et le surplus valent :
+
+$$
+D_{c,r} = \max\left(0,\; S^{\text{cible}}_{c,r} - S_{c,r}\right)
+\qquad
+O_{c,r} = \max\left(0,\; S_{c,r} - S^{\text{cible}}_{c,r}\right)
+$$
+
+Le flux envoyé d'une ville $a$ en offre vers une ville $b$ en demande est réparti selon la priorité $p_b$ fixée par le joueur et le temps de trajet $t_{ab}$, dans la limite de la capacité de la route $Q_{ab}^{\max}$ :
+
+$$
+\varphi_{a \to b} = \min\!\left(Q_{ab}^{\max},\; O_{a,r} \cdot \frac{p_b\, D_{b,r} / t_{ab}}{\sum_{k} p_k\, D_{k,r} / t_{ak}}\right)
+$$
+
+Le temps $t_{ab}$ dépend du **niveau de route** (hors route, sentier, pavé, béton, autoroute) et du terrain (voir [chapitre 02](02-carte-exploration.md)). Toutes les villes sont reliées, même sans route, mais très lentement.
+
+Marquer un village du front comme **prioritaire** revient à augmenter $p_b$ (et éventuellement $j_b$) : les munitions y affluent en premier. C'est le principe des stations d'offre et de demande de *Dyson Sphere Program*, appliqué aux villes. Les routes deviennent stratégiques : couper une route, c'est affamer une ville ou un front.
+
+Le niveau de détail suit les échelles du [chapitre 10](10-echelles.md) : stocks par ville au niveau N1 et N2, par planète aux niveaux N3 et N4.
+
+### Saisons (proposition, en réponse à ta question)
+
+Pour garder les saisons simples, elles n'agiraient **que sur la production de nourriture**, avec un calendrier visible et prévisible :
+
+$$
+f_s(t) = 1 + A_n \sin\!\left(\frac{2\pi\, t}{T}\right)
+$$
+
+avec $T$ la durée d'une année de jeu et $A_n$ l'amplitude saisonnière, qui **diminue avec les ères** : par exemple $A_n = 0{,}5$ à la préhistoire, puis vers $0$ à l'ère industrielle, grâce à la conservation, au commerce et à la réfrigération. Les saisons pèsent donc au début, puis disparaissent d'elles-mêmes.
+
+Le seul geste demandé au joueur est d'avoir assez de **greniers** pour passer l'hiver. Le stock minimal se calcule comme l'intégrale du déficit pendant la mauvaise saison :
+
+$$
+S_{\min} = \int_{\text{hiver}} \left(\dot{C} - \dot{P}\, f_s(t)\right) dt
+$$
+
+L'interface peut afficher directement « réserves : 40 jours, hiver dans 25 jours ». Les saisons pourraient aussi être désactivables dans les réglages de partie.
 
 ## Questions ouvertes
 
-- Capacité de stockage limitée (entrepôts) ou illimitée ?
+- Capacité de stockage : limitée par les greniers et entrepôts (cohérent avec les jours de stock) ?
 - Une ressource obsolète (silex) disparaît-elle, ou reste-t-elle utilisable ?
 - Existe-t-il une monnaie, ou uniquement des ressources physiques ?
 - Commerce entre factions : troc, marché avec prix variables, ou les deux ?

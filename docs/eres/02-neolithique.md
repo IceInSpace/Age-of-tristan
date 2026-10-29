@@ -4,6 +4,11 @@
 >
 > **Statut** : proposition, à valider. Repères historiques et chiffrés dans la [recherche](../recherche/technologies-et-armes-par-ere.md).
 
+## Décidé
+
+- **Raids** de bétail et de récoltes entre tribus, sans conquête.
+- **Saisons** : à l'étude, proposition simple au [chapitre 04](../04-economie.md) (n'agissent que sur la nourriture, amplitude qui diminue avec les ères).
+
 ## Passage à cette ère
 
 - Technologies clés : **Agriculture** et **Élevage**.
@@ -57,8 +62,8 @@
 
 ## Questions de cadrage
 
-- Les **raids** de bétail et de récoltes entre tribus sont-ils une mécanique (vol de ressources sans conquête) ?
 - Peuples neutres absorbables dès le néolithique ?
+- Saisons : la proposition du chapitre 04 te convient-elle, ou faut-il les retirer ?
 
 ---
 

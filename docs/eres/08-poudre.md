@@ -4,6 +4,10 @@
 >
 > **Statut** : proposition, à valider. Repères historiques et chiffrés dans la [recherche](../recherche/technologies-et-armes-par-ere.md).
 
+## Décidé
+
+- **Sièges** : encerclement ou assaut, au choix.
+
 ## Passage à cette ère
 
 - Technologie clé : **Poudre grenée** et **Artillerie**.

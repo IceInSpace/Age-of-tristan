@@ -23,7 +23,7 @@ Un fichier par ère : technologies, bâtiments, unités, merveilles, intrant cri
 | 2 | [Néolithique](02-neolithique.md) | I | N1 — Ville (village) | Terres cultivables |
 | 3 | [Âge du bronze](03-bronze.md) | I | N1 — Ville | Étain |
 | 4 | [Âge du fer](04-fer.md) | I | N1 — Ville | Charbon de bois |
-| 5 | [Antiquité classique](05-antiquite.md) | I | N1 — Ville | Blé de l'annone |
+| 5 | [Antiquité classique](05-antiquite.md) | I | N1 — Ville | Nourriture des grandes villes |
 | 6 | [Moyen Âge](06-moyen-age.md) | I | N1 — Ville | Chevaux et acier, pierre |
 | 7 | [Grandes découvertes](07-grandes-decouvertes.md) | I | N1 — Ville | Bois de marine, marins |
 | 8 | [Ère de la poudre](08-poudre.md) | I | N1 → N2 | Salpêtre, chêne |

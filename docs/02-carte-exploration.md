@@ -5,10 +5,13 @@
 - **Génération procédurale réglable** (taille, continents, climat, richesse…), **plus un éditeur** pour modifier la carte à la main.
 - **Vue isométrique** (2.5D).
 - **Terrain contraignant** : on ne peut pas tout construire partout. Le terrain donne des **bonus ou des malus**.
-- **Routes** à construire entre villages, villes et mégalopoles.
+- **Routes** à construire entre villages, villes et mégalopoles. **Toutes les villes sont atteignables sans route**, mais très lentement. Créer une route **défriche** le terrain et fait apparaître un **sentier**, qu'on améliore ensuite en **route pavée**, puis en **route en béton**, puis en **autoroute**. Chaque niveau augmente la vitesse de transport.
 - **Ressources visibles sur la carte**.
 - **Toutes les ressources sont générées dès le début de la partie**, mais une ressource n'apparaît au joueur **qu'une fois son existence connue** (exemple : pas d'uranium visible avant l'ère atomique).
 - **Exploration progressive** : le territoire de départ est minuscule, puis s'agrandit.
+- **Départ à distance** : les deux tribus commencent loin l'une de l'autre. Phase de survie et de chasse d'abord, rencontre après exploration.
+- **Survie au début** : **gibier épuisable**, **prédateurs** qui attaquent chasseurs et campements, **raids** entre tribus. Saisons à l'étude (proposition simple au [chapitre 04](04-economie.md)).
+- **Déforestation visible** : les forêts coupées disparaissent de la carte. On peut planter des **champs de bois** (taillis, plantations) ou **faire repousser la forêt**, avec une règle de gestion durable : « un arbre coupé, un arbre replanté ».
 - **Paliers d'accès** : terre ferme → outre-mer (navigation) → système solaire → systèmes stellaires.
 - **Pollution visible** sur la carte.
 - **Terraformation** possible (voir [chapitre 11](11-hyperspatial.md)).
@@ -51,11 +54,40 @@ $$
 
 Les gisements sont placés selon le biome (pétrole en désert et offshore, charbon en colline…), avec une graine aléatoire $s$ qui rend la carte reproductible.
 
+### Niveaux de route (proposition)
+
+| Niveau | Débloqué à | Vitesse relative $m$ | Capacité relative |
+|--------|-----------|----------------------|-------------------|
+| Hors route | Toujours | $1$ | $1$ |
+| Sentier (défriché) | Préhistoire | $2$ | $2$ |
+| Route pavée | Antiquité (ingénierie civile) | $4$ | $5$ |
+| Route en béton ou asphaltée | Ère du pétrole | $8$ | $15$ |
+| Autoroute | Ère atomique ou moderne | $15$ | $40$ |
+
+Les valeurs sont indicatives, à équilibrer en jeu. Le temps de trajet entre deux villes $a$ et $b$ se calcule segment par segment, avec $d_i$ la longueur du segment $i$, $v_0$ la vitesse de base de l'ère (marche, cheval, camion…), $m_i$ le multiplicateur du niveau de route et $\tau_i \le 1$ le facteur de terrain (forêt, montagne, marais) :
+
+$$
+t_{ab} = \sum_i \frac{d_i}{v_0 \cdot m_i \cdot \tau_i}
+$$
+
+Sur une route, le terrain pèse peu ($\tau_i$ proche de $1$) ; hors route, il pèse beaucoup. Ce temps $t_{ab}$ alimente directement la logistique du [chapitre 04](04-economie.md) : une ville reliée par autoroute est ravitaillée bien plus vite qu'un village isolé.
+
+### Forêts : croissance et coupe (proposition)
+
+Croissance logistique de la surface boisée $F$ d'une zone, avec $g$ le taux de repousse, $F_{\max}$ la surface boisable et $\dot{k}$ le rythme de coupe :
+
+$$
+\frac{dF}{dt} = g\,F\left(1 - \frac{F}{F_{\max}}\right) - \dot{k}
+$$
+
+La règle « un arbre coupé, un arbre replanté » revient à une politique automatique qui plafonne la coupe à la repousse, $\dot{k} \le g\,F\,(1 - F/F_{\max})$ : la forêt se maintient, au prix d'une production de bois limitée. Les **champs de bois** sont des parcelles plantées à forte valeur de $g$, mais qui occupent des terres cultivables.
+
 ## Questions ouvertes
 
+- **Chemin de fer**, **canaux** et **lignes maritimes** : des types de routes à part (très grande capacité, mais construits seulement entre deux gares ou deux ports) ?
+- Les routes s'usent-elles, avec un coût d'entretien ?
 - Grille de cases (carrées ou hexagonales en isométrique), ou carte continue ?
 - Taille de la planète : combien de « régions » ou de cases au total ?
 - Les gisements s'épuisent-ils ?
-- Y a-t-il des catastrophes naturelles (séismes, éruptions, inondations) ?
 - Climat dynamique (saisons, réchauffement dû à la pollution industrielle) ? La pollution étant désormais un mécanisme retenu, le réchauffement en serait la suite logique.
-- Retombées radioactives après une frappe nucléaire : zones inhabitables temporairement ?
+- Catastrophes naturelles : si elles existent, elles doivent rester annoncées et prévisibles (pas d'aléatoire punitif). Les retombées nucléaires sont traitées en malus de zone au [chapitre 08](08-guerre-moderne.md).

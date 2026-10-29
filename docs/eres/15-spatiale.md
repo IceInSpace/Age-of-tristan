@@ -4,6 +4,10 @@
 >
 > **Statut** : proposition, à valider. Repères historiques et chiffrés dans la [recherche](../recherche/technologies-et-armes-par-ere.md).
 
+## Décidé
+
+- **Course à l'espace** : les rivaux de la planète natale colonisent aussi le système solaire.
+
 ## Passage à cette ère
 
 - Technologie clé : **Lanceurs lourds réutilisables**.
@@ -54,7 +58,6 @@
 
 ## Questions de cadrage
 
-- Les rivaux de la planète natale colonisent-ils aussi le système (course à l'espace) ?
 - Les **débris orbitaux** (syndrome de Kessler) peuvent-ils bloquer l'orbite pour tout le monde ?
 
 ---

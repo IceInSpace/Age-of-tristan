@@ -4,6 +4,13 @@
 >
 > **Statut** : proposition, à valider. Repères historiques et chiffrés dans la [recherche](../recherche/technologies-et-armes-par-ere.md).
 
+## Décidé
+
+- **Départ à distance** : phase de survie et de chasse d'abord, rencontre avec l'autre tribu après exploration.
+- **Survie** : gibier épuisable, prédateurs qui attaquent chasseurs et campement, raids entre tribus.
+- **Peu d'unités** : le but est de survivre et de chasser. La diversité viendra avec les ères suivantes.
+- Le **chef de tribu** sera le premier **général** (les généraux sont retenus pour tout le jeu).
+
 ## Passage à cette ère
 
 - Ère de départ : la partie commence ici, avec la maîtrise du feu acquise.
@@ -52,9 +59,8 @@
 
 ## Questions de cadrage
 
-- Les deux tribus démarrent-elles côte à côte (guerre immédiate) ou à distance (phase d'exploration) ?
-- La chasse épuise-t-elle le gibier local, ce qui pousse à bouger ou à passer à l'agriculture ?
-- Un chef de tribu (unité héros) dès le départ ?
+- Le gibier épuisé repousse-t-il lentement, ou faut-il migrer le campement ?
+- Les prédateurs : simple danger, ou source de ressources (peaux, os) une fois chassés ?
 
 ---
 

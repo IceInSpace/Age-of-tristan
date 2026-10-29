@@ -4,6 +4,13 @@
 >
 > **Statut** : proposition, à valider. Repères historiques et chiffrés dans la [recherche](../recherche/technologies-et-armes-par-ere.md).
 
+## Décidé
+
+- **Pas d'annone imposée** : une ville entourée d'assez de champs se suffit à elle-même.
+- Sinon, **routes commerciales** entre villes et villages, **greniers**, objectif de **jours de stock** par ville, et logistique automatique avec **priorités** (modèle au [chapitre 04](../04-economie.md)).
+- **Factions** : mêmes unités pour tous, avec de petits bonus.
+- **Unités** : lances, boucliers, fantassins et unités à distance.
+
 ## Passage à cette ère
 
 - Technologie clé : **Ingénierie civile**.
@@ -13,7 +20,7 @@
 ## Ressources
 
 - **Nouvelles** : Marbre, vin, huile d'olive, monnaie, béton
-- **Intrant critique** : **Blé de l'annone** : les grandes villes dépendent d'un approvisionnement en grain (environ $33$ kg par personne et par mois à Rome).
+- **Intrant critique** : **Nourriture des grandes villes** : assez de champs autour de la ville, ou un ravitaillement par routes commerciales (repère historique : environ $33$ kg de blé par personne et par mois à Rome).
 
 ## Technologies
 
@@ -32,7 +39,7 @@
 
 | Bâtiment | Quartier | Rôle |
 |----------|----------|------|
-| Route pavée | Infrastructure | Déplacement rapide, commerce |
+| Route pavée | Infrastructure | Amélioration du sentier : transport plus rapide (voir chapitre 02) |
 | Aqueduc | Résidentiel | Augmente la capacité d'accueil |
 | Thermes | Culturel | Stabilité |
 | Amphithéâtre | Culturel | Stabilité forte |
@@ -62,8 +69,7 @@
 
 ## Questions de cadrage
 
-- Factions avec des **identités** (phalange grecque, légion romaine, cavalerie perse) ou unités communes à tous ?
-- L'**annone** (dépendance des grandes villes au grain importé) est-elle une bonne mécanique d'intrant critique ?
+- Combien de jours de stock par défaut, et la capacité des greniers est-elle limitée ?
 
 ---
 

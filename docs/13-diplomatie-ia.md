@@ -7,7 +7,11 @@
 - **Diplomatie avancée** : alliances, commerce, traités, échanges de technologies.
 - **Conditions de victoire** : plusieurs options à choisir au début de la partie.
 - **Guerre de la planète natale** : gagnée par **unification** ou par **domination**. Elle peut se prolonger pendant toute la conquête du système solaire, et doit être gagnée pour entrer dans l'acte III (voir [chapitre 11](11-hyperspatial.md)).
-- **Acte III** : **nouvel ennemi** (nature à préciser).
+- **Acte III** : **nouvel ennemi**, une puissance avide d'énergie ou d'autres espèces. Avant cela, l'humanité est **unifiée** sous un empire au nom choisi par le joueur, avec des **votes politiques**.
+- **Faction nomade** (cavaliers des steppes) : une faction IA à part entière au Moyen Âge, qui raide et conquiert.
+- **Factions** : petits bonus, pas d'identités fortes.
+- **Colonies outre-mer** : d'abord des comptoirs, qui peuvent devenir des villes ou réclamer leur **indépendance**.
+- **Rivaux dans l'espace** : les factions de la planète natale colonisent elles aussi le système solaire.
 - **Contre l'effet boule de neige** : **crises de fin** et **coalitions d'IA**. Elles ajoutent de la difficulté mais doivent rester **surmontables**. Pas de malus automatique lié à la taille de l'empire.
 - **Thèmes durs** : l'usage d'armes nucléaires ou chimiques et le bombardement de civils ont des **conséquences diplomatiques**. **Esclavage et colonisation** sont représentés comme mécaniques historiques et économiques.
 
@@ -81,6 +85,5 @@ Chaque condition peut s'appliquer à la fin d'un acte, ce qui permet des parties
 ## Questions ouvertes
 
 - Nombre de factions IA par partie : réglable ?
-- Les factions ont-elles des identités différentes (bonus, unités uniques) ?
 - L'IA « triche »-t-elle aux niveaux élevés (bonus de ressources, vision), ou joue-t-elle à armes égales ?
 - Multijoueur : un objectif réel à garder en tête dès l'architecture, ou une idée lointaine ?

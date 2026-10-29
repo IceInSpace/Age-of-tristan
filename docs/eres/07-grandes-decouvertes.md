@@ -4,6 +4,10 @@
 >
 > **Statut** : proposition, à valider. Repères historiques et chiffrés dans la [recherche](../recherche/technologies-et-armes-par-ere.md).
 
+## Décidé
+
+- **Territoires outre-mer** : d'abord des comptoirs, qui peuvent devenir des villes ou réclamer leur indépendance.
+
 ## Passage à cette ère
 
 - Technologie clé : **Navigation hauturière**.
@@ -58,7 +62,6 @@
 ## Questions de cadrage
 
 - L'**échange colombien** (maladies qui déciment les peuples isolés) : mécanique incluse ?
-- Les **colonies outre-mer** sont-elles des villes normales ou des comptoirs à part (production envoyée vers la métropole) ?
 
 ---
 

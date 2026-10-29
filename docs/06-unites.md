@@ -10,6 +10,10 @@
 - Ères modernes inspirées des **guerres et technologies actuelles** ; missiles, ICBM et défense antimissile détaillés au [chapitre 08](08-guerre-moderne.md).
 - Futur inspiré de *Warhammer 40 000*.
 - **Clonage d'êtres humains** et **centres robotiques** comme sources d'unités (acte III).
+- **Diversité croissante** : peu d'unités dans les premières ères (à la préhistoire, le but est de survivre et de chasser), puis de plus en plus. Exemples : lances, boucliers, fantassins et unités à distance à l'Antiquité ; cavaliers, chevaliers, machines de guerre et navires au Moyen Âge ; avions ensuite. Inspiration : le jeu *War Selection*, riche en unités.
+- **Représentation selon l'échelle** : unités individuelles au début, puis escouades, puis divisions et légions (voir [chapitre 10](10-echelles.md)).
+- **Généraux** attachés aux armées, avec bonus et expérience (pas de héros uniques).
+- **Factions** : mêmes unités pour tous, avec de **petits bonus** de faction.
 
 ## Propositions (à valider)
 
@@ -93,8 +97,6 @@ Un rang de vétéran est atteint à chaque palier d'XP ; chaque rang apporte env
 
 ## Questions ouvertes
 
-- Combien d'unités par ère (3–4 comme *Age of War*, ou davantage) ?
-- Unités individuelles ou **escouades** (groupes affichés comme une seule unité) ?
-- Héros ou généraux avec capacités spéciales ?
+- Les généraux : recrutés, gagnés par la vétérance, ou issus d'événements ? Peuvent-ils mourir au combat ?
 - Limite de population militaire (entretien en nourriture ou en ressources) ?
 - Une unité améliorée garde-t-elle son rang de vétéran ?

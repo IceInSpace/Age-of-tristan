@@ -4,6 +4,10 @@
 >
 > **Statut** : proposition, à valider. Repères historiques et chiffrés dans la [recherche](../recherche/technologies-et-armes-par-ere.md).
 
+## Décidé
+
+- **Pas de crise** d'effondrement de l'âge du bronze.
+
 ## Passage à cette ère
 
 - Technologies clés : **Métallurgie du bronze** et **Écriture**.
@@ -58,8 +62,8 @@
 
 ## Questions de cadrage
 
-- Faut-il une **crise de l'effondrement de l'âge du bronze** (coupure de l'étain, invasions), annoncée et surmontable ?
 - Les chars sont-ils puissants mais limités au terrain plat (plaines, déserts) ?
+- L'étain importé reste-t-il un intrant critique sans crise, via des routes commerciales qu'on peut couper ?
 
 ---
 

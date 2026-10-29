@@ -4,6 +4,11 @@
 >
 > **Statut** : proposition, à valider. Repères historiques et chiffrés dans la [recherche](../recherche/technologies-et-armes-par-ere.md).
 
+## Décidé
+
+- **IA rebelle** : crise optionnelle, activable dans les réglages.
+- **Drones** : drones légers comme capacité des unités, gros drones et essaims comme unités.
+
 ## Passage à cette ère
 
 - Technologie clé : **Intelligence artificielle**.
@@ -57,8 +62,7 @@
 
 ## Questions de cadrage
 
-- Une **IA rebelle** comme crise de fin d'acte I, annoncée et surmontable ?
-- Les drones : **unités** à part entière ou **capacité de soutien** attachée aux autres unités ?
+- Le niveau d'automatisation choisi par le joueur influence-t-il la probabilité de la crise d'IA rebelle (si elle est activée) ?
 
 ---
 

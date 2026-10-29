@@ -4,6 +4,12 @@
 >
 > **Statut** : proposition, à valider. Repères historiques et chiffrés dans la [recherche](../recherche/technologies-et-armes-par-ere.md).
 
+## Décidé
+
+- **Sièges** : encerclement (affamer) ou assaut, au choix.
+- **Faction nomade** (cavaliers des steppes) : faction IA à part entière.
+- **Unités** : cavaliers, chevaliers, machines de guerre, navires.
+
 ## Passage à cette ère
 
 - Technologie clé : **Fortifications en pierre** et **Féodalité**.
@@ -59,8 +65,7 @@
 
 ## Questions de cadrage
 
-- Les **sièges** sont-ils longs (encerclement et famine) ou résolus par l'assaut ?
-- Une **faction nomade** (cavaliers des steppes) comme menace ou crise de l'ère ?
+- La faction nomade apparaît-elle seulement au Moyen Âge, ou existe-t-elle dès l'Antiquité ?
 
 ---
 

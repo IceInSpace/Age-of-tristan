@@ -4,6 +4,10 @@
 >
 > **Statut** : proposition, à valider. Repères historiques et chiffrés dans la [recherche](../recherche/technologies-et-armes-par-ere.md).
 
+## Décidé
+
+- **Aviation à rayon d'action** : départ d'un aérodrome, frappe dans un rayon, retour.
+
 ## Passage à cette ère
 
 - Technologies clés : **Moteur à explosion** et **Raffinage**.
@@ -60,7 +64,6 @@
 
 ## Questions de cadrage
 
-- L'**aviation** est-elle une unité qui se déplace sur la carte ou une capacité lancée depuis un aérodrome (portée d'action) ?
 - Les **pannes** et la **consommation de carburant** doivent-elles freiner les blindés comme dans la réalité ?
 
 ---
