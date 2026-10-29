@@ -105,7 +105,7 @@ La transformation devient ainsi un choix de gestion : on perd un peu à la trans
 | Énergie | Charbon, pétrole, gaz, électricité, uranium, deutérium | Industriel → fusion |
 | Produits | Outils, armes, tissus, acier, carburants, plastiques, électronique | Selon l'ère |
 | Avancés | Silicium, terres rares, lithium, hélium-3, exotiques | Moderne → impérial |
-| Immatériels | Science, culture, XP, influence | Toutes les ères |
+| Immatériels | Science, culture, tourisme, XP, influence | Toutes les ères (tourisme : surtout à partir des transports modernes) |
 
 ### Modèle de production en procédés
 

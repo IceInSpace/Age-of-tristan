@@ -31,6 +31,7 @@ Document de pilotage. Il résume les décisions éparpillées dans les chapitres
 ### Villes et économie
 
 - Villes obtenues par **fondation, conquête, absorption et croissance** ; écran de ville + quartiers placés librement ; développement automatique quand les conditions sont réunies ([03](03-villes-batiments.md)).
+- **Patrimoine** : au changement d'ère, un ancien bâtiment remarquable peut être modernisé, conservé, reconverti ou démoli ; il perd en efficacité, gagne en culture, tourisme et influence ; entretien sinon ruine (restaurable) ; maisons et fermes toujours modernisées ([03](03-villes-batiments.md)).
 - **Population agrégée** (main-d'œuvre, consommation, stabilité), sans simulation d'individus ([03](03-villes-batiments.md)).
 - **Pas de civils qui récoltent** : chaque ville exploite les ressources de son **rayon d'action** avec des bâtiments ; seuls les colons et les éclaireurs sont non combattants ([04](04-economie.md)).
 - **Niveaux** : village 1 à 5, ville 1 à 5, mégalopole (technologie requise, absorbe les villes proches) ; le niveau plafonne le rayon, qui grandit avec routes, technologies et culture ; fondation directe avec demande de peuplement ([03](03-villes-batiments.md)).

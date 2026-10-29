@@ -134,6 +134,8 @@ Facteurs $f_i$ possibles : nourriture, culture, garnison, guerre en cours, retar
 
 ## Questions ouvertes
 
+- Patrimoine : la valeur d'un bâtiment augmente-t-elle aussi s'il a été le lieu d'un événement (bataille, traité, découverte) ?
+- Les bâtiments d'autres civilisations (ville conquise ou absorbée) peuvent-ils devenir du patrimoine, avec un bonus d'influence ?
 - Nombre maximal de quartiers : fixé par le niveau, par le terrain, ou les deux ?
 - Un bâtiment peut-il être détruit lors d'une attaque ou d'un sabotage ?
 - La capitale peut-elle être déplacée ? Que se passe-t-il si elle est prise ?

@@ -16,7 +16,7 @@ Inventaire des ressources de l'acte I, classées par gamme, avec leurs chaînes 
 | Matériaux avancés | 4 | 3 | 7 | 13 et 14 |
 | **Total** | **33** | **45** | **78** | |
 
-S'y ajoutent les ressources **immatérielles** : science (militaire, civile, industrielle), culture, influence, XP et monnaie (à partir de l'âge du fer).
+S'y ajoutent les ressources **immatérielles** : science (militaire, civile, industrielle), culture, **tourisme** (produit par le patrimoine, voir [chapitre 03](03-villes-batiments.md)), influence, XP et monnaie (à partir de l'âge du fer).
 
 Le total n'est jamais visible d'un coup : une ressource n'apparaît qu'à son ère, et certaines deviennent secondaires ensuite. À une ère donnée, le joueur manipule plutôt **15 à 30 ressources**.
 
