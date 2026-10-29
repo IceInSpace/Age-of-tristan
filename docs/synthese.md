@@ -23,6 +23,7 @@ Document de pilotage. Il résume les décisions éparpillées dans les chapitres
 ### Carte et territoire
 
 - **Grille hexagonale**, hexagones de **5 km** (environ 22 km²), sans grille hiérarchique ; villes et armées **dilatées**, temps **compressé**, distances réelles ; génération **procédurale réglable** + **éditeur** ; ressources toutes générées au départ, visibles seulement une fois connues ([02](02-carte-exploration.md)).
+- **Types de cartes** : Méditerranée, archipel, grandes îles, Pangée, continentale (avec ou sans lacs), continents type monde réel ; **5 tailles** de petit à gigantesque ; règles de génération et prototype au [chapitre 16](16-generation-procedurale.md).
 - **Survie au début** : gibier épuisable, prédateurs, raids ([02](02-carte-exploration.md)).
 - **Déforestation visible**, champs de bois et reboisement ([02](02-carte-exploration.md)).
 - **Routes** : villes atteignables sans route mais lentement ; sentier → pavé → béton → autoroute ([02](02-carte-exploration.md)).

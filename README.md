@@ -34,11 +34,19 @@ Ce dépôt contient pour l'instant **uniquement le cahier des charges**. Le code
 | 13 | [Diplomatie, IA et adversaires](docs/13-diplomatie-ia.md) | Unification et domination ajoutées |
 | 14 | [Choix techniques](docs/14-technique.md) | Unity 6 + Blender retenus |
 | 15 | [Feuille de route et version minimale](docs/15-feuille-de-route.md) | Proposition |
+| 16 | [Génération procédurale de la planète](docs/16-generation-procedurale.md) | Nouveau, prototype disponible |
 | — | [Ressources et chaînes de production](docs/ressources-et-chaines.md) | 78 ressources de l'acte I en 8 gammes (total validé) |
 | — | [Catalogue des ères](docs/eres/README.md) | Technologies, bâtiments, unités par ère ; ères 1 à 3 validées |
 | — | [Sources](docs/sources.md) | Références des chiffres réels |
 | — | [Recherche : technologies et armes par ère](docs/recherche/technologies-et-armes-par-ere.md) | Synthèse sourcée des 18 ères |
 | — | [Recherche : unités des jeux de référence](docs/recherche/unites-jeux-de-reference.md) | War Selection, Empire Earth, Age of Empires II, Total War |
+
+## Prototypes
+
+Pages HTML autonomes, à ouvrir dans un navigateur :
+
+- [`prototypes/forge-des-mondes.html`](prototypes/forge-des-mondes.html) : générateur de cartes (6 types, 5 tailles).
+- [`prototypes/antiquite-2d5-3d.html`](prototypes/antiquite-2d5-3d.html) : comparaison 2.5D / 3D sur l'Antiquité (la vue 3D charge three.js depuis un CDN).
 
 ## Conventions de rédaction
 

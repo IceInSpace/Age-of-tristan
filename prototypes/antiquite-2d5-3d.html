@@ -1,0 +1,368 @@
+<title>Antiquité en 2.5D et en 3D</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout : en-tête, onglets de cadrage, deux scènes côte à côte (empilées sur mobile), tableau comparatif. */
+:root{
+  --bg:#f6f2ea; --surface:#fffdf8; --fg:#2b261f; --muted:#6c6355; --line:#ddd3c2;
+  --accent:#a4502f; --accent-soft:#f1dfd3; --ok:#3f6b45;
+  --scene-sky:#cfe0e6;
+  --f-display:"Cinzel", "Trajan Pro", Georgia, serif;
+  --f-body:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#1b1916; --surface:#24211d; --fg:#ece6da; --muted:#a79e8f; --line:#3a352e;
+  --accent:#e08a64; --accent-soft:#3a2a22; --ok:#8fbf94; --scene-sky:#9fb7c0; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#1b1916; --surface:#24211d; --fg:#ece6da; --muted:#a79e8f; --line:#3a352e;
+  --accent:#e08a64; --accent-soft:#3a2a22; --ok:#8fbf94; --scene-sky:#9fb7c0; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:28px 48px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
+header{display:flex;flex-direction:column;gap:8px;max-width:760px}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(26px,4vw,40px);line-height:1.15;margin:0;text-wrap:balance;letter-spacing:.02em}
+header p{margin:0;color:var(--muted);max-width:68ch}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tabs button{font:500 14px var(--f-body);padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.tabs button:focus-visible,.zoom button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.scenes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:820px){.scenes{grid-template-columns:minmax(0,1fr)}}
+.scene{display:flex;flex-direction:column;gap:10px;min-width:0}
+.scene-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.scene-head h2{font-family:var(--f-display);font-size:20px;font-weight:700;margin:0;letter-spacing:.03em}
+.scene-head span{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.view{position:relative;width:100%;aspect-ratio:4/3;max-width:100%;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--scene-sky)}
+.view canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none}
+.hint{position:absolute;left:10px;bottom:10px;font:500 12px var(--f-body);background:rgba(20,18,15,.62);color:#f5efe4;padding:5px 9px;border-radius:6px;pointer-events:none}
+.zoom{position:absolute;right:10px;bottom:10px;display:flex;gap:6px}
+.zoom button{width:34px;height:34px;border-radius:8px;border:none;background:rgba(20,18,15,.62);color:#f5efe4;font:600 18px var(--f-body);cursor:pointer}
+.traits{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14px}
+.traits li{display:grid;grid-template-columns:92px minmax(0,1fr);gap:10px}
+.traits b{font-family:var(--f-mono);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding-top:2px}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{font-family:var(--f-mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:500}
+tbody th{font-weight:600}
+tr:last-child td,tr:last-child th{border-bottom:none}
+h3{font-family:var(--f-display);font-size:18px;margin:0;letter-spacing:.03em}
+.note{color:var(--muted);font-size:13.5px;max-width:80ch;margin:0}
+.err{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;color:#2b261f;font-size:14px}
+@media (prefers-reduced-motion: reduce){*{scroll-behavior:auto}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Age of Tristan · Ère 5 · Antiquité classique</div>
+    <h1>Antiquité en 2.5D et en 3D</h1>
+    <p>La même carte hexagonale, la même ville et les mêmes unités, rendues de deux façons. À gauche, des images dessinées sous un angle fixe (2.5D). À droite, des modèles 3D avec une caméra libre, l'approche de <i>Humankind</i>. Ce sont des maquettes en formes simples, pas le rendu final.</p>
+  </header>
+
+  <div class="tabs" role="group" aria-label="Cadrage des deux vues">
+    <button id="tab-carte" aria-pressed="true" data-focus="carte">Carte</button>
+    <button id="tab-bat" aria-pressed="false" data-focus="batiments">Bâtiments</button>
+    <button id="tab-unites" aria-pressed="false" data-focus="unites">Unités</button>
+  </div>
+
+  <div class="scenes">
+    <section class="scene">
+      <div class="scene-head"><h2>2.5D</h2><span>images 2D · angle fixe</span></div>
+      <div class="view" id="v25">
+        <canvas id="c25" aria-label="Carte de l'Antiquité en 2.5D"></canvas>
+        <div class="hint">Rotation impossible : chaque image est dessinée sous un seul angle</div>
+        <div class="zoom"><button id="z25m" aria-label="Dézoomer la vue 2.5D">−</button><button id="z25p" aria-label="Zoomer la vue 2.5D">+</button></div>
+      </div>
+      <ul class="traits">
+        <li><b>Carte</b><span>Tuiles peintes ; le relief est suggéré par des flancs dessinés.</span></li>
+        <li><b>Bâtiments</b><span>Une image par bâtiment et par état (construction, ère, dégâts).</span></li>
+        <li><b>Unités</b><span>Une planche d'images par direction et par animation (marche, attaque, mort).</span></li>
+      </ul>
+    </section>
+
+    <section class="scene">
+      <div class="scene-head"><h2>3D</h2><span>modèles 3D · caméra libre</span></div>
+      <div class="view" id="v3d">
+        <canvas id="c3d" aria-label="Carte de l'Antiquité en 3D"></canvas>
+        <div class="hint">Glisser pour tourner · molette ou pincement pour zoomer</div>
+      </div>
+      <ul class="traits">
+        <li><b>Carte</b><span>Relief réel, ombres calculées selon l'heure ou la saison.</span></li>
+        <li><b>Bâtiments</b><span>Un modèle réutilisé sous tous les angles ; variantes par textures.</span></li>
+        <li><b>Unités</b><span>Un modèle animé par squelette ; toutes les directions sont gratuites.</span></li>
+      </ul>
+    </section>
+  </div>
+
+  <h3>Ce que chaque approche implique</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Critère</th><th scope="col">2.5D</th><th scope="col">3D stylisée</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Caméra</th><td>Angle fixe ; zoom limité (agrandir une image la floute)</td><td>Rotation, inclinaison et zoom libres, du continent à la ruelle</td></tr>
+        <tr><th scope="row">Production graphique</th><td>Des milliers d'images 2D, toutes au même angle et à la même lumière</td><td>Moins de fichiers, mais des modèles 3D (Blender ou générateurs IA à retoucher)</td></tr>
+        <tr><th scope="row">Villes qui grandissent</th><td>Images de quartiers posées tuile par tuile</td><td>Quartiers assemblés et mélangés au relief, comme dans <i>Humankind</i></td></tr>
+        <tr><th scope="row">Animations</th><td>Image par image, pour chaque direction</td><td>Une animation par modèle, valable dans toutes les directions</td></tr>
+        <tr><th scope="row">Lumière, saisons, pollution</th><td>À peindre dans les images ou à simuler par des filtres</td><td>Calculées en temps réel (ombres, brouillard, fumées, neige)</td></tr>
+        <tr><th scope="row">Difficulté pour débuter</th><td>Plus simple à coder et à afficher</td><td>Plus de notions (caméra, lumière, matériaux), mais un prototype en formes simples suffit pour commencer</td></tr>
+        <tr><th scope="row">Passage au rendu final</th><td>Refaire l'affichage si l'on veut ensuite de la 3D</td><td>Remplacer les formes simples par les vrais modèles, sans toucher au code</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Les deux scènes sont dessinées entièrement par du code, à partir des mêmes données de carte : terrain, ville (temple, maisons, remparts, champs) et unités (phalange d'hoplites, archers, cavaliers). Elles montrent le principe de chaque approche, pas la qualité finale que l'on peut atteindre avec de vrais graphismes.</p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function(){
+"use strict";
+/* ---------- Données communes de la carte ---------- */
+const RADIUS = 5, SQ3 = Math.sqrt(3);
+const PAL = {
+  plaine:"#b9bf6a", prairie:"#9fb35c", foret:"#6f9450", colline:"#b59a64", montagne:"#9a958c",
+  eau:"#5f97b5", sable:"#dcc78f", champ1:"#d9b552", champ2:"#c49a3c", pave:"#cfc3a8"
+};
+function hash(q,r){ let h = Math.sin(q*127.1 + r*311.7)*43758.5453; return h - Math.floor(h); }
+function terrainOf(q,r){
+  const s = -q-r;
+  const d = Math.max(Math.abs(q),Math.abs(r),Math.abs(s));
+  if (q + r*0.5 < -3.2 || (q<=-3 && r>=1)) return "eau";
+  if (q + r*0.5 < -2.4) return "sable";
+  if (d<=1) return "pave";
+  const n = Math.sin(q*0.9+1.3)+Math.cos(r*1.1-0.4)+0.6*Math.sin((q-r)*0.7);
+  if (q>=3 && r<=-2) return "montagne";
+  if (n>1.25) return "colline";
+  if (n<-0.6) return "foret";
+  if (d===2 && (q+2*r)%3===0) return "champ";
+  return hash(q,r)>0.55 ? "prairie" : "plaine";
+}
+function elevOf(t){ return ({eau:0.05, sable:0.14, pave:0.3, plaine:0.25, prairie:0.25, champ:0.25, foret:0.3, colline:0.55, montagne:0.8})[t]; }
+const tiles = [];
+for (let q=-RADIUS;q<=RADIUS;q++) for (let r=-RADIUS;r<=RADIUS;r++){
+  const s=-q-r; if (Math.abs(s)>RADIUS) continue;
+  const t = terrainOf(q,r);
+  tiles.push({q,r,t,h:elevOf(t),x:SQ3*(q+r/2),z:1.5*r});
+}
+const key=(q,r)=>q+","+r;
+const tileMap = new Map(tiles.map(t=>[key(t.q,t.r),t]));
+/* Objets posés sur les tuiles */
+const objects = [
+  {type:"temple",q:0,r:0},
+  {type:"maison",q:1,r:0},{type:"maison",q:-1,r:1},{type:"maison",q:0,r:-1},{type:"maison",q:1,r:-1},{type:"maison",q:-1,r:0},{type:"maison",q:0,r:1},
+  {type:"tour",q:2,r:-2},{type:"tour",q:-2,r:2},{type:"tour",q:2,r:0},{type:"tour",q:0,r:2},{type:"tour",q:-2,r:0},{type:"tour",q:0,r:-2},
+  {type:"hoplites",q:3,r:-1},{type:"archers",q:3,r:0},{type:"cavaliers",q:1,r:2}
+];
+tiles.forEach(t=>{ if(t.t==="foret") objects.push({type:"arbres",q:t.q,r:t.r}); if(t.t==="montagne") objects.push({type:"pic",q:t.q,r:t.r}); });
+const FOCUS = { carte:{q:0,r:0,zoom:1}, batiments:{q:0,r:0,zoom:2.1}, unites:{q:2.6,r:0,zoom:2.4} };
+let currentFocus = "carte";
+
+/* ---------- Vue 2.5D (canvas 2D) ---------- */
+const c25 = document.getElementById("c25"), ctx = c25.getContext("2d");
+let z25 = 1, tz25 = 1, cx25 = 0, cz25 = 0, tcx25 = 0, tcz25 = 0;
+function shade(hex, k){ const n=parseInt(hex.slice(1),16); let r=(n>>16)&255,g=(n>>8)&255,b=n&255;
+  r=Math.max(0,Math.min(255,Math.round(r*k))); g=Math.max(0,Math.min(255,Math.round(g*k))); b=Math.max(0,Math.min(255,Math.round(b*k)));
+  return "rgb("+r+","+g+","+b+")"; }
+function resize25(){ const dpr=Math.min(window.devicePixelRatio||1,2); const w=c25.clientWidth,h=c25.clientHeight; c25.width=w*dpr; c25.height=h*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
+function draw25(){
+  const W=c25.clientWidth, H=c25.clientHeight;
+  const S = Math.min(W,H)/ (2*RADIUS*1.9) * z25 * 1.15;
+  const TILT=0.6, HK=1.1;
+  const P=(x,z,h)=>[W/2 + (x-cx25)*S, H/2 + (z-cz25)*S*TILT - h*S*HK];
+  ctx.fillStyle="#cfe0e6"; ctx.fillRect(0,0,W,H);
+  const grad=ctx.createLinearGradient(0,0,0,H); grad.addColorStop(0,"rgba(255,255,255,.35)"); grad.addColorStop(1,"rgba(255,255,255,0)"); ctx.fillStyle=grad; ctx.fillRect(0,0,W,H);
+  const sorted = tiles.slice().sort((a,b)=> a.z-b.z || a.x-b.x);
+  for (const t of sorted){
+    const base = t.t==="champ" ? PAL.champ1 : PAL[t.t];
+    const corners=[]; for(let i=0;i<6;i++){ const a=Math.PI/180*(60*i-30); corners.push([t.x+Math.cos(a)*0.98, t.z+Math.sin(a)*0.98]); }
+    // flancs visibles (bords avant)
+    for(let i=0;i<6;i++){ const a=corners[i], b=corners[(i+1)%6]; if ((a[1]+b[1])/2 <= t.z+0.01) continue;
+      const p1=P(a[0],a[1],t.h), p2=P(b[0],b[1],t.h), p3=P(b[0],b[1],0), p4=P(a[0],a[1],0);
+      const side = (a[0]+b[0])/2 < t.x ? 0.62 : 0.74;
+      ctx.fillStyle=shade(base, side); ctx.beginPath(); ctx.moveTo(...p1); ctx.lineTo(...p2); ctx.lineTo(...p3); ctx.lineTo(...p4); ctx.closePath(); ctx.fill(); }
+    ctx.beginPath(); corners.forEach((c,i)=>{ const p=P(c[0],c[1],t.h); i?ctx.lineTo(...p):ctx.moveTo(...p); }); ctx.closePath();
+    ctx.fillStyle=base; ctx.fill(); ctx.strokeStyle="rgba(40,30,20,.18)"; ctx.lineWidth=1; ctx.stroke();
+    if (t.t==="champ"){ ctx.save(); ctx.clip(); ctx.strokeStyle=PAL.champ2; ctx.lineWidth=S*0.12; for(let k=-3;k<=3;k++){ const a=P(t.x-1.2,t.z+k*0.32,t.h), b=P(t.x+1.2,t.z+k*0.32-0.3,t.h); ctx.beginPath(); ctx.moveTo(...a); ctx.lineTo(...b); ctx.stroke(); } ctx.restore(); }
+    if (t.t==="eau"){ ctx.save(); ctx.clip(); ctx.strokeStyle="rgba(255,255,255,.35)"; ctx.lineWidth=1.2; for(let k=-1;k<=1;k++){ const a=P(t.x-0.5,t.z+k*0.4,t.h), b=P(t.x+0.4,t.z+k*0.4,t.h); ctx.beginPath(); ctx.moveTo(...a); ctx.quadraticCurveTo(a[0]+S*0.45,a[1]-S*0.12,b[0],b[1]); ctx.stroke(); } ctx.restore(); }
+    for (const o of objects) if (o.q===t.q && o.r===t.r) drawObj25(o,t,P,S);
+  }
+}
+function poly(pts,fill,stroke){ ctx.beginPath(); pts.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1])); ctx.closePath(); ctx.fillStyle=fill; ctx.fill(); if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=1;ctx.stroke();} }
+function rect(x,y,w,h,fill){ ctx.fillStyle=fill; ctx.fillRect(x,y,w,h); }
+function ell(x,y,rx,ry,fill){ ctx.beginPath(); ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2); ctx.fillStyle=fill; ctx.fill(); }
+function shadow(x,y,rx){ ell(x,y,rx,rx*0.35,"rgba(30,25,15,.28)"); }
+function drawObj25(o,t,P,S){
+  const [x,y]=P(t.x,t.z,t.h); const u=S;
+  const OUT="rgba(40,28,18,.55)";
+  if (o.type==="temple"){
+    shadow(x+u*0.15,y+u*0.05,u*0.9);
+    poly([[x-u*0.85,y-u*0.05],[x+u*0.85,y-u*0.05],[x+u*0.75,y-u*0.2],[x-u*0.75,y-u*0.2]],"#e9e2d2",OUT);
+    for(let i=0;i<6;i++){ const cx=x-u*0.62+i*u*0.248; rect(cx-u*0.05,y-u*0.9,u*0.1,u*0.7, i<3?"#f2ece0":"#d9d1c0"); }
+    poly([[x-u*0.8,y-u*0.9],[x+u*0.8,y-u*0.9],[x+u*0.8,y-u*1.0],[x-u*0.8,y-u*1.0]],"#e4dccb",OUT);
+    poly([[x-u*0.85,y-u*1.0],[x+u*0.85,y-u*1.0],[x,y-u*1.32]],"#c5683f",OUT);
+  } else if (o.type==="maison"){
+    const off=[[-0.35,-0.15],[0.3,0.1]];
+    off.forEach(([dx,dz],i)=>{ const hx=x+dx*u, hy=y+dz*u*0.6; shadow(hx+u*0.08,hy+u*0.02,u*0.3);
+      rect(hx-u*0.24,hy-u*0.34,u*0.48,u*0.34,i?"#efe6d4":"#e5dac4"); rect(hx-u*0.05,hy-u*0.18,u*0.1,u*0.18,"#7a5a3c");
+      poly([[hx-u*0.3,hy-u*0.34],[hx+u*0.3,hy-u*0.34],[hx+u*0.16,hy-u*0.56],[hx-u*0.16,hy-u*0.56]],"#b85a35",OUT); });
+  } else if (o.type==="tour"){
+    shadow(x+u*0.1,y,u*0.32);
+    rect(x-u*0.22,y-u*0.85,u*0.44,u*0.85,"#d8cdb6"); rect(x-u*0.22,y-u*0.85,u*0.2,u*0.85,"#e6dcc6");
+    for(let i=0;i<3;i++) rect(x-u*0.22+i*u*0.17,y-u*0.98,u*0.1,u*0.13,"#d1c5ab");
+    rect(x-u*0.04,y-u*0.55,u*0.08,u*0.14,"#5b4630");
+  } else if (o.type==="arbres"){
+    [[-0.35,-0.1],[0.3,-0.25],[0.05,0.25]].forEach(([dx,dz])=>{ const tx=x+dx*u, ty=y+dz*u*0.6; shadow(tx+u*0.06,ty,u*0.2);
+      rect(tx-u*0.03,ty-u*0.18,u*0.06,u*0.18,"#6b4a2e"); poly([[tx-u*0.2,ty-u*0.15],[tx+u*0.2,ty-u*0.15],[tx,ty-u*0.7]],"#4e7a3c",OUT); poly([[tx,ty-u*0.15],[tx+u*0.2,ty-u*0.15],[tx,ty-u*0.7]],"#3f6a31"); });
+  } else if (o.type==="pic"){
+    poly([[x-u*0.75,y],[x+u*0.75,y],[x+u*0.05,y-u*1.25]],"#8d877d",OUT); poly([[x+u*0.05,y-u*1.25],[x+u*0.75,y],[x+u*0.2,y]],"#77726a");
+    poly([[x-u*0.2,y-u*0.9],[x+u*0.25,y-u*0.92],[x+u*0.05,y-u*1.25]],"#f4f4f1");
+  } else if (o.type==="hoplites"||o.type==="archers"||o.type==="cavaliers"){
+    const rows = o.type==="cavaliers" ? [[-0.3,0],[0.3,0.05]] : [[-0.45,-0.2],[0,-0.22],[0.45,-0.2],[-0.45,0.25],[0,0.23],[0.45,0.25]];
+    rows.sort((a,b)=>a[1]-b[1]).forEach(([dx,dz])=>{ const ux=x+dx*u, uy=y+dz*u*0.6; drawUnit25(o.type,ux,uy,u*0.55); });
+  }
+}
+function drawUnit25(type,x,y,s){
+  const OUT="rgba(30,20,12,.6)";
+  shadow(x+s*0.05,y,s*0.22);
+  if (type==="cavaliers"){
+    rect(x-s*0.32,y-s*0.42,s*0.64,s*0.22,"#7b5434"); // corps du cheval
+    rect(x-s*0.3,y-s*0.2,s*0.07,s*0.2,"#5e3f26"); rect(x+s*0.22,y-s*0.2,s*0.07,s*0.2,"#5e3f26");
+    rect(x+s*0.28,y-s*0.6,s*0.14,s*0.22,"#7b5434");
+    rect(x-s*0.08,y-s*0.78,s*0.16,s*0.36,"#8e2f25"); ell(x,y-s*0.86,s*0.08,s*0.08,"#e2b48c");
+    ctx.strokeStyle="#5a3c22"; ctx.lineWidth=Math.max(1,s*0.04); ctx.beginPath(); ctx.moveTo(x-s*0.35,y-s*0.72); ctx.lineTo(x+s*0.62,y-s*0.42); ctx.stroke(); // lance tenue basse, vers l'avant
+    return;
+  }
+  rect(x-s*0.07,y-s*0.22,s*0.05,s*0.22,"#4a3424"); rect(x+s*0.02,y-s*0.22,s*0.05,s*0.22,"#4a3424"); // jambes
+  rect(x-s*0.11,y-s*0.55,s*0.22,s*0.34, type==="hoplites"?"#8e2f25":"#6f6b3a"); // tunique
+  rect(x-s*0.15,y-s*0.53,s*0.05,s*0.25,"#e2b48c"); // bras le long du corps
+  ell(x,y-s*0.64,s*0.09,s*0.09,"#e2b48c");
+  if (type==="hoplites"){
+    ell(x,y-s*0.69,s*0.1,s*0.07,"#c7953f"); rect(x-s*0.02,y-s*0.82,s*0.04,s*0.1,"#9a2a22"); // casque et cimier
+    ctx.strokeStyle="#5a3c22"; ctx.lineWidth=Math.max(1,s*0.035); ctx.beginPath(); ctx.moveTo(x+s*0.2,y-s*0.02); ctx.lineTo(x+s*0.2,y-s*1.05); ctx.stroke(); // lance verticale
+    poly([[x+s*0.17,y-s*1.05],[x+s*0.23,y-s*1.05],[x+s*0.2,y-s*1.15]],"#b9b4a8");
+    ell(x+s*0.04,y-s*0.4,s*0.17,s*0.19,"#c7953f"); ell(x+s*0.04,y-s*0.4,s*0.07,s*0.08,"#a87a2c"); // bouclier rond
+  } else {
+    ctx.strokeStyle="#6b4a2e"; ctx.lineWidth=Math.max(1,s*0.035); ctx.beginPath(); ctx.arc(x+s*0.17,y-s*0.42,s*0.2,-1.2,1.2); ctx.stroke(); // arc tenu devant
+    rect(x-s*0.13,y-s*0.62,s*0.06,s*0.22,"#7a5534"); // carquois
+  }
+}
+
+/* ---------- Vue 3D (three.js) ---------- */
+let r3=null, scene, camera, controls, camGoalPos=null, camGoalTarget=null;
+function init3d(){
+  const canvas=document.getElementById("c3d");
+  r3 = new THREE.WebGLRenderer({canvas, antialias:true});
+  r3.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+  r3.shadowMap.enabled=true; r3.shadowMap.type=THREE.PCFSoftShadowMap;
+  r3.outputEncoding=THREE.sRGBEncoding; r3.toneMapping=THREE.ACESFilmicToneMapping; r3.toneMappingExposure=1.25;
+  scene=new THREE.Scene(); scene.background=new THREE.Color("#cfe0e6"); scene.fog=new THREE.Fog("#cfe0e6",26,48);
+  camera=new THREE.PerspectiveCamera(38,4/3,0.1,200);
+  camera.position.set(9,13,17);
+  controls=new THREE.OrbitControls(camera,canvas); controls.enableDamping=true; controls.dampingFactor=0.08;
+  controls.maxPolarAngle=Math.PI*0.44; controls.minDistance=3; controls.maxDistance=34; controls.target.set(0,0,0);
+  scene.add(new THREE.HemisphereLight("#fff6e6","#6b5a40",0.75));
+  const sun=new THREE.DirectionalLight("#fff1d6",1.25); sun.position.set(-10,16,8); sun.castShadow=true;
+  sun.shadow.mapSize.set(2048,2048); const sc=sun.shadow.camera; sc.left=-14; sc.right=14; sc.top=14; sc.bottom=-14; sc.near=1; sc.far=50; sun.shadow.bias=-0.0006;
+  scene.add(sun);
+  const M=(c,o)=>{ const m=new THREE.MeshStandardMaterial(Object.assign({color:c,flatShading:true,roughness:0.85,metalness:0},o||{})); m.color.convertSRGBToLinear(); return m; };
+  const mats={};
+  const hexGeo=(h)=>new THREE.CylinderGeometry(0.98,0.98,h,6);
+  for (const t of tiles){
+    const col = t.t==="champ"?PAL.champ1:PAL[t.t];
+    mats[col]=mats[col]||M(col, t.t==="eau"?{roughness:0.25,metalness:0.1}:{});
+    const h = t.h*1.6+0.2; const m=new THREE.Mesh(hexGeo(h),mats[col]);
+    m.position.set(t.x,h/2,t.z); m.receiveShadow=true; m.castShadow=t.t!=="eau"; scene.add(m); t.top=h;
+    if (t.t==="champ"){ for(let k=-2;k<=2;k++){ const f=new THREE.Mesh(new THREE.BoxGeometry(1.3,0.05,0.18),M(PAL.champ2)); f.position.set(t.x,h+0.02,t.z+k*0.3); f.rotation.y=0.3; f.receiveShadow=true; scene.add(f);} }
+  }
+  const add=(g,mat,x,y,z,ry)=>{ const m=new THREE.Mesh(g,mat); m.position.set(x,y,z); if(ry) m.rotation.y=ry; m.castShadow=true; m.receiveShadow=true; scene.add(m); return m; };
+  const marble=M("#ece6d8"), marble2=M("#ddd5c4"), roof=M("#b85a35"), wall=M("#e8dfcc"), wood=M("#6b4a2e"), leaf=M("#4b7a3a"), leaf2=M("#5d8a43"), stone=M("#8f8a80"), snow=M("#f4f4f1"), towerM=M("#d6cbb3");
+  const red=M("#8e2f25"), bronze=M("#c7953f",{metalness:0.35,roughness:0.45}), skin=M("#e2b48c"), dark=M("#4a3424"), olive=M("#6f6b3a"), horse=M("#7b5434"), steel=M("#b9b4a8",{metalness:0.4,roughness:0.4});
+  const tri=new THREE.Shape(); tri.moveTo(-0.95,0); tri.lineTo(0.95,0); tri.lineTo(0,0.38); tri.lineTo(-0.95,0);
+  const pedGeo=new THREE.ExtrudeGeometry(tri,{depth:1.3,bevelEnabled:false});
+  for (const o of objects){
+    const t=tileMap.get(key(o.q,o.r)); if(!t) continue; const y0=t.top, X=t.x, Z=t.z;
+    if (o.type==="temple"){
+      add(new THREE.BoxGeometry(1.9,0.12,1.4),marble2,X,y0+0.06,Z); add(new THREE.BoxGeometry(1.75,0.1,1.25),marble,X,y0+0.17,Z);
+      const colG=new THREE.CylinderGeometry(0.06,0.07,0.8,10);
+      for(let i=0;i<6;i++) for(const zz of [-0.5,0.5]) add(colG,marble,X-0.7+i*0.28,y0+0.62,Z+zz);
+      for(const xx of [-0.7,0.7]) for(const zz of [-0.17,0.17]) add(colG,marble,X+xx,y0+0.62,Z+zz);
+      add(new THREE.BoxGeometry(1.9,0.12,1.35),marble2,X,y0+1.08,Z);
+      const p=add(pedGeo,roof,X,y0+1.14,Z-0.65); p.rotation.y=0;
+    } else if (o.type==="maison"){
+      [[-0.35,-0.2,0.4],[0.32,0.18,-0.3]].forEach(([dx,dz,ry])=>{ add(new THREE.BoxGeometry(0.5,0.36,0.42),wall,X+dx,y0+0.18,Z+dz,ry);
+        const r=add(new THREE.ConeGeometry(0.42,0.26,4),roof,X+dx,y0+0.49,Z+dz,ry+Math.PI/4); });
+    } else if (o.type==="tour"){
+      add(new THREE.CylinderGeometry(0.26,0.3,0.95,8),towerM,X,y0+0.48,Z);
+      for(let i=0;i<6;i++){ const a=i/6*Math.PI*2; add(new THREE.BoxGeometry(0.1,0.12,0.1),towerM,X+Math.cos(a)*0.24,y0+1.01,Z+Math.sin(a)*0.24); }
+    } else if (o.type==="arbres"){
+      [[-0.38,-0.15],[0.32,-0.32],[0.05,0.35],[0.45,0.25]].forEach(([dx,dz],i)=>{ add(new THREE.CylinderGeometry(0.04,0.05,0.22,6),wood,X+dx,y0+0.11,Z+dz);
+        add(new THREE.ConeGeometry(0.22,0.6,7),i%2?leaf:leaf2,X+dx,y0+0.52,Z+dz); });
+    } else if (o.type==="pic"){
+      add(new THREE.ConeGeometry(0.85,1.5,6),stone,X,y0+0.75,Z,0.3); add(new THREE.ConeGeometry(0.33,0.58,6),snow,X,y0+1.21,Z,0.3);
+    } else if (o.type==="hoplites"||o.type==="archers"){
+      const spots=[[-0.42,-0.25],[0,-0.25],[0.42,-0.25],[-0.42,0.22],[0,0.22],[0.42,0.22]];
+      for (const [dx,dz] of spots){ const g=new THREE.Group(); g.position.set(X+dx,y0,Z+dz); g.rotation.y=Math.PI/2*1.05; scene.add(g);
+        const P=(geo,mat,x,y,z)=>{ const m=new THREE.Mesh(geo,mat); m.position.set(x,y,z); m.castShadow=true; g.add(m); return m; };
+        P(new THREE.BoxGeometry(0.05,0.16,0.05),dark,-0.04,0.08,0); P(new THREE.BoxGeometry(0.05,0.16,0.05),dark,0.04,0.08,0);
+        P(new THREE.CylinderGeometry(0.07,0.09,0.2,8),o.type==="hoplites"?red:olive,0,0.26,0);
+        P(new THREE.BoxGeometry(0.035,0.15,0.035),skin,-0.1,0.25,0); P(new THREE.BoxGeometry(0.035,0.15,0.035),skin,0.1,0.25,0); // bras le long du corps
+        P(new THREE.SphereGeometry(0.06,10,8),skin,0,0.42,0);
+        if (o.type==="hoplites"){ P(new THREE.SphereGeometry(0.068,10,8,0,Math.PI*2,0,Math.PI*0.55),bronze,0,0.43,0); P(new THREE.BoxGeometry(0.02,0.06,0.12),red,0,0.5,0);
+          const sh=P(new THREE.CylinderGeometry(0.13,0.13,0.025,16),bronze,0,0.27,0.11); sh.rotation.x=Math.PI/2;
+          P(new THREE.CylinderGeometry(0.008,0.008,0.75,5),wood,0.13,0.37,0.05); P(new THREE.ConeGeometry(0.018,0.06,5),steel,0.13,0.77,0.05);
+        } else { const bow=P(new THREE.TorusGeometry(0.14,0.008,5,12,Math.PI*0.9),wood,0.0,0.3,0.1); bow.rotation.z=-Math.PI*0.45;
+          P(new THREE.CylinderGeometry(0.025,0.025,0.18,6),wood,-0.02,0.3,-0.08); }
+      }
+    } else if (o.type==="cavaliers"){
+      for (const [dx,dz] of [[-0.3,-0.1],[0.3,0.15]]){ const g=new THREE.Group(); g.position.set(X+dx,y0,Z+dz); g.rotation.y=-0.6; scene.add(g);
+        const P=(geo,mat,x,y,z)=>{ const m=new THREE.Mesh(geo,mat); m.position.set(x,y,z); m.castShadow=true; g.add(m); return m; };
+        P(new THREE.BoxGeometry(0.42,0.16,0.14),horse,0,0.28,0);
+        for (const lx of [-0.15,0.15]) for (const lz of [-0.05,0.05]) P(new THREE.BoxGeometry(0.04,0.2,0.04),horse,lx,0.1,lz);
+        const n=P(new THREE.BoxGeometry(0.1,0.18,0.08),horse,0.22,0.4,0); n.rotation.z=-0.5; P(new THREE.BoxGeometry(0.14,0.07,0.07),horse,0.29,0.47,0);
+        P(new THREE.CylinderGeometry(0.06,0.07,0.18,8),red,0,0.45,0); P(new THREE.SphereGeometry(0.055,10,8),skin,0,0.6,0);
+        P(new THREE.SphereGeometry(0.062,10,8,0,Math.PI*2,0,Math.PI*0.55),bronze,0,0.61,0);
+        const sp=P(new THREE.CylinderGeometry(0.008,0.008,0.8,5),wood,0.12,0.44,0.07); sp.rotation.z=-1.25; // lance basse, vers l'avant
+      }
+    }
+  }
+  const ground=new THREE.Mesh(new THREE.CircleGeometry(30,48),M("#a9c3cc")); ground.rotation.x=-Math.PI/2; ground.position.y=-0.01; ground.receiveShadow=true; scene.add(ground);
+  resize3d(); animate();
+}
+function resize3d(){ if(!r3) return; const el=document.getElementById("v3d"); const w=el.clientWidth,h=el.clientHeight; r3.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); }
+function focus3d(name){
+  if(!r3) return; const f=FOCUS[name]; const x=SQ3*(f.q+f.r/2), z=1.5*f.r;
+  const dist = 22/f.zoom; camGoalTarget=new THREE.Vector3(x,0.4,z);
+  const dir=camera.position.clone().sub(controls.target).normalize(); camGoalPos=camGoalTarget.clone().add(dir.multiplyScalar(dist));
+}
+const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function animate(){
+  requestAnimationFrame(animate);
+  if (camGoalPos){ const k=reduce?1:0.08; camera.position.lerp(camGoalPos,k); controls.target.lerp(camGoalTarget,k);
+    if (camera.position.distanceTo(camGoalPos)<0.02){ camGoalPos=null; } }
+  controls.update(); r3.render(scene,camera);
+  // vue 2.5D : interpolation douce du cadrage
+  const k2=reduce?1:0.12; const nz=z25+(tz25-z25)*k2, nx=cx25+(tcx25-cx25)*k2, nzz=cz25+(tcz25-cz25)*k2;
+  if (Math.abs(nz-z25)>1e-4||Math.abs(nx-cx25)>1e-4||Math.abs(nzz-cz25)>1e-4){ z25=nz; cx25=nx; cz25=nzz; draw25(); }
+}
+function setFocus(name){
+  currentFocus=name; const f=FOCUS[name];
+  tz25=f.zoom; tcx25=SQ3*(f.q+f.r/2); tcz25=1.5*f.r;
+  focus3d(name);
+  document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-pressed", String(b.dataset.focus===name)));
+  if(!r3){ z25=tz25; cx25=tcx25; cz25=tcz25; draw25(); }
+}
+document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>setFocus(b.dataset.focus)));
+document.getElementById("z25p").addEventListener("click",()=>{ tz25=Math.min(3.2,tz25*1.25); if(!r3){z25=tz25;draw25();} });
+document.getElementById("z25m").addEventListener("click",()=>{ tz25=Math.max(0.7,tz25/1.25); if(!r3){z25=tz25;draw25();} });
+function onResize(){ resize25(); draw25(); resize3d(); }
+window.addEventListener("resize",onResize);
+resize25(); draw25();
+try{ if (typeof THREE==="undefined" || !THREE.OrbitControls) throw new Error("three"); init3d(); }
+catch(e){ const v=document.getElementById("v3d"); const d=document.createElement("div"); d.className="err"; d.textContent="La vue 3D n'a pas pu démarrer dans ce navigateur (WebGL indisponible)."; v.appendChild(d); }
+})();
+</script>

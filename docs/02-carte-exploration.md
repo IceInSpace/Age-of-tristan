@@ -48,6 +48,8 @@ Une zone explorée redevient « explorée » (non observée) quand plus aucune u
 
 ### Génération procédurale
 
+> Détaillée et mise à jour au [chapitre 16](16-generation-procedurale.md).
+
 Méthode classique proposée : un **bruit de Perlin ou Simplex** pour l'altitude $h(x,y)$ et l'humidité $w(x,y)$, puis attribution du biome selon des seuils. Le niveau de la mer $h_{\text{mer}}$ est un paramètre réglable : il fixe la proportion d'océan.
 
 $$

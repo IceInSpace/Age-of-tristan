@@ -1,0 +1,315 @@
+<title>Forge des mondes</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout : barre de réglages en haut, carte pleine largeur, légende et statistiques dessous. */
+:root{
+  --bg:#f4f1ea; --surface:#fffdf8; --fg:#29251f; --muted:#6b6255; --line:#dcd2c1; --accent:#2f6f8f; --accent-fg:#ffffff;
+  --f-display:"Cinzel", Georgia, serif; --f-body:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif; --f-mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --bg:#181a1b; --surface:#212426; --fg:#e9e4da; --muted:#a39b8e; --line:#363a3d; --accent:#6fb3d2; --accent-fg:#0d1a20; color-scheme:dark } }
+:root[data-theme="dark"]{ --bg:#181a1b; --surface:#212426; --fg:#e9e4da; --muted:#a39b8e; --line:#363a3d; --accent:#6fb3d2; --accent-fg:#0d1a20; color-scheme:dark }
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:14.5px;line-height:1.5;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:24px 40px}
+.wrap{max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+header{display:flex;flex-direction:column;gap:6px;max-width:780px}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:var(--f-display);font-size:clamp(26px,4vw,38px);margin:0;letter-spacing:.02em;text-wrap:balance}
+header p{margin:0;color:var(--muted);max-width:70ch}
+.controls{display:flex;flex-wrap:wrap;gap:14px 18px;align-items:flex-end;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field label,.field .lbl{font-family:var(--f-mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+select,input[type="number"]{font:500 14px var(--f-body);padding:7px 10px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--fg)}
+input[type="number"]{width:110px}
+input[type="range"]{width:150px;accent-color:var(--accent)}
+.row{display:flex;gap:8px;align-items:center}
+.chk{display:flex;gap:6px;align-items:center;font-size:14px;cursor:pointer}
+button{font:600 14px var(--f-body);padding:8px 14px;border-radius:7px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-fg);cursor:pointer}
+button.ghost{background:transparent;color:var(--accent)}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mapbox{position:relative;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#1d3d55;max-width:100%}
+canvas{display:block;width:100%;height:auto}
+.readout{position:absolute;left:10px;top:10px;font:500 12px var(--f-mono);background:rgba(15,20,24,.72);color:#eef3f5;padding:6px 9px;border-radius:6px;pointer-events:none;max-width:calc(100% - 20px)}
+.below{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:18px}
+@media (max-width:820px){.below{grid-template-columns:minmax(0,1fr)}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.panel h2{font-family:var(--f-display);font-size:17px;margin:0;letter-spacing:.03em}
+.legend{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px 14px;font-size:13.5px}
+.legend span{display:flex;gap:8px;align-items:center}
+.sw{width:14px;height:14px;border-radius:3px;flex:none;border:1px solid rgba(0,0,0,.15)}
+.stats{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;font-size:13.5px;font-variant-numeric:tabular-nums}
+.stats dt{color:var(--muted)} .stats dd{margin:0;font-family:var(--f-mono)}
+.desc{margin:0;color:var(--muted);font-size:13.5px}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Age of Tristan · Génération procédurale · Prototype</div>
+    <h1>Forge des mondes</h1>
+    <p>Aperçu des règles de génération proposées dans le cahier des charges : masque des terres selon le type de carte, bruit fractal, plaques et montagnes, niveau de la mer réglé sur la part de terres, climat, biomes, lacs, rivières et points de départ des deux tribus. Hexagones de 5 km. Même graine, même monde.</p>
+  </header>
+
+  <div class="controls">
+    <div class="field"><label for="type">Type de carte</label>
+      <select id="type">
+        <option value="monde">Continents (type monde réel)</option>
+        <option value="pangee">Pangée</option>
+        <option value="grandes">Grandes îles</option>
+        <option value="archipel">Archipel</option>
+        <option value="medit">Méditerranée</option>
+        <option value="continental">Continentale</option>
+      </select></div>
+    <div class="field"><label for="size">Taille</label>
+      <select id="size">
+        <option value="petit">Petit · 128 × 80</option>
+        <option value="grand" selected>Grand · 200 × 125</option>
+        <option value="tgrand">Très grand · 256 × 160</option>
+        <option value="enorme">Énorme · 320 × 200</option>
+        <option value="giga">Gigantesque · 400 × 250</option>
+      </select></div>
+    <div class="field"><label for="seed">Graine</label>
+      <div class="row"><input id="seed" type="number" value="1234" min="0" max="999999"><button class="ghost" id="rnd" type="button" aria-label="Graine aléatoire">Aléatoire</button></div></div>
+    <div class="field"><span class="lbl" id="landlbl">Part de terres : 32 %</span><input id="land" type="range" min="10" max="100" value="32" aria-labelledby="landlbl"></div>
+    <div class="field"><span class="lbl">Options</span>
+      <div class="row"><label class="chk"><input type="checkbox" id="lakes" checked> Lacs</label><label class="chk"><input type="checkbox" id="rivers" checked> Rivières</label><label class="chk"><input type="checkbox" id="relief" checked> Ombrage</label></div></div>
+    <button id="go" type="button">Générer</button>
+  </div>
+
+  <div class="mapbox"><canvas id="map" aria-label="Carte générée"></canvas><div class="readout" id="readout">Survole la carte pour lire un hexagone</div></div>
+
+  <div class="below">
+    <section class="panel"><h2>Légende</h2><div class="legend" id="legend"></div>
+      <p class="desc" id="tdesc"></p></section>
+    <section class="panel"><h2>Ce monde</h2><dl class="stats" id="stats"></dl></section>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+const SQ3=Math.sqrt(3), HEX_KM2=21.65;
+const SIZES={petit:[128,80],grand:[200,125],tgrand:[256,160],enorme:[320,200],giga:[400,250]};
+const TYPES={
+  monde:{land:32,desc:"3 à 6 continents de formes variées, des océans, des mers et des îles. Environ un tiers de terres, comme sur Terre (29 %)."},
+  pangee:{land:42,desc:"Un supercontinent unique entouré d'un océan mondial, avec quelques îles au large."},
+  grandes:{land:38,desc:"5 à 8 grandes îles séparées par des bras de mer : la navigation devient vite essentielle."},
+  archipel:{land:24,desc:"Des dizaines d'îles petites et moyennes : un monde maritime dès les premières ères."},
+  medit:{land:58,desc:"Une mer intérieure centrale bordée de terres, reliée à l'océan par un détroit, avec des îles et des péninsules."},
+  continental:{land:94,desc:"Presque tout en terre : les étendues d'eau sont des lacs et des mers intérieures (désactivables)."}
+};
+const BIOME={
+  ocean:["Océan profond","#1d3d55"], cote:["Mer côtière","#3c6f8e"], lac:["Lac","#4f8db0"],
+  glace:["Glace","#eef2f3"], toundra:["Toundra","#a9b39c"], taiga:["Taïga","#4f6e4d"],
+  prairie:["Prairie","#a7b865"], plaine:["Plaine","#bfc272"], steppe:["Steppe","#c9bd84"], desert:["Désert","#e0c88d"],
+  savane:["Savane","#c6b75e"], foret:["Forêt","#5e8a46"], tropicale:["Forêt tropicale","#3f7a3b"], jungle:["Jungle","#2f6a34"],
+  marais:["Marais","#6c8462"], sable:["Côte sableuse","#e5d6a6"], colline:["Colline","#a99169"], montagne:["Montagne","#8c867d"]
+};
+/* ---------- aléatoire et bruit ---------- */
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function makeSimplex(rand){
+  const perm=new Uint8Array(512), p=[]; for(let i=0;i<256;i++)p[i]=i;
+  for(let i=255;i>0;i--){const j=Math.floor(rand()*(i+1));[p[i],p[j]]=[p[j],p[i]];}
+  for(let i=0;i<512;i++)perm[i]=p[i&255];
+  const G=[[1,1],[-1,1],[1,-1],[-1,-1],[1,0],[-1,0],[0,1],[0,-1]], F2=0.5*(SQ3-1), G2=(3-SQ3)/6;
+  return function(x,y){
+    const s=(x+y)*F2, i=Math.floor(x+s), j=Math.floor(y+s), t=(i+j)*G2;
+    const x0=x-(i-t), y0=y-(j-t); const i1=x0>y0?1:0, j1=x0>y0?0:1;
+    const x1=x0-i1+G2, y1=y0-j1+G2, x2=x0-1+2*G2, y2=y0-1+2*G2; const ii=i&255, jj=j&255;
+    let n=0, tt;
+    tt=0.5-x0*x0-y0*y0; if(tt>0){const g=G[perm[ii+perm[jj]]&7]; tt*=tt; n+=tt*tt*(g[0]*x0+g[1]*y0);}
+    tt=0.5-x1*x1-y1*y1; if(tt>0){const g=G[perm[ii+i1+perm[jj+j1]]&7]; tt*=tt; n+=tt*tt*(g[0]*x1+g[1]*y1);}
+    tt=0.5-x2*x2-y2*y2; if(tt>0){const g=G[perm[ii+1+perm[jj+1]]&7]; tt*=tt; n+=tt*tt*(g[0]*x2+g[1]*y2);}
+    return 70*n;
+  };
+}
+function fbm(noise,x,y,oct,freq,pers){let a=1,f=freq,s=0,n=0;for(let o=0;o<oct;o++){s+=a*noise(x*f,y*f);n+=a;a*=pers;f*=2;}return s/n;}
+/* ---------- tas binaire pour l'inondation par priorité ---------- */
+function Heap(){this.k=[];this.v=[];}
+Heap.prototype.push=function(key,val){const k=this.k,v=this.v;let i=k.length;k.push(key);v.push(val);while(i>0){const p=(i-1)>>1;if(k[p]<=k[i])break;[k[p],k[i]]=[k[i],k[p]];[v[p],v[i]]=[v[i],v[p]];i=p;}};
+Heap.prototype.pop=function(){const k=this.k,v=this.v;const rv=v[0];const lk=k.pop(),lv=v.pop();if(k.length){k[0]=lk;v[0]=lv;let i=0;for(;;){const l=2*i+1,r=l+1;let m=i;if(l<k.length&&k[l]<k[m])m=l;if(r<k.length&&k[r]<k[m])m=r;if(m===i)break;[k[m],k[i]]=[k[i],k[m]];[v[m],v[i]]=[v[i],v[m]];i=m;}}return rv;};
+Heap.prototype.size=function(){return this.k.length;};
+
+let world=null;
+function generate(opt){
+  const [W,H]=SIZES[opt.size]; const N=W*H; const rand=mulberry32(opt.seed*2654435761>>>0 || 1);
+  const nA=makeSimplex(rand), nB=makeSimplex(rand), nC=makeSimplex(rand), nW=makeSimplex(rand);
+  const AR=(SQ3*(W+0.5))/(1.5*H+0.5); // largeur / hauteur en unités normalisées
+  const X=new Float32Array(N), Y=new Float32Array(N);
+  for(let r=0;r<H;r++)for(let c=0;c<W;c++){const i=r*W+c; X[i]=(SQ3*(c+0.5*(r&1))+SQ3/2)/(1.5*H+0.5); Y[i]=(1.5*r+1)/(1.5*H+0.5);}
+  const nb=(i)=>{const r=(i/W)|0,c=i-r*W;const D=(r&1)?[[1,0],[1,-1],[0,-1],[-1,0],[0,1],[1,1]]:[[1,0],[0,-1],[-1,-1],[-1,0],[-1,1],[0,1]];const out=[];for(const[dc,dr]of D){const cc=c+dc,rr=r+dr;if(cc>=0&&cc<W&&rr>=0&&rr<H)out.push(rr*W+cc);}return out;};
+  // 1. masque selon le type
+  const blobs=[]; const R=()=>rand();
+  const T=opt.type;
+  if(T==="monde"){ const K=3+Math.floor(R()*4); for(let k=0;k<K;k++) blobs.push([0.12*AR+R()*0.76*AR,0.18+R()*0.64,0.15+R()*0.12,0.7+R()*0.6]); for(let k=0;k<8;k++) blobs.push([R()*AR,0.1+R()*0.8,0.025+R()*0.04,1]); }
+  else if(T==="pangee"){ blobs.push([AR*0.5,0.5,0.36,1.35]); for(let k=0;k<4;k++){const a=R()*6.28; blobs.push([AR*0.5+Math.cos(a)*0.28*AR*0.6,0.5+Math.sin(a)*0.22,0.16+R()*0.08,1]);} for(let k=0;k<5;k++) blobs.push([R()*AR,0.1+R()*0.8,0.02+R()*0.03,1]); }
+  else if(T==="grandes"){ const K=5+Math.floor(R()*4); let tries=0; while(blobs.length<K && tries<500){tries++; const b=[0.1*AR+R()*0.8*AR,0.15+R()*0.7,0.09+R()*0.06,0.8+R()*0.5]; if(blobs.every(o=>Math.hypot(o[0]-b[0],o[1]-b[1])>0.27)) blobs.push(b);} }
+  else if(T==="archipel"){ const K=55+Math.floor(R()*30); for(let k=0;k<K;k++) blobs.push([0.04*AR+R()*0.92*AR,0.07+R()*0.86,0.018+R()*0.045,0.8+R()*0.5]); }
+  else if(T==="medit"){ for(let k=0;k<7;k++) blobs.push([AR*(0.3+R()*0.4),0.38+R()*0.24,0.015+R()*0.03,1]); }
+  const mask=new Float32Array(N);
+  for(let i=0;i<N;i++){
+    const wx=X[i]+0.07*nW(X[i]*3,Y[i]*3), wy=Y[i]+0.07*nW(X[i]*3+31.7,Y[i]*3+17.3); // déformation du domaine
+    let m=0;
+    if(T==="medit"){
+      const dx=(wx-AR*0.5)/(0.40*AR), dy=(wy-0.5)/0.2; let sea=Math.exp(-(dx*dx+dy*dy)*1.6);
+      const strait = wx<AR*0.32 ? Math.exp(-Math.pow((wy-0.5)/0.035,2)) : 0; sea=Math.max(sea,strait);
+      m=0.85-0.95*sea; for(const b of blobs){const d2=((wx-b[0])**2+(wy-b[1])**2)/(b[2]*b[2]); m=Math.max(m,0.75*Math.exp(-d2));}
+    } else if(T==="continental"){ m=0.75; }
+    else { for(const b of blobs){const d2=((wx-b[0])**2+(wy-b[1])**2)/(b[2]*b[2]); m=Math.max(m,Math.exp(-d2)*Math.min(1.15,b[3]));} }
+    if(T!=="continental" && T!=="medit"){ const e=Math.min(X[i],AR-X[i],Y[i],1-Y[i])/0.07; m*=Math.min(1,Math.max(0,e)); }
+    mask[i]=m;
+  }
+  // 2. bruit fractal + plaques tectoniques
+  const P=8+Math.floor(R()*6), plates=[]; for(let k=0;k<P;k++) plates.push([R()*AR,R(),R()*2-1,R()*2-1]);
+  const h=new Float32Array(N), relief=new Float32Array(N);
+  const hf = T==="archipel"?5:2.6, wn = T==="archipel"?0.5:0.38;
+  for(let i=0;i<N;i++){
+    const n=fbm(nA,X[i],Y[i],6,hf,0.5)*0.5+0.5;
+    let d1=1e9,d2=1e9,a=-1,b=-1; for(let k=0;k<P;k++){const d=(X[i]-plates[k][0])**2+(Y[i]-plates[k][1])**2; if(d<d1){d2=d1;b=a;d1=d;a=k;} else if(d<d2){d2=d;b=k;}}
+    const gap=Math.sqrt(d2)-Math.sqrt(d1); const nx=plates[b][0]-plates[a][0], ny=plates[b][1]-plates[a][1], nl=Math.hypot(nx,ny)||1;
+    const conv=-((plates[b][2]-plates[a][2])*nx+(plates[b][3]-plates[a][3])*ny)/nl; // >0 : plaques qui se rapprochent
+    const ridge=Math.exp(-(gap*gap)/(0.034*0.034))*Math.max(0,conv)*(0.55+0.45*fbm(nC,X[i],Y[i],3,6,0.5));
+    h[i]=(1-wn)*mask[i]+wn*n+0.22*ridge*Math.min(1,mask[i]*1.6);
+    relief[i]=Math.min(1,0.7*Math.min(1,ridge/1.1)+0.5*Math.max(0,(n-0.5)*2.2));
+  }
+  // 3. niveau de la mer par quantile
+  const land=opt.land/100; const sorted=Float32Array.from(h).sort();
+  const hs = land>=0.999 ? -1 : sorted[Math.min(N-1,Math.floor((1-land)*N))];
+  const water=new Uint8Array(N); for(let i=0;i<N;i++) water[i]=h[i]<=hs?1:0;
+  const lakeMode = T==="continental";
+  if(lakeMode && !opt.lakes){ for(let i=0;i<N;i++) water[i]=0; }
+  // 4. inondation par priorité : lacs dans les cuvettes et sens d'écoulement
+  const Hf=new Float32Array(N).fill(Infinity), parent=new Int32Array(N).fill(-1), order=[]; const done=new Uint8Array(N); const heap=new Heap();
+  for(let i=0;i<N;i++){ const r=(i/W)|0,c=i-r*W; const border=(r===0||c===0||r===H-1||c===W-1);
+    if((water[i] && !lakeMode) || (lakeMode && border)){ Hf[i]=water[i]&&!lakeMode?hs:h[i]; heap.push(Hf[i],i); } }
+  while(heap.size()){ const i=heap.pop(); if(done[i])continue; done[i]=1; order.push(i);
+    for(const j of nb(i)){ if(done[j])continue; const v=Math.max(h[j],Hf[i]+1e-6); if(v<Hf[j]){Hf[j]=v; parent[j]=i; heap.push(v,j);} } }
+  const lake=new Uint8Array(N);
+  for(let i=0;i<N;i++){ if(lakeMode && water[i]) lake[i]=1; else if(!water[i] && opt.lakes && Hf[i]-h[i]>(lakeMode?0.035:0.012)) lake[i]=1; }
+  const isWater=(i)=>water[i]&&!lakeMode || lake[i];
+  // 5. distance à l'eau, climat
+  const dist=new Int32Array(N).fill(1e9); const q=[]; for(let i=0;i<N;i++) if(isWater(i)){dist[i]=0;q.push(i);}
+  for(let qi=0;qi<q.length;qi++){const i=q[qi]; for(const j of nb(i)) if(dist[j]>dist[i]+1){dist[j]=dist[i]+1;q.push(j);}}
+  const elev=new Float32Array(N), temp=new Float32Array(N), moist=new Float32Array(N);
+  const top=sorted[N-1];
+  const LAT={medit:[50,25],continental:[62,22]}[T]; const latOf=(y)=> LAT ? (LAT[0]+(LAT[1]-LAT[0])*y)/90 : Math.abs(y-0.5)*2*0.9;
+  for(let i=0;i<N;i++){
+    elev[i]= isWater(i)?0:relief[i];
+    const lat=latOf(Y[i]);
+    temp[i]=1-0.95*Math.pow(lat,1.25)-0.55*elev[i]+0.05*nB(X[i]*4,Y[i]*4);
+    const dd = dist[i]>=1e9? 50 : dist[i];
+    moist[i]=Math.max(0,Math.min(1, 0.5*Math.exp(-dd/(0.12*H)) + 0.55*(fbm(nB,X[i]+9.1,Y[i]+3.3,4,3,0.5)*0.5+0.5) - 0.28*Math.exp(-Math.pow((lat-0.36)/0.1,2)) ));
+  }
+  // 6. écoulement et rivières
+  const acc=new Float32Array(N); for(let i=0;i<N;i++) acc[i]= isWater(i)?0:(0.3+moist[i]);
+  for(let k=order.length-1;k>=0;k--){const i=order[k]; const p=parent[i]; if(p>=0 && !isWater(i)) acc[p]+=acc[i];}
+  const thr=Math.max(10,N/2600);
+  // 7. biomes
+  const biome=new Array(N);
+  for(let i=0;i<N;i++){
+    if(water[i]&&!lakeMode){ biome[i]= dist2land(i)<=2?"cote":"ocean"; continue; }
+    if(lake[i]){ biome[i]="lac"; continue; }
+    const t=temp[i], m=moist[i], e=elev[i];
+    let b;
+    if(t<0.1) b="glace"; else if(e>0.62) b="montagne"; else if(e>0.4) b="colline";
+    else if(t<0.25) b="toundra";
+    else if(m<0.2) b= t>0.55?"desert":"steppe";
+    else if(m<0.45) b= t>0.75?"savane":(hash(i)>0.5?"prairie":"plaine");
+    else if(m<0.7) b= t>0.75?"tropicale":(t<0.4?"taiga":"foret");
+    else b= e<0.06?"marais":(t>0.75?"jungle":(t<0.4?"taiga":"foret"));
+    if((b==="plaine"||b==="prairie"||b==="steppe"||b==="desert"||b==="savane") && e<0.05 && dist[i]===1 && hasOcean(i)) b="sable";
+    biome[i]=b;
+  }
+  function hash(i){let x=Math.sin(i*12.9898+opt.seed*78.233)*43758.5453;return x-Math.floor(x);}
+  function hasOcean(i){for(const j of nb(i)) if(water[j]&&!lakeMode) return true; return false;}
+  function dist2land(i){ // approximation : distance aux terres via le champ dist n'existe que pour l'eau ; on teste les voisins
+    let best=9; const seen=new Set([i]); let front=[i];
+    for(let d=1;d<=2;d++){const nf=[]; for(const a of front) for(const j of nb(a)){ if(seen.has(j))continue; seen.add(j); if(!(water[j]&&!lakeMode)) return d; nf.push(j);} front=nf;}
+    return best; }
+  // 8. masses terrestres
+  const comp=new Int32Array(N).fill(-1); const sizes=[]; let nc=0;
+  for(let i=0;i<N;i++){ if(isWater(i)||comp[i]>=0) continue; const st=[i]; comp[i]=nc; let s=0; while(st.length){const a=st.pop(); s++; for(const j of nb(a)) if(!isWater(j)&&comp[j]<0){comp[j]=nc; st.push(j);} } sizes.push(s); nc++; }
+  // 9. points de départ des deux tribus
+  const cand=[];
+  for(let i=0;i<N;i++){ if(isWater(i)) continue; const t=temp[i], m=moist[i], e=elev[i];
+    if(t<0.45||t>0.88||m<0.3||e>0.35) continue;
+    let s=1; for(const j of nb(i)){ if(acc[j]>thr) s+=0.6; if(isWater(j)) s+=0.3; }
+    if(sizes[comp[i]]<N*0.01) s*=0.3; cand.push([s+rand()*0.3,i]); }
+  cand.sort((a,b)=>b[0]-a[0]);
+  const starts=[];
+  if(cand.length){ const pool=cand.slice(0,Math.max(5,Math.floor(cand.length*0.05))); const s1=pool[Math.floor(rand()*pool.length)][1]; starts.push(s1);
+    let best=-1,bi=-1; for(const [s,i] of cand.slice(0,Math.floor(cand.length*0.4))){ const same=comp[i]===comp[s1]; const d=Math.hypot(X[i]-X[s1],Y[i]-Y[s1])*(same?1:0.6); if(d>best){best=d;bi=i;} }
+    if(bi>=0) starts.push(bi); }
+  let landCount=0, lakeCount=0, riverCount=0; for(let i=0;i<N;i++){ if(!isWater(i)) landCount++; if(lake[i]) lakeCount++; if(!isWater(i)&&acc[i]>thr) riverCount++; }
+  const masses=sizes.filter(s=>s>=4).length;
+  const latA=new Float32Array(N); for(let i=0;i<N;i++) latA[i]=latOf(Y[i]);
+  return {lat:latA,W,H,N,X,Y,AR,biome,elev,temp,moist,acc,parent,thr,isWater,starts,landCount,lakeCount,riverCount,masses,sizes,comp,dist,opt};
+}
+
+/* ---------- rendu ---------- */
+const cv=document.getElementById("map"), ctx=cv.getContext("2d"); let geo=null;
+function hexToRgb(h){const n=parseInt(h.slice(1),16);return[(n>>16)&255,(n>>8)&255,n&255];}
+function draw(){
+  if(!world) return; const w=world; const box=cv.parentElement.clientWidth; const dpr=Math.min(window.devicePixelRatio||1,2);
+  const r=box/(SQ3*(w.W+0.5)); const Hpx=r*(1.5*w.H+0.5);
+  cv.width=Math.round(box*dpr); cv.height=Math.round(Hpx*dpr); cv.style.height=Hpx+"px"; ctx.setTransform(dpr,0,0,dpr,0,0);
+  ctx.fillStyle=BIOME.ocean[1]; ctx.fillRect(0,0,box,Hpx);
+  geo={r};
+  const shade=document.getElementById("relief").checked;
+  const ang=[];for(let k=0;k<6;k++){const a=Math.PI/180*(60*k-30);ang.push([Math.cos(a)*r*1.04,Math.sin(a)*r*1.04]);}
+  for(let row=0;row<w.H;row++) for(let col=0;col<w.W;col++){
+    const i=row*w.W+col; const cx=SQ3*r*(col+0.5*(row&1))+SQ3*r/2, cy=1.5*r*row+r;
+    let [R,G,B]=hexToRgb(BIOME[w.biome[i]][1]);
+    if(shade && !w.isWater(i)){ const j=i-w.W>=0?i-w.W:i; const sl=(w.elev[i]-w.elev[j]); const k=1+Math.max(-0.25,Math.min(0.25,sl*4)); R=Math.min(255,R*k);G=Math.min(255,G*k);B=Math.min(255,B*k); }
+    if(w.biome[i]==="ocean"){ const d=Math.min(1,(w.dist[i]>=1e9?0:0)); }
+    ctx.fillStyle="rgb("+(R|0)+","+(G|0)+","+(B|0)+")";
+    if(r<2.4){ ctx.fillRect(cx-r*0.9,cy-r*0.95,r*1.8,r*1.9); }
+    else { ctx.beginPath(); ctx.moveTo(cx+ang[0][0],cy+ang[0][1]); for(let k=1;k<6;k++) ctx.lineTo(cx+ang[k][0],cy+ang[k][1]); ctx.closePath(); ctx.fill(); }
+  }
+  if(document.getElementById("rivers").checked){
+    ctx.strokeStyle="#3f86b8"; ctx.lineCap="round";
+    for(let i=0;i<w.N;i++){ if(w.isWater(i)||w.acc[i]<w.thr) continue; const p=w.parent[i]; if(p<0) continue;
+      const [x1,y1]=center(i,r), [x2,y2]=center(p,r); ctx.lineWidth=Math.max(0.6, r*0.18*(0.6+Math.log(w.acc[i]/w.thr))); ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke(); }
+  }
+  w.starts.forEach((s,k)=>{ const [x,y]=center(s,r); const rad=Math.max(5,r*1.8);
+    ctx.beginPath(); ctx.arc(x,y,rad,0,Math.PI*2); ctx.fillStyle=k?"#c0392b":"#f2c14e"; ctx.fill(); ctx.lineWidth=2; ctx.strokeStyle="#1b1b1b"; ctx.stroke();
+    ctx.font="600 "+Math.max(10,Math.min(14,r*3))+"px IBM Plex Sans, sans-serif"; ctx.fillStyle="#fff"; ctx.strokeStyle="rgba(0,0,0,.7)"; ctx.lineWidth=3; const t="Tribu "+(k+1); ctx.strokeText(t,x+rad+4,y+4); ctx.fillText(t,x+rad+4,y+4); });
+}
+function center(i,r){const w=world;const row=(i/w.W)|0,col=i-row*w.W;return[SQ3*r*(col+0.5*(row&1))+SQ3*r/2,1.5*r*row+r];}
+function stats(){
+  const w=world, km=(n)=>(n*HEX_KM2).toLocaleString("fr-FR",{maximumFractionDigits:0})+" km²";
+  const rows=[["Hexagones",w.N.toLocaleString("fr-FR")+" ("+w.W+" × "+w.H+")"],["Surface totale",km(w.N)],["Terres émergées",Math.round(100*w.landCount/w.N)+" % · "+km(w.landCount)],
+    ["Masses terrestres",w.masses+" (≥ 4 hexagones)"],["Plus grande masse",km(Math.max(0,...w.sizes))],["Hexagones de lac",w.lakeCount.toLocaleString("fr-FR")],["Hexagones de rivière",w.riverCount.toLocaleString("fr-FR")],
+    ["Tribus sur la même masse",w.starts.length===2?(w.comp[w.starts[0]]===w.comp[w.starts[1]]?"oui":"non (navigation nécessaire)"):"—"],
+    ["Distance entre tribus",w.starts.length===2?Math.round(Math.hypot(w.X[w.starts[0]]-w.X[w.starts[1]],w.Y[w.starts[0]]-w.Y[w.starts[1]])*(1.5*w.H+0.5)/1.5*5)+" km à vol d'oiseau":"—"]];
+  document.getElementById("stats").innerHTML=rows.map(([a,b])=>"<dt>"+a+"</dt><dd>"+b+"</dd>").join("");
+}
+function legend(){
+  const present=new Set(world.biome); const order=Object.keys(BIOME).filter(k=>present.has(k));
+  document.getElementById("legend").innerHTML=order.map(k=>'<span><i class="sw" style="background:'+BIOME[k][1]+'"></i>'+BIOME[k][0]+'</span>').join("")+'<span><i class="sw" style="background:#3f86b8"></i>Rivière</span><span><i class="sw" style="background:#f2c14e;border-radius:50%"></i>Départ des tribus</span>';
+  document.getElementById("tdesc").textContent=TYPES[world.opt.type].desc;
+}
+function run(){
+  const opt={type:document.getElementById("type").value,size:document.getElementById("size").value,seed:parseInt(document.getElementById("seed").value,10)||0,
+    land:parseInt(document.getElementById("land").value,10),lakes:document.getElementById("lakes").checked};
+  world=generate(opt); draw(); stats(); legend();
+}
+const landEl=document.getElementById("land"), landLbl=document.getElementById("landlbl");
+landEl.addEventListener("input",()=>{landLbl.textContent="Part de terres : "+landEl.value+" %";});
+document.getElementById("type").addEventListener("change",e=>{landEl.value=TYPES[e.target.value].land; landLbl.textContent="Part de terres : "+landEl.value+" %"; run();});
+["size","lakes"].forEach(id=>document.getElementById(id).addEventListener("change",run));
+["rivers","relief"].forEach(id=>document.getElementById(id).addEventListener("change",draw));
+landEl.addEventListener("change",run);
+document.getElementById("go").addEventListener("click",run);
+document.getElementById("seed").addEventListener("change",run);
+document.getElementById("rnd").addEventListener("click",()=>{document.getElementById("seed").value=Math.floor(Math.random()*1e6); run();});
+let rt=null; window.addEventListener("resize",()=>{clearTimeout(rt); rt=setTimeout(draw,120);});
+cv.addEventListener("mousemove",(ev)=>{ if(!world||!geo) return; const rect=cv.getBoundingClientRect(); const x=ev.clientX-rect.left, y=ev.clientY-rect.top; const r=geo.r;
+  let row=Math.round((y-r)/(1.5*r)); row=Math.max(0,Math.min(world.H-1,row)); let col=Math.round((x-SQ3*r/2)/(SQ3*r)-0.5*(row&1)); col=Math.max(0,Math.min(world.W-1,col));
+  let best=row*world.W+col, bd=1e9; for(const dr of [-1,0,1]) for(const dc of [-1,0,1]){const rr=row+dr,cc=col+dc; if(rr<0||cc<0||rr>=world.H||cc>=world.W) continue; const i=rr*world.W+cc; const [px,py]=center(i,r); const d=(px-x)**2+(py-y)**2; if(d<bd){bd=d;best=i;}}
+  const i=best, w=world; const lat=Math.round(w.lat[i]*90);
+  document.getElementById("readout").textContent=BIOME[w.biome[i]][0]+" · altitude "+Math.round(w.elev[i]*100)+" % · température "+Math.round(w.temp[i]*100)+" % · humidité "+Math.round(w.moist[i]*100)+" % · latitude ≈ "+lat+"°"+(w.acc[i]>=w.thr&&!w.isWater(i)?" · rivière":""); });
+cv.addEventListener("mouseleave",()=>{document.getElementById("readout").textContent="Survole la carte pour lire un hexagone";});
+run();
+})();
+</script>
