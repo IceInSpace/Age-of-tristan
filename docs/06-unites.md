@@ -15,7 +15,7 @@
 - **Généraux** attachés aux armées, avec bonus et expérience (pas de héros uniques). Ils sont **recrutés**, et il en existe **deux types** : le **stratège** (soin, démoralisation de l'ennemi) et le **meneur** (moral, attaque).
 - **Taille des armées** : un **plafond** lié à la population et aux casernes, plus un **coût d'entretien**.
 - **Ce que consomme une armée** : **nourriture** ; **solde** en monnaie (à partir de l'âge du fer) ; **munitions**, uniquement quand elles sont utilisées ; **carburant** pour les déplacements ; ressources de **moral** (alcool par exemple).
-- **Fatigue** : les unités se fatiguent, ont besoin de **repos** et ne peuvent pas enchaîner trop de batailles sans perdre en efficacité. Les **vétérans**, rodés, y sont moins sensibles.
+- **Fatigue** : les unités se fatiguent, ont besoin de **repos** et ne peuvent pas enchaîner trop de batailles sans perdre en efficacité. Les **vétérans**, rodés, y sont moins sensibles. Récupération : **au repos sur place** (lente), **en garnison** (rapide), par **rotation au front** (une armée fraîche relève une armée fatiguée sans perdre la position), et accélérée par le **ravitaillement** (nourriture, biens de moral).
 - **Armée non payée ou non nourrie** : **moral en baisse**, **désertion**, **pillage** du territoire où elle se trouve.
 - **Coût selon la situation** : une armée **en campagne** coûte plus cher qu'en garnison ; on peut **démobiliser en réserve** en temps de paix ; avant l'ère industrielle, une armée peut **fourrager** (vivre en partie sur le pays).
 - **Troupes d'élite** : une version élite d'une unité, plus longue à former. Les unités s'améliorent aussi par l'**expérience du combat**.

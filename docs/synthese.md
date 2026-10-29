@@ -36,7 +36,7 @@ Document de pilotage. Il résume les décisions éparpillées dans les chapitres
 - **Niveaux** : village 1 à 5, ville 1 à 5, mégalopole (technologie requise, absorbe les villes proches) ; le niveau plafonne le rayon, qui grandit avec routes, technologies et culture ; fondation directe avec demande de peuplement ([03](03-villes-batiments.md)).
 - **Stockage limité** ; la transformation conserve mieux (farine, salaison) ; **saisons désactivables** ([04](04-economie.md)).
 - **Gisements** : fossiles, minerais et renouvelables s'épuisent ; pierre et argile quasi inépuisables ; couches géologiques et co-produits ; prospection ; friche puis reconversion ; enrichissement de l'uranium en deux étapes ([04](04-economie.md)).
-- **Monnaie** dès l'âge du fer ; **véhicules de transport** achetables pour augmenter le débit ; inventaire proposé de 78 ressources ([ressources et chaînes](ressources-et-chaines.md)).
+- **Monnaie** dès l'âge du fer ; **véhicules de transport** achetables pour augmenter le débit ; inventaire de **78 ressources validé** ([ressources et chaînes](ressources-et-chaines.md)).
 - **Ressources évolutives**, **chaînes de production**, ère du pétrole, **pyrolyse**, fusion, **pollution** ([04](04-economie.md)).
 - **Intrant critique** par unité et **guerre des stocks** ([04](04-economie.md)).
 - **Stocks par ville** : par défaut, seul le surplus est envoyé ; réserve minimale en %, jours de stock, **villes-entrepôts**, réglages **par ressource**, **priorités** avec l'intendance militaire ; pertes en transport réduites par la technologie ([04](04-economie.md)).
@@ -46,7 +46,7 @@ Document de pilotage. Il résume les décisions éparpillées dans les chapitres
 
 - Unités **améliorables**, **vétérans**, **système de contres** ; **diversité croissante** au fil des ères ([06](06-unites.md)).
 - Représentation **selon l'échelle** (individuelles → escouades → divisions) ; **généraux recrutés, stratèges ou meneurs** ; factions à **petits bonus** ([06](06-unites.md)).
-- **Plafond + entretien** (nourriture, solde, munitions à l'usage, carburant au déplacement, moral) ; **fatigue** et repos ; impayés : moral, désertion, pillage ; campagne plus chère, réserve, fourrage ; troupes d'élite plus longues à former ; unités « chair à canon » bon marché ; classes et contres, charge, flanc, moral, défenses fortes au début ([06](06-unites.md)).
+- **Plafond + entretien** (nourriture, solde, munitions à l'usage, carburant au déplacement, moral) ; **fatigue** et récupération (repos, garnison, rotation au front, ravitaillement) ; impayés : moral, désertion, pillage ; campagne plus chère, réserve, fourrage ; troupes d'élite plus longues à former ; unités « chair à canon » bon marché ; classes et contres, charge, flanc, moral, défenses fortes au début ([06](06-unites.md)).
 - Une ère d'avance ne doit pas valoir victoire automatique ([06](06-unites.md)).
 - **Fronts** et arrière ; ordres de tenue ; bataille **automatique ou tactique au choix** ([07](07-batailles.md)).
 - **Sièges** par encerclement ou assaut ; **tranchées** qui figent le front ; **aviation à rayon d'action** ([07](07-batailles.md)).
@@ -69,11 +69,10 @@ Document de pilotage. Il résume les décisions éparpillées dans les chapitres
 | Sujet | Question | Chapitre |
 |-------|----------|----------|
 | Carte | Taille de la carte de départ ? | [02](02-carte-exploration.md) |
-| Ressources | Valider l'inventaire de 78 ressources, gamme par gamme | [ressources et chaînes](ressources-et-chaines.md) |
 | Recherche | Une technologie à la fois par type de recherche, ou points répartis ? | [05](05-technologies.md) |
 | Unités | Les généraux peuvent-ils mourir ? | [06](06-unites.md) |
 | Batailles | Quelles formations, à partir de quelle ère ? Nombre maximal d'unités par case ? | [07](07-batailles.md) |
-| Technique | Moteur de jeu (comparatif de 6 moteurs disponible) ; langue du code et de l'interface | [14](14-technique.md) |
+| Technique | Moteur de jeu : choix reporté (comparatif de 6 moteurs disponible) ; langue du code et de l'interface | [14](14-technique.md) |
 | Feuille de route | Contenu exact de la couche 1 et critère de « fini » | [15](15-feuille-de-route.md) |
 
 ### Priorité 2 : nécessaire pour l'acte I complet

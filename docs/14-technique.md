@@ -21,6 +21,10 @@
 
 Sources : [licence Unreal Engine](https://www.unrealengine.com/en-US/license) ; [Unity, annulation de la Runtime Fee, 12 septembre 2024](https://unity.com/blog/unity-is-canceling-the-runtime-fee) ; [GameFromScratch, tarifs GameMaker, novembre 2023](https://gamefromscratch.com/gamemaker-announces-major-pricing-changes/). La branche stable de Godot en 2026 est la 4.6. Les licences changent régulièrement : à revérifier au moment du choix.
 
+**Statut** : choix du moteur **reporté**, à faire après avoir revu les rendus (Godot : cartes isométriques et hexagonales, kit de carte stratégique hexagonale pour Godot 4.6, terrain 3D avec Terrain3D ; Unity : *Humankind*, démo de terrain HDRP).
+
+**Mixer plusieurs moteurs** : un même jeu ne peut pas en pratique tourner sur deux moteurs ; changer de moteur oblige à réécrire l'affichage et une grande partie du code (cas de *Slay the Spire 2*, passé de Unity à Godot en cours de développement, [Game Developer](https://gamedeveloper.com/business/slay-the-spire-devs-followed-through-on-abandoning-unity)). Pour garder la porte ouverte : simulation séparée de l'affichage, données en fichiers, et simulation en C# (commun à Godot et Unity).
+
 **À propos de Unreal Engine 5** : son principal atout, le rendu 3D réaliste (éclairage dynamique, géométrie très détaillée), sert peu à une carte isométrique en 2.5D. En revanche, il deviendrait intéressant si les vues planétaires et spatiales des actes II et III devaient être en vraie 3D. Le coût d'entrée est élevé : C++ ou Blueprints, éditeur lourd, beaucoup de concepts à apprendre pour un débutant.
 
 ### Outils à installer (si Godot est retenu)

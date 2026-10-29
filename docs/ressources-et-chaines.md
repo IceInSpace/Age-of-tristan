@@ -1,6 +1,6 @@
 # Ressources et chaînes de production (acte I)
 
-Inventaire proposé des ressources de l'acte I, classées par gamme, avec leurs chaînes de transformation. **Statut : proposition**, à réduire ou enrichir gamme par gamme. Les règles générales (recettes, débits, péremption, logistique) sont au [chapitre 04](04-economie.md).
+Inventaire des ressources de l'acte I, classées par gamme, avec leurs chaînes de transformation. **Statut : le total de 78 ressources est validé** ; le détail de chaque gamme peut encore être ajusté. Les règles générales (recettes, débits, péremption, logistique) sont au [chapitre 04](04-economie.md).
 
 ## Récapitulatif
 

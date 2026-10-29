@@ -20,7 +20,7 @@
 - **Intrant critique** et **guerre des stocks** (détaillés plus bas).
 - **Monnaie** à partir de l'**âge du fer** (technologie Monnaie) ; avant, troc et ressources physiques.
 - **Véhicules de transport** achetables (caravanes, cargos, tankers) pour augmenter le débit des routes.
-- Inventaire proposé : **78 ressources** dans l'acte I, en 8 gammes, voir [ressources et chaînes](ressources-et-chaines.md).
+- Inventaire validé : **78 ressources** dans l'acte I, en 8 gammes, voir [ressources et chaînes](ressources-et-chaines.md).
 - **Changement d'échelle** : aux actes II et III, l'économie est simulée de façon plus large et moins détaillée, par planète (voir [chapitre 10](10-echelles.md)). Pas de construction manuelle de lignes de production comme dans *Dyson Sphere Program*.
 
 ## Propositions (à valider)
