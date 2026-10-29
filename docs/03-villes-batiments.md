@@ -11,6 +11,13 @@ Quatre moyens, tous retenus :
 - **Absorption** : intégration pacifique d'un peuple neutre.
 - **Croissance** : un village grandit en ville, puis en mégalopole.
 
+### Niveaux et rayon d'action
+
+- **Niveaux** : village de niveau 1 à 5, puis ville de niveau 1 à 5, puis **mégalopole**, qui demande une technologie.
+- Le **niveau** fixe la **taille maximale** du rayon d'action. Dans cette limite, le rayon grandit aussi avec les **routes**, les **technologies** et la **culture**.
+- Une **mégalopole** peut être énorme et **absorber les villes proches**.
+- On peut **fonder directement un village ou une ville**, en demandant à d'autres cités de fournir la population (**demande de peuplement**).
+
 ### Construction
 
 - Gestion mixte : **écran de ville** et **quartiers**.
@@ -34,14 +41,14 @@ Quatre moyens, tous retenus :
 
 ### Hiérarchie des agglomérations
 
+Mise à jour selon les niveaux décidés (village 1 à 5, ville 1 à 5, mégalopole). Les populations sont des ordres de grandeur à équilibrer.
+
 | Niveau | Population (ordre de grandeur) | Débloque |
 |--------|-------------------------------|----------|
-| Campement | $< 50$ | Huttes, feu |
-| Village | $50$ – $500$ | 1 quartier |
-| Ville | $500$ – $10^4$ | 2–4 quartiers, remparts |
-| Cité | $10^4$ – $10^5$ | 5–7 quartiers, merveille |
-| Métropole | $10^5$ – $10^6$ | 8–10 quartiers |
-| Mégalopole | $10^6$ – $10^7$ | Quartiers illimités selon le terrain |
+| Campement (préhistoire) | $< 50$ | Huttes, feu |
+| Village 1 à 5 | $50$ – $2\,000$ | 1 à 3 quartiers |
+| Ville 1 à 5 | $2\,000$ – $10^5$ | 3 à 8 quartiers, remparts, merveille |
+| Mégalopole (technologie requise) | $10^5$ – $10^7$ | Quartiers nombreux ; absorbe les villes proches |
 | Arcologie (ère de la fusion) | $10^7$ – $10^8$ | Ville verticale autonome : logement, production et nourriture dans une seule structure |
 | Cité-ruche (ère impériale) | $> 10^8$ | Mégastructure continentale ; la planète entière peut devenir une seule ville |
 

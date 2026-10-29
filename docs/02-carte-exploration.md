@@ -2,6 +2,7 @@
 
 ## Décidé
 
+- **Grille hexagonale** (vue isométrique).
 - **Génération procédurale réglable** (taille, continents, climat, richesse…), **plus un éditeur** pour modifier la carte à la main.
 - **Vue isométrique** (2.5D).
 - **Terrain contraignant** : on ne peut pas tout construire partout. Le terrain donne des **bonus ou des malus**.
@@ -86,7 +87,6 @@ La règle « un arbre coupé, un arbre replanté » revient à une politique aut
 
 - **Chemin de fer**, **canaux** et **lignes maritimes** : des types de routes à part (très grande capacité, mais construits seulement entre deux gares ou deux ports) ?
 - Les routes s'usent-elles, avec un coût d'entretien ?
-- Grille de cases (carrées ou hexagonales en isométrique), ou carte continue ?
 - Taille de la planète : combien de « régions » ou de cases au total ?
 - Les gisements s'épuisent-ils ?
 - Climat dynamique (saisons, réchauffement dû à la pollution industrielle) ? La pollution étant désormais un mécanisme retenu, le réchauffement en serait la suite logique.

@@ -10,6 +10,11 @@
 - **Sièges** : **encerclement** (on affame la ville, lent et peu coûteux) ou **assaut** (rapide et coûteux), au choix.
 - **Guerre de tranchées** : avec mitrailleuses et artillerie (ère électrique), le front **se fige**. Gaz, chars et tactiques d'infiltration permettent de le débloquer.
 - **Aviation à rayon d'action** : les avions partent d'un aérodrome, frappent dans un rayon, puis reviennent.
+- **Ligne de front** dessinée entre les zones contrôlées, qui avance ou recule.
+- **Armées** : plusieurs unités sur la **même case** forment une armée. Plusieurs armées peuvent avancer **côte à côte** : quand l'une engage le combat, une autre peut venir **en renfort** ou **prendre l'ennemi à revers**.
+- **Formations** choisies par le joueur ; la résolution automatique tient compte de l'**ordre et de la disposition** des unités.
+- **Bataille automatique dans la durée** : elle n'est pas instantanée, ce qui laisse le temps de contourner, d'envoyer des renforts ou de bombarder.
+- **Batailles tactiques** (contrôle direct) : **plus tard**, pas dans la première version.
 - **Ravitaillement** : les fronts sont approvisionnés par la logistique automatique, avec priorités à partir de l'intendance militaire (voir [chapitre 04](04-economie.md)).
 
 ## Propositions (à valider)
@@ -50,6 +55,26 @@ $$
 
 dont la grandeur conservée est $\alpha_{12} N_1 - \alpha_{21} N_2$ : l'avantage du nombre n'y est plus que proportionnel.
 
+### Résolution automatique dans la durée (proposition)
+
+La bataille se déroule par pas de temps $\Delta t$ (par exemple une seconde de jeu). À chaque pas :
+
+1. Seuls les **rangs engagés** combattent, selon la formation : la première ligne d'abord, les unités à distance derrière elle, la cavalerie sur les ailes.
+2. Les dégâts suivent la formule du [chapitre 06](06-unites.md), avec le multiplicateur de flanc selon le côté de l'hexagone par lequel arrive l'attaquant.
+3. Le moral baisse avec les pertes ; une unité dont le moral tombe sous un seuil recule ou fuit.
+4. Toute armée qui arrive sur une case voisine **rejoint** la bataille, du côté où elle se trouve.
+
+Sur une grille hexagonale, une armée fait face à l'un des six côtés :
+
+| Côté d'arrivée | Multiplicateur $f_{\text{flanc}}$ |
+|----------------|-------------------------------|
+| Face (1 côté) | $1$ |
+| Avant-flanc (2 côtés) | $1{,}25$ |
+| Arrière-flanc (2 côtés) | $1{,}5$ |
+| Dos (1 côté) | $2$ |
+
+Prendre une armée à revers pendant qu'elle est engagée de face devient ainsi décisif, comme dans les *Total War*. Le joueur peut suivre la bataille, mettre en pause, envoyer des renforts ou un bombardement.
+
 ### Bataille tactique
 
 - Déclenchée quand deux armées se rencontrent, si le joueur choisit de la mener.
@@ -63,5 +88,5 @@ dont la grandeur conservée est $\alpha_{12} N_1 - \alpha_{21} N_2$ : l'avantage
 ## Questions ouvertes
 
 - Le temps s'arrête-t-il sur le reste de la carte pendant une bataille tactique ?
-- Comment représenter visuellement un front : une ligne dessinée, des zones colorées, des positions fortifiées ?
-- Les batailles tactiques sont-elles indispensables pour la première version ?
+- Combien de formations proposer (ligne, colonne, carré, coin…), et à partir de quelle ère ?
+- Nombre maximal d'unités par case ou par armée ?

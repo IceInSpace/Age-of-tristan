@@ -11,17 +11,17 @@
 
 ### Moteur de jeu
 
-| Critère | Godot 4 | Unity | Web (JavaScript) |
-|---------|---------|-------|------------------|
-| Coût | Gratuit, open source (licence MIT) | Gratuit sous conditions de revenus | Gratuit |
-| Langage | GDScript (proche de Python), C# possible | C# | JavaScript / TypeScript |
-| Poids de l'éditeur | Léger | Lourd | Aucun éditeur |
-| Isométrique | Pris en charge par les TileMaps | Pris en charge (Tilemap) | À coder soi-même ou via une bibliothèque |
-| Courbe d'apprentissage | Douce | Plus raide | Moyenne, mais beaucoup à construire soi-même |
-| Communauté et tutoriels | Large et en croissance | Très large | Très large, mais dispersée |
-| Export PC | Windows, Linux, macOS | Windows, Linux, macOS | Navigateur, ou application via Electron |
+| Critère | Godot 4 | Unity 6 | Unreal Engine 5 | GameMaker | Bevy | Python + Pygame |
+|---------|---------|---------|-----------------|-----------|------|-----------------|
+| Coût et licence | Gratuit, open source (MIT), sans redevance | Gratuit (Personal) jusqu'à $200\,000$ USD de revenus et financements annuels ; Pro à $2\,200$ USD par poste et par an au-delà | Gratuit ; redevance de $5\ \%$ au-delà de $1$ million USD de revenus bruts par jeu | Gratuit pour un usage non commercial ; licence unique pour le commercial | Gratuit, open source | Gratuit, open source |
+| Langage | GDScript (proche de Python), C# possible | C# | C++ et Blueprints (programmation visuelle) | GML (langage propre) | Rust | Python |
+| Point fort | Léger, 2D et 2.5D très bien gérés, hexagones possibles via les TileMaps | Énorme écosystème, beaucoup de tutoriels et de ressources | Rendu 3D de très haut niveau, idéal pour des planètes et des vues spectaculaires | Très simple pour la 2D | Architecture ECS performante pour des milliers d'entités | Langage déjà un peu connu |
+| Point faible | Écosystème plus petit que Unity ; 3D moins poussée | Plus lourd, historique de changements de licence | Très lourd et complexe pour un débutant ; surdimensionné pour de la 2.5D | Peu adapté à un jeu de grande stratégie | Rust est difficile pour un débutant ; pas d'éditeur visuel complet | Tout est à construire ; performances limitées pour une grosse simulation |
+| Adapté au projet | Très bien pour l'acte I ; 3D possible plus tard | Bien | Surtout si l'on vise une 3D ambitieuse | Faible | Bien techniquement, difficile à apprendre | Prototype seulement |
 
-> Les conditions de licence de Unity ont changé plusieurs fois ces dernières années : à vérifier sur le site officiel au moment du choix.
+Sources : [licence Unreal Engine](https://www.unrealengine.com/en-US/license) ; [Unity, annulation de la Runtime Fee, 12 septembre 2024](https://unity.com/blog/unity-is-canceling-the-runtime-fee) ; [GameFromScratch, tarifs GameMaker, novembre 2023](https://gamefromscratch.com/gamemaker-announces-major-pricing-changes/). La branche stable de Godot en 2026 est la 4.6. Les licences changent régulièrement : à revérifier au moment du choix.
+
+**À propos de Unreal Engine 5** : son principal atout, le rendu 3D réaliste (éclairage dynamique, géométrie très détaillée), sert peu à une carte isométrique en 2.5D. En revanche, il deviendrait intéressant si les vues planétaires et spatiales des actes II et III devaient être en vraie 3D. Le coût d'entrée est élevé : C++ ou Blueprints, éditeur lourd, beaucoup de concepts à apprendre pour un débutant.
 
 ### Outils à installer (si Godot est retenu)
 

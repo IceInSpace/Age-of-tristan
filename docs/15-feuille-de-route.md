@@ -28,7 +28,7 @@ Objectif : une carte, une ville, une économie qui tourne.
 ### Couche 3 — « La guerre des tribus »
 
 - Unités (3 types, système de contres).
-- Fronts avec ordres et résolution automatique.
+- Fronts avec ordres et résolution automatique dans la durée (pas de bataille tactique en version 1).
 - Une IA rivale simple.
 - Une condition de victoire : domination.
 

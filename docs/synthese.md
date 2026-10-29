@@ -18,10 +18,11 @@ Document de pilotage. Il résume les décisions éparpillées dans les chapitres
 - Passage d'ère : **technologies clés** → **bâtiments** → **évolution des villes une par une** (capitale d'abord, accélérable en payant) → **XP minimale** ([01](01-eres.md)).
 - Merveilles pour certaines ères seulement ([01](01-eres.md)).
 - Deux arbres technologiques : **planétaire** (actes I et II) et **stellaire** (acte III), avec une branche **logistique** ([05](05-technologies.md)).
+- Recherche **militaire, civile et industrielle** ; centres spécialisés ou pluridisciplinaires ; l'industrie et l'armée produisent leur propre recherche ; une technologie peut exiger d'**améliorer les bâtiments** pour s'appliquer ([05](05-technologies.md)).
 
 ### Carte et territoire
 
-- Génération **procédurale réglable** + **éditeur** ; ressources toutes générées au départ, visibles seulement une fois connues ([02](02-carte-exploration.md)).
+- **Grille hexagonale** ; génération **procédurale réglable** + **éditeur** ; ressources toutes générées au départ, visibles seulement une fois connues ([02](02-carte-exploration.md)).
 - **Survie au début** : gibier épuisable, prédateurs, raids ([02](02-carte-exploration.md)).
 - **Déforestation visible**, champs de bois et reboisement ([02](02-carte-exploration.md)).
 - **Routes** : villes atteignables sans route mais lentement ; sentier → pavé → béton → autoroute ([02](02-carte-exploration.md)).
@@ -32,6 +33,8 @@ Document de pilotage. Il résume les décisions éparpillées dans les chapitres
 - Villes obtenues par **fondation, conquête, absorption et croissance** ; écran de ville + quartiers placés librement ; développement automatique quand les conditions sont réunies ([03](03-villes-batiments.md)).
 - **Population agrégée** (main-d'œuvre, consommation, stabilité), sans simulation d'individus ([03](03-villes-batiments.md)).
 - **Pas de civils qui récoltent** : chaque ville exploite les ressources de son **rayon d'action** avec des bâtiments ; seuls les colons et les éclaireurs sont non combattants ([04](04-economie.md)).
+- **Niveaux** : village 1 à 5, ville 1 à 5, mégalopole (technologie requise, absorbe les villes proches) ; le niveau plafonne le rayon, qui grandit avec routes, technologies et culture ; fondation directe avec demande de peuplement ([03](03-villes-batiments.md)).
+- **Stockage limité** ; la transformation conserve mieux (farine, salaison) ; **saisons désactivables** ([04](04-economie.md)).
 - **Ressources évolutives**, **chaînes de production**, ère du pétrole, **pyrolyse**, fusion, **pollution** ([04](04-economie.md)).
 - **Intrant critique** par unité et **guerre des stocks** ([04](04-economie.md)).
 - **Stocks par ville** : par défaut, seul le surplus est envoyé ; réserve minimale en %, jours de stock, **villes-entrepôts**, réglages **par ressource**, **priorités** avec l'intendance militaire ; pertes en transport réduites par la technologie ([04](04-economie.md)).
@@ -40,10 +43,12 @@ Document de pilotage. Il résume les décisions éparpillées dans les chapitres
 ### Unités et batailles
 
 - Unités **améliorables**, **vétérans**, **système de contres** ; **diversité croissante** au fil des ères ([06](06-unites.md)).
-- Représentation **selon l'échelle** (individuelles → escouades → divisions) ; **généraux** ; factions à **petits bonus** ([06](06-unites.md)).
+- Représentation **selon l'échelle** (individuelles → escouades → divisions) ; **généraux recrutés, stratèges ou meneurs** ; factions à **petits bonus** ([06](06-unites.md)).
+- **Plafond + entretien** ; troupes d'élite plus longues à former ; unités « chair à canon » bon marché ; classes et contres, charge, flanc, moral, défenses fortes au début ([06](06-unites.md)).
 - Une ère d'avance ne doit pas valoir victoire automatique ([06](06-unites.md)).
 - **Fronts** et arrière ; ordres de tenue ; bataille **automatique ou tactique au choix** ([07](07-batailles.md)).
 - **Sièges** par encerclement ou assaut ; **tranchées** qui figent le front ; **aviation à rayon d'action** ([07](07-batailles.md)).
+- **Ligne de front** ; armées formées de plusieurs unités sur une case, renforts et prises à revers ; **formations** ; bataille automatique **dans la durée** ; batailles tactiques **plus tard** ([07](07-batailles.md)).
 
 ### Guerre moderne, espace, espionnage, diplomatie
 
@@ -61,17 +66,13 @@ Document de pilotage. Il résume les décisions éparpillées dans les chapitres
 
 | Sujet | Question | Chapitre |
 |-------|----------|----------|
-| Carte | Grille de cases (carrées, hexagonales) ou carte continue ? | [02](02-carte-exploration.md) |
 | Carte | Taille de la carte de départ ? | [02](02-carte-exploration.md) |
-| Exploitation | Le rayon d'action grandit-il seulement avec le niveau de la ville, ou aussi avec les routes et les technologies ? | [04](04-economie.md) |
-| Exploitation | Un gisement est-il épuisable (silex, gibier) ? | [04](04-economie.md) |
-| Stockage | Capacité limitée par les greniers ? | [04](04-economie.md) |
-| Recherche | Une recherche à la fois ou plusieurs ? D'où vient la science ? | [05](05-technologies.md) |
-| Unités | Limite de population militaire et entretien ? | [06](06-unites.md) |
-| Unités | Généraux : comment les obtient-on, peuvent-ils mourir ? | [06](06-unites.md) |
-| Batailles | Représentation visuelle des fronts ; batailles tactiques dans la première version ? | [07](07-batailles.md) |
-| Saisons | La proposition simple (nourriture seulement, amplitude décroissante) convient-elle ? | [04](04-economie.md) |
-| Technique | Moteur de jeu ; langue du code et de l'interface | [14](14-technique.md) |
+| Exploitation | Épuisement des gisements : quelle piste (gisements étendus, mines qui s'étendent, récupération qui augmente avec la technologie) ? | [04](04-economie.md) |
+| Recherche | Une technologie à la fois par type de recherche, ou points répartis ? | [05](05-technologies.md) |
+| Unités | Entretien en nourriture seulement, ou aussi en solde et munitions ? | [06](06-unites.md) |
+| Unités | Les généraux peuvent-ils mourir ? | [06](06-unites.md) |
+| Batailles | Quelles formations, à partir de quelle ère ? Nombre maximal d'unités par case ? | [07](07-batailles.md) |
+| Technique | Moteur de jeu (comparatif de 6 moteurs disponible) ; langue du code et de l'interface | [14](14-technique.md) |
 | Feuille de route | Contenu exact de la couche 1 et critère de « fini » | [15](15-feuille-de-route.md) |
 
 ### Priorité 2 : nécessaire pour l'acte I complet

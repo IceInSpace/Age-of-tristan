@@ -12,7 +12,12 @@
 - **Clonage d'êtres humains** et **centres robotiques** comme sources d'unités (acte III).
 - **Diversité croissante** : peu d'unités dans les premières ères (à la préhistoire, le but est de survivre et de chasser), puis de plus en plus. Exemples : lances, boucliers, fantassins et unités à distance à l'Antiquité ; cavaliers, chevaliers, machines de guerre et navires au Moyen Âge ; avions ensuite. Inspiration : le jeu *War Selection*, riche en unités.
 - **Représentation selon l'échelle** : unités individuelles au début, puis escouades, puis divisions et légions (voir [chapitre 10](10-echelles.md)).
-- **Généraux** attachés aux armées, avec bonus et expérience (pas de héros uniques).
+- **Généraux** attachés aux armées, avec bonus et expérience (pas de héros uniques). Ils sont **recrutés**, et il en existe **deux types** : le **stratège** (soin, démoralisation de l'ennemi) et le **meneur** (moral, attaque).
+- **Taille des armées** : un **plafond** lié à la population et aux casernes, plus un **coût d'entretien**.
+- **Troupes d'élite** : une version élite d'une unité, plus longue à former. Les unités s'améliorent aussi par l'**expérience du combat**.
+- **Chair à canon** : certaines unités doivent rester **bon marché**.
+- **Système retenu** : **classes et contres**, **charge, flanc et moral**, **défenses fortes** en début de partie (voir la [recherche sur les unités](recherche/unites-jeux-de-reference.md)).
+- **Formations** : le joueur choisit la formation de ses unités, et la résolution automatique en tient compte (voir [chapitre 07](07-batailles.md)).
 - **Factions** : mêmes unités pour tous, avec de **petits bonus** de faction.
 - **Références étudiées** : *War Selection*, *Empire Earth*, *Age of Empires II* et les *Total War* historiques. Synthèse, classes proposées et formule de dégâts enrichie dans la [recherche sur les unités](recherche/unites-jeux-de-reference.md).
 
@@ -98,6 +103,6 @@ Un rang de vétéran est atteint à chaque palier d'XP ; chaque rang apporte env
 
 ## Questions ouvertes
 
-- Les généraux : recrutés, gagnés par la vétérance, ou issus d'événements ? Peuvent-ils mourir au combat ?
-- Limite de population militaire (entretien en nourriture ou en ressources) ?
+- Les généraux peuvent-ils mourir au combat ?
+- L'entretien se paie-t-il en nourriture seulement, ou aussi en solde (monnaie) et en munitions ?
 - Une unité améliorée garde-t-elle son rang de vétéran ?

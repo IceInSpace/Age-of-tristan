@@ -26,13 +26,20 @@
 
 Chaque agglomération possède un **rayon d'action** $R$ qui grandit avec son niveau. Tout gisement situé dans ce rayon peut être exploité par un bâtiment dédié, sans unité à envoyer.
 
-| Agglomération | Rayon d'action indicatif |
-|---------------|--------------------------|
-| Campement | $2$ cases |
-| Village | $3$ cases |
-| Ville | $4$ cases |
-| Cité | $5$ cases |
-| Métropole et au-delà | $6$ cases et plus |
+Le **niveau** de l'agglomération fixe le **rayon maximal** ; dans cette limite, le rayon effectif grandit avec les **routes**, les **technologies** et la **culture** (décidé).
+
+| Agglomération | Rayon maximal indicatif (hexagones) |
+|---------------|-------------------------------------|
+| Campement | $2$ |
+| Village 1 à 5 | $2$ à $4$ |
+| Ville 1 à 5 | $4$ à $6$ |
+| Mégalopole | $7$ et plus |
+
+Rayon effectif proposé, avec $R_{\max}(\text{niveau})$ le plafond, $R_0$ le rayon de base et $b_{\text{routes}}$, $b_{\text{tech}}$, $b_{\text{culture}}$ des bonus en hexagones :
+
+$$
+R = \min\!\left(R_{\max}(\text{niveau}),\; R_0 + b_{\text{routes}} + b_{\text{tech}} + b_{\text{culture}}\right)
+$$
 
 Les valeurs sont à équilibrer en jeu. Production d'un bâtiment d'exploitation $b$ sur un gisement $g$ :
 
@@ -48,6 +55,35 @@ avec $y_b$ le rendement nominal du bâtiment, $q_g$ la richesse du gisement, $L_
 - **Rayons qui se chevauchent** : un gisement n'est exploité que par **un seul** bâtiment, rattaché à la ville qui l'a construit.
 - **Gisement à la frontière** : il peut être revendiqué par deux factions, ce qui crée une source de conflit.
 - **Chasse** : le camp de chasse prélève le gibier de son rayon, qui s'épuise si l'on chasse trop vite (voir [chapitre 02](02-carte-exploration.md)).
+
+### Gisements : épuisement (à trancher, pistes)
+
+Pistes évoquées, à arbitrer :
+
+- **Gisements étendus** : certaines ressources (pétrole, gaz) occupent de **grandes zones géographiques** exploitées par de nombreux puits.
+- **Gisements qui s'étendent** : une **mine à ciel ouvert** grandit à mesure qu'on l'exploite, en occupant de plus en plus de terrain.
+- **Technologies d'extraction** : elles permettent de récupérer davantage d'un même gisement.
+
+Modèle possible : un gisement contient une quantité en place $Q_{\text{place}}$, dont seule une fraction $f_{\text{rec}}$ est récupérable avec la technologie du moment :
+
+$$
+Q_{\text{extractible}} = f_{\text{rec}}(\text{tech}) \cdot Q_{\text{place}}
+$$
+
+Chaque progrès d'extraction augmente $f_{\text{rec}}$ et « recharge » les gisements déjà exploités. On a ainsi des réserves finies, sans devoir chercher sans cesse de nouveaux gisements.
+
+### Stockage et péremption (décidé)
+
+- La **capacité de stockage** d'une ville est **limitée** par ses greniers et entrepôts.
+- **Transformer la nourriture la conserve mieux** : blé frais → farine, viande fraîche → salaison.
+
+Chaque produit a son propre taux de péremption $\lambda$, avec $\lambda_{\text{farine}} \ll \lambda_{\text{blé frais}}$ et $\lambda_{\text{salaison}} \ll \lambda_{\text{viande fraîche}}$. Pour un stock $M$ :
+
+$$
+\frac{dM}{dt} = \dot{M}_{\text{entrée}} - \dot{M}_{\text{sortie}} - \lambda\, M
+$$
+
+La transformation devient ainsi un choix de gestion : on perd un peu à la transformation, mais on conserve beaucoup plus longtemps. Ce même $\lambda$ sert aux pertes en transport (voir plus bas).
 
 ### Familles de ressources
 
@@ -287,7 +323,7 @@ Les valeurs de $\eta_L$ sont indicatives. Avant l'intendance militaire, toutes l
 
 C'est le principe des stations d'offre et de demande de *Dyson Sphere Program*, appliqué aux villes. Les routes deviennent stratégiques : couper une route, c'est affamer une ville ou un front. Le niveau de détail suit les échelles du [chapitre 10](10-echelles.md) : stocks par ville au niveau N1 et N2, par planète aux niveaux N3 et N4.
 
-### Saisons (proposition, en réponse à ta question)
+### Saisons (décidé : oui, désactivables)
 
 Pour garder les saisons simples, elles n'agiraient **que sur la production de nourriture**, avec un calendrier visible et prévisible :
 
@@ -307,9 +343,8 @@ L'interface peut afficher directement « réserves : 40 jours, hiver dans 25 jou
 
 ## Questions ouvertes
 
-- Capacité de stockage : limitée par les greniers et entrepôts (cohérent avec les jours de stock) ?
 - Une ressource obsolète (silex) disparaît-elle, ou reste-t-elle utilisable ?
 - Existe-t-il une monnaie, ou uniquement des ressources physiques ?
 - Commerce entre factions : troc, marché avec prix variables, ou les deux ?
-- Les gisements fossiles s'épuisent-ils (courbe de Hubbert proposée ci-dessus) ? Et les autres ressources ?
+- Épuisement des gisements : choisir parmi les pistes ci-dessus (gisements étendus, mines qui s'étendent, récupération qui augmente avec la technologie).
 - Raffinerie détaillée (plusieurs coupes : essence, gazole, fioul, naphta) ou simplifiée (brut → carburant) ?
