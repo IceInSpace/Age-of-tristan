@@ -71,6 +71,11 @@ Avant d'écrire du code, on statue ère par ère sur :
 
 Les validations sont reportées dans le [catalogue des ères](eres/README.md).
 
+| Ère | Contenu | Statistiques et coûts |
+|-----|---------|-----------------------|
+| 1 — Préhistoire | Validé | À faire |
+| 2 à 18 | À valider | À faire |
+
 ## Ce qui reste à décider
 
 ### Priorité 1 : nécessaire pour la version minimale (préhistoire et néolithique)

@@ -26,6 +26,7 @@
 |-------------|---------|-------|
 | Agriculture | Économie | **Clé** ; débloque le champ |
 | Élevage | Économie | **Clé** ; débloque l'enclos (viande, cuir, laine) |
+| Arc | Militaire | Débloque l'archer |
 | Poterie | Économie | Débloque le four ; stockage de nourriture accru |
 | Pierre polie | Militaire | Haches et armes plus solides |
 | Tissage | Économie | Vêtements : stabilité |
