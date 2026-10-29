@@ -9,7 +9,7 @@
 - **Raids** de bétail et de récoltes entre tribus, sans conquête.
 - **Saisons** : à l'étude, proposition simple au [chapitre 04](../04-economie.md) (n'agissent que sur la nourriture, amplitude qui diminue avec les ères).
 - **Unités des ères précédentes** : toujours disponibles et **améliorables** (le guerrier à gourdin devient guerrier à hache polie ; le lanceur de sagaies reste une unité de chair à canon).
-- **Merveilles** : cercle de pierres monumental et tour de la première ville fortifiée.
+- **Merveilles** : cercle de pierres monumental et tour de la première ville fortifiée. Elles pourront être **conservées** aux ères suivantes comme patrimoine (site sacré, puis site historique).
 
 ## Passage à cette ère
 
