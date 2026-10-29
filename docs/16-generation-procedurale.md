@@ -16,6 +16,10 @@ Un **prototype jouable** de ces règles existe : [`prototypes/forge-des-mondes.h
 - **Tailles** : **petit, grand, très grand, énorme, gigantesque**.
 - **Hexagones de 5 km** (voir [chapitre 02](02-carte-exploration.md)).
 - **Génération procédurale réglable** + **éditeur manuel** (déjà décidé).
+- **Bouclage est-ouest** : la carte fait le tour de la planète ; aller tout à l'est ramène à l'ouest (pour tous les types).
+- **Calottes polaires** (glace et toundra en haut et en bas) pour les types planétaires : continents, Pangée, grandes îles, archipel.
+- **Rivières sur les bords des hexagones** (comme *Civilization VI*) : une rivière sépare deux hexagones.
+- **Archipel** : aucune règle spéciale ; si les tribus démarrent sur des îles différentes, chacune développe son île jusqu'à la navigation.
 - La planète du joueur n'est **pas la Terre**, et son système solaire ne sera pas forcément le nôtre (actes II et III).
 
 ## Propositions (à valider)
@@ -57,6 +61,17 @@ Graine → Masque des terres → Bruit fractal + plaques → Niveau de la mer �
 #### 1. Graine
 
 Une **graine** (nombre entier) initialise le générateur aléatoire : même graine et mêmes réglages donnent toujours le même monde. On peut ainsi partager une carte avec un simple nombre.
+
+#### Bouclage est-ouest (décidé)
+
+Pour que la carte se raccorde sans couture à l'est et à l'ouest, le bruit est échantillonné sur un **cylindre** : la coordonnée horizontale $x \in [0\,;\,L]$ devient un angle $\theta = 2\pi x / L$, et l'on lit un bruit 3D aux points
+
+$$
+\left(R\cos\theta,\; R\sin\theta,\; y\right)
+\qquad R = \frac{L}{2\pi}
+$$
+
+Les voisins d'un hexagone de la colonne $W-1$ sont ceux de la colonne $0$. Les distances (départs, influence, rayon d'action) se calculent en tenant compte du bouclage.
 
 #### 2. Masque des terres
 
@@ -131,7 +146,7 @@ Classement d'après la température et l'humidité (inspiré du diagramme de Whi
 
 Cela ajoute **toundra, glace, steppe, savane, taïga et jungle** aux types de terrain du [chapitre 02](02-carte-exploration.md).
 
-#### 8. Rivières
+#### 8. Rivières (sur les bords des hexagones, décidé)
 
 Chaque hexagone reçoit une pluie proportionnelle à son humidité. Les débits s'accumulent le long des sens d'écoulement : un hexagone dont le débit cumulé dépasse un seuil devient une **rivière**, plus large à mesure que le débit augmente.
 
@@ -141,6 +156,15 @@ Q_i = q_i + \sum_{j \,\in\, \text{amont}(i)} Q_j
 $$
 
 C'est un bilan matière sur un réseau de drainage.
+
+Avec des rivières **sur les bords** des hexagones, l'écoulement se calcule sur les **sommets** de la grille (chaque sommet est partagé par trois hexagones) : l'eau descend de sommet en sommet le long des arêtes, et chaque arête parcourue devient un tronçon de rivière. Effets de jeu proposés :
+
+- **franchissement** : traverser une rivière coûte du mouvement ; un **pont** supprime ce coût ;
+- **défense** : une armée attaquée à travers une rivière reçoit un bonus de défense ;
+- **économie** : un hexagone bordé par une rivière gagne en fertilité, en eau potable, et peut accueillir un moulin ;
+- **transport** : les grandes rivières sont navigables et servent de routes commerciales.
+
+Le prototype place encore les rivières au centre des hexagones ; il sera mis à jour.
 
 #### 9. Ressources
 
@@ -158,10 +182,8 @@ Les deux tribus démarrent **loin l'une de l'autre** (décidé), sur des hexagon
 
 ## Questions ouvertes
 
-- **Bouclage est-ouest** : la carte fait-elle le tour de la planète, comme dans *Civilization*, ou a-t-elle des bords ?
-- **Pôles** : faut-il des calottes glaciaires en haut et en bas pour les types planétaires ?
-- **Rivières** : sur les **bords** des hexagones (comme *Civilization VI*) ou **au centre** des hexagones (comme dans le prototype) ?
-- **Archipel** : si les tribus démarrent sur des îles différentes, faut-il des radeaux dès la préhistoire ?
+- **Bouclage pour les cartes régionales** (Méditerranée, Continentale) : le bouclage s'applique-t-il vraiment à elles aussi, ou seulement aux types planétaires ?
+- **Banquise** : les océans polaires gèlent-ils (infranchissables sans technologie) ?
 - **Équité des départs** : départs symétriques garantis, ou monde réaliste quitte à être inégal ?
 - **Paramètres avancés** à exposer au joueur : climat (plus chaud, plus froid), humidité, nombre de continents, relief ?
 - **Taille par défaut** : grand ($25\,000$ hexagones) ?

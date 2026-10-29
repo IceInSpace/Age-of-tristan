@@ -4,6 +4,7 @@
 
 - **Taille d'un hexagone : 5 km** de largeur (d'un côté plat à l'autre), soit une surface d'environ $22\ \text{km}^2$ (révisé : 2 km donnait trop d'hexagones). **Pas de grille hiérarchique** : une seule taille d'hexagone pour toute la planète.
 - **Échelles ajustées pour le jeu** : les **villes** et les **armées** sont **dilatées** (elles occupent plus d'hexagones que leur surface réelle, pour rester lisibles), le **temps** est **compressé** (déplacements plus rapides que dans la réalité), et les **distances** entre villes restent **réelles** à l'échelle de l'hexagone.
+- **Bouclage est-ouest**, **calottes polaires** pour les types planétaires, **rivières sur les bords** des hexagones (voir [chapitre 16](16-generation-procedurale.md)).
 - **Grille hexagonale**, vue en 3D stylisée avec caméra inclinée (style visé : *Humankind*, voir [chapitre 00](00-vision.md)).
 - **Génération procédurale réglable** (taille, continents, climat, richesse…), **plus un éditeur** pour modifier la carte à la main.
 - **Terrain contraignant** : on ne peut pas tout construire partout. Le terrain donne des **bonus ou des malus**.
