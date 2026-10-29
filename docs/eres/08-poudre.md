@@ -7,6 +7,7 @@
 ## Décidé
 
 - **Sièges** : encerclement ou assaut, au choix.
+- **Intendance militaire** : débloque les **priorités** logistiques (par exemple les munitions vers le front).
 
 ## Passage à cette ère
 
@@ -31,7 +32,7 @@
 | Armée permanente | Économie | Armées professionnelles, entretien fixe |
 | Cabinet noir | Espionnage | Chiffrement, interception du courrier |
 | Méthode scientifique | Sciences | Science accrue |
-| Intendance militaire | Logistique | Priorités de front, ravitaillement des armées |
+| Intendance militaire | Logistique | Débloque les priorités logistiques, ravitaillement des armées |
 
 ## Bâtiments
 

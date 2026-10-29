@@ -7,7 +7,7 @@
 ## Décidé
 
 - **Pas d'annone imposée** : une ville entourée d'assez de champs se suffit à elle-même.
-- Sinon, **routes commerciales** entre villes et villages, **greniers**, objectif de **jours de stock** par ville, et logistique automatique avec **priorités** (modèle au [chapitre 04](../04-economie.md)).
+- Sinon, **routes commerciales** entre villes et villages, **greniers**, objectif de **jours de stock** par ville, et logistique automatique (modèle au [chapitre 04](../04-economie.md)). Les **priorités** arrivent avec l'intendance militaire, à l'ère de la poudre.
 - **Factions** : mêmes unités pour tous, avec de petits bonus.
 - **Unités** : lances, boucliers, fantassins et unités à distance.
 

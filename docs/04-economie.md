@@ -6,7 +6,7 @@
 - **Chaînes de production** : des matières premières transformées en produits.
 - **Stocks par ville** (remplace le « stock global » décidé au départ) : chaque ville a son stock et ses **greniers**. Une ville entourée d'assez de champs se suffit à elle-même ; sinon, des **routes commerciales** entre villes et villages équilibrent les ressources.
 - **Jours de stock** : le joueur fixe un objectif en jours de réserve (par exemple de nourriture) par ville.
-- **Logistique automatique avec priorités** : les surplus partent seuls vers les villes en manque. Le joueur peut marquer une ville **prioritaire**, par exemple un village proche du front qui doit recevoir beaucoup de munitions.
+- **Logistique automatique avec priorités** : les surplus partent seuls vers les villes en manque. Avec la technologie **intendance militaire** (ère de la poudre), le joueur peut marquer une ville **prioritaire**, par exemple un village proche du front qui doit recevoir beaucoup de munitions.
 - **Par défaut**, si aucune option n'est choisie, **seul le surplus est envoyé**.
 - **Villes et mégavilles-entrepôts** : elles retiennent tous les surplus des autres villes.
 - **Réserve minimale en pourcentage** par ville, et réglages **par ressource**.
@@ -192,7 +192,7 @@ avec $\dot{P}_u$ le débit de production et $\dot{C}_u^{\text{combat}}$ la conso
 | **Réserve minimale (%)** | Pourcentage de stock que la ville garde toujours, quoi qu'il arrive |
 | **Jours de stock** | Objectif de réserve exprimé en jours de consommation |
 | **Ville-entrepôt** | Une ville ou mégaville désignée comme stock **retient tous les surplus** non demandés ailleurs, puis les redistribue |
-| **Priorité** | Une ville prioritaire (par exemple près du front) est servie en premier |
+| **Priorité** | Une ville prioritaire (par exemple près du front) est servie en premier. Débloquée par l'**intendance militaire** |
 | **Par ressource** | Chaque réglage peut être fixé ressource par ressource (par exemple : garder 80 % des munitions, mais tout envoyer en bois) |
 
 Ces réglages ne sont pas tous disponibles d'emblée : ils sont débloqués par des **technologies de logistique** qui affinent aussi les automatismes et réduisent les pertes en transport (voir plus bas).
@@ -249,13 +249,13 @@ Un trajet long hors route peut ainsi faire perdre une bonne part de la nourritur
 | Âge du bronze | Comptabilité (écriture) | Réserve minimale en **%** par ville |
 | Antiquité | Entrepôts publics | **Villes-entrepôts** ; pertes réduites ($\eta_L = 0{,}8$) |
 | Moyen Âge | Guildes marchandes | Réglages **par ressource** |
-| Ère de la poudre | Intendance militaire | **Priorités** de front plus fines, ravitaillement des armées en campagne |
+| Ère de la poudre | Intendance militaire | **Priorités** (décidé), ravitaillement des armées en campagne |
 | Révolution industrielle | Chemin de fer et télégraphe | Anticipation des besoins (les envois partent avant la pénurie) ; $\eta_L = 0{,}5$ |
 | Ère du pétrole | Logistique motorisée | Capacité des routes accrue |
 | Ère moderne | Conteneurisation | Pertes quasi nulles hors nourriture ($\eta_L = 0{,}2$) |
 | Révolution de l'IA | Logistique par IA | Optimisation automatique des réserves et des flux, pertes minimales ($\eta_L = 0{,}05$) |
 
-Les valeurs de $\eta_L$ sont indicatives. Le placement exact de la priorité (aujourd'hui décidée comme disponible) reste à arbitrer : soit dès le début, soit débloquée par l'intendance militaire.
+Les valeurs de $\eta_L$ sont indicatives. Avant l'intendance militaire, toutes les villes ont la même priorité ($p_b = 1$).
 
 C'est le principe des stations d'offre et de demande de *Dyson Sphere Program*, appliqué aux villes. Les routes deviennent stratégiques : couper une route, c'est affamer une ville ou un front. Le niveau de détail suit les échelles du [chapitre 10](10-echelles.md) : stocks par ville au niveau N1 et N2, par planète aux niveaux N3 et N4.
 

@@ -10,7 +10,7 @@
 - **Sièges** : **encerclement** (on affame la ville, lent et peu coûteux) ou **assaut** (rapide et coûteux), au choix.
 - **Guerre de tranchées** : avec mitrailleuses et artillerie (ère électrique), le front **se fige**. Gaz, chars et tactiques d'infiltration permettent de le débloquer.
 - **Aviation à rayon d'action** : les avions partent d'un aérodrome, frappent dans un rayon, puis reviennent.
-- **Ravitaillement** : les fronts sont approvisionnés par la logistique automatique avec priorités (voir [chapitre 04](04-economie.md)).
+- **Ravitaillement** : les fronts sont approvisionnés par la logistique automatique, avec priorités à partir de l'intendance militaire (voir [chapitre 04](04-economie.md)).
 
 ## Propositions (à valider)
 
